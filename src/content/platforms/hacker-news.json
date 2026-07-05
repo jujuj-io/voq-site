@@ -1,0 +1,14 @@
+{
+  "name": "Hacker News",
+  "slug": "hacker-news",
+  "description": "Listen to Hacker News posts and comment threads without reading every word on screen.",
+  "metaDescription": "Read Hacker News threads aloud with Voq — free text-to-speech Chrome extension. Great for long comment sections.",
+  "steps": [
+    "Install Voq from the Chrome Web Store for free.",
+    "Open news.ycombinator.com and navigate to a story or comment thread.",
+    "Select the text from the post or comments you want to hear.",
+    "Click the Voq icon in your Chrome toolbar, or right-click and pick 'Read with Voq'.",
+    "Voq reads the selected text aloud with its reading panel.",
+    "Pause or resume at any time, or adjust the voice speed to your preference."
+  ]
+}

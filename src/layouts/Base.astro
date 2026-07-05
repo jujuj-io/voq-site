@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  canonical,
+} = Astro.props;
+
+const siteUrl = 'https://voq.app';
+const pageUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
+const resolvedOgTitle = ogTitle ?? title;
+const resolvedOgDesc = ogDescription ?? description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={resolvedOgTitle} />
+    <meta property="og:description" content={resolvedOgDesc} />
+    <meta property="og:site_name" content="Voq" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={resolvedOgTitle} />
+    <meta name="twitter:description" content={resolvedOgDesc} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a class="logo" href="/">Voq</a>
+        <ul class="nav-links">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/read-aloud">Platforms</a></li>
+          <li><a href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">Install Free</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Voq &mdash; Free Text to Speech for Chrome</p>
+      </div>
+    </footer>
+  </body>
+</html>

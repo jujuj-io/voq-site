@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+
+const CHROME_STORE_URL = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+
+const features = [
+  {
+    title: 'Multilingual',
+    desc: 'Reads text in dozens of languages using high-quality voices.',
+  },
+  {
+    title: 'Reading Panel',
+    desc: 'Highlights words as they are spoken so you can follow along.',
+  },
+  {
+    title: 'Works on AI Assistants',
+    desc: 'Reads responses from ChatGPT, Claude, Gemini, and Perplexity.',
+  },
+  {
+    title: 'Works on Forums',
+    desc: 'Listen to threads on Reddit, Hacker News, and Stack Overflow.',
+  },
+  {
+    title: 'Completely Free',
+    desc: 'No subscription, no sign-up. Install and start listening.',
+  },
+  {
+    title: 'One Click',
+    desc: 'Select any text on any page and press play. That is it.',
+  },
+];
+
+const platforms = [
+  { name: 'ChatGPT', slug: 'chatgpt' },
+  { name: 'Claude', slug: 'claude' },
+  { name: 'Gemini', slug: 'gemini' },
+  { name: 'Perplexity', slug: 'perplexity' },
+  { name: 'Reddit', slug: 'reddit' },
+  { name: 'Hacker News', slug: 'hacker-news' },
+  { name: 'Stack Overflow', slug: 'stack-overflow' },
+];
+---
+
+<Base
+  title="Voq — Free Text to Speech for Chrome"
+  description="Voq is a free Chrome extension that reads any webpage aloud. Multilingual support, a reading panel, and works on ChatGPT, Claude, Reddit, and more."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Free Text to Speech<br />for Chrome</h1>
+      <p class="tagline">
+        Voq reads any webpage aloud — AI assistants, forums, articles. Multilingual, free, and no account required.
+      </p>
+      <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">
+        Add to Chrome — It&rsquo;s Free
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2>Everything you need to listen to the web</h2>
+      <div class="feature-grid">
+        {features.map((f) => (
+          <div class="feature-card">
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms + Blog links -->
+  <div class="container">
+    <div class="section-links">
+      <div class="link-card">
+        <h3>Platform Guides</h3>
+        <p>Step-by-step instructions for using Voq on your favourite sites.</p>
+        <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin-bottom: 0.75rem;">
+          {platforms.map((p) => (
+            <li>
+              <a href={`/read-aloud/${p.slug}`}>{p.name}</a>
+            </li>
+          ))}
+        </ul>
+        <a href="/read-aloud">See all platforms &rarr;</a>
+      </div>
+
+      <div class="link-card">
+        <h3>Blog</h3>
+        <p>Tips, updates, and ideas for getting the most out of Voq.</p>
+        <a href="/blog">Read the blog &rarr;</a>
+      </div>
+    </div>
+  </div>
+</Base>

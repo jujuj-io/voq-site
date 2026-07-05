@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Base
+  title="Blog — Voq"
+  description="Tips, updates, and ideas from the Voq team."
+>
+  <div class="container">
+    <div class="page-header">
+      <h1>Blog</h1>
+      <p>Tips, updates, and ideas for getting the most out of Voq.</p>
+    </div>
+
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <p class="meta">
+            {post.data.pubDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

@@ -1,0 +1,14 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "Have Stack Overflow answers read aloud while you follow the code or step through a solution.",
+  "metaDescription": "Listen to Stack Overflow answers with Voq — free text-to-speech Chrome extension. Great for long technical explanations.",
+  "steps": [
+    "Install Voq from the Chrome Web Store — it is free with no account needed.",
+    "Open any Stack Overflow question page.",
+    "Select the answer text or explanation you want to hear.",
+    "Click the Voq toolbar icon or right-click and choose 'Read with Voq'.",
+    "Voq reads the selected text aloud in its reading panel.",
+    "Follow along with word highlighting while you look at the code examples."
+  ]
+}

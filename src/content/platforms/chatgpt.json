@@ -1,0 +1,14 @@
+{
+  "name": "ChatGPT",
+  "slug": "chatgpt",
+  "description": "Listen to ChatGPT responses hands-free using Voq's text-to-speech for Chrome.",
+  "metaDescription": "Use Voq to read ChatGPT responses aloud. Free Chrome extension — no account needed. Works on chat.openai.com.",
+  "steps": [
+    "Install Voq from the Chrome Web Store (free, no account required).",
+    "Open ChatGPT at chat.openai.com and start or open a conversation.",
+    "When a response appears, select the text you want to hear.",
+    "Click the Voq icon in your Chrome toolbar, or right-click and choose 'Read with Voq'.",
+    "Voq opens a reading panel and begins reading aloud, highlighting each word as it is spoken.",
+    "Use the playback controls to pause, resume, or adjust the reading speed."
+  ]
+}

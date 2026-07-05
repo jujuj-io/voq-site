@@ -1,0 +1,14 @@
+{
+  "name": "Gemini",
+  "slug": "gemini",
+  "description": "Listen to Google Gemini's responses aloud with Voq's free Chrome extension.",
+  "metaDescription": "Read Gemini AI responses aloud with Voq. Free text-to-speech Chrome extension — works on gemini.google.com.",
+  "steps": [
+    "Install Voq for free from the Chrome Web Store.",
+    "Open Gemini at gemini.google.com and ask a question.",
+    "Once a response appears, select the text you want to listen to.",
+    "Click the Voq icon in the Chrome toolbar, or right-click the selection and pick 'Read with Voq'.",
+    "Voq's reading panel appears and reads the response aloud with word highlighting.",
+    "Adjust playback speed or voice from within the panel."
+  ]
+}

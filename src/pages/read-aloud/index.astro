@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const platforms = await getCollection('platforms');
+---
+
+<Base
+  title="Text to Speech Platform Guides — Voq"
+  description="How to use Voq to read aloud content on ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News, and Stack Overflow."
+>
+  <div class="container">
+    <div class="page-header">
+      <h1>Platform Guides</h1>
+      <p>How to use Voq on your favourite websites.</p>
+    </div>
+
+    <ul class="post-list">
+      {platforms.map((p) => (
+        <li>
+          <a href={`/read-aloud/${p.data.slug}`}>Text to Speech for {p.data.name}</a>
+          <p class="meta">{p.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
