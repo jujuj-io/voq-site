@@ -17,7 +17,7 @@ const {
   canonical,
 } = Astro.props;
 
-const siteUrl = 'https://voq-site.vercel.app';
+const siteUrl = 'https://getvoq.com';
 const pageUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const resolvedOgTitle = ogTitle ?? title;
 const resolvedOgDesc = ogDescription ?? description;
