@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lastUpdated = 'July 7, 2026';
+---
+
+<Base
+  title="Privacy Policy — Voq"
+  description="Voq's privacy policy: the Chrome extension reads webpage text aloud using your browser's built-in Web Speech API and does not collect, store, or transmit any user data."
+>
+  <div class="container">
+    <article class="prose">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: {lastUpdated}</p>
+
+      <p>
+        Voq is a free Chrome extension that reads webpage text aloud. This
+        page explains what data Voq does — and does not — handle.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>Voq does not collect any personal data.</li>
+        <li>Voq does not store any user data, on your device or on a server.</li>
+        <li>Voq does not require an account or sign-up.</li>
+        <li>Voq has no analytics, tracking, or advertising of any kind.</li>
+      </ul>
+
+      <h2>How Voq works</h2>
+      <p>
+        When you select text on a webpage and choose to have it read aloud,
+        Voq passes that text directly to your browser's built-in
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener">Web Speech API</a>,
+        which converts it to speech on your device. The text is not sent to
+        Voq's servers, because Voq does not operate any servers that process
+        or store webpage content.
+      </p>
+
+      <h2>Data collection</h2>
+      <p>
+        Voq does not collect, store, or transmit any of the following:
+      </p>
+      <ul>
+        <li>The text or webpages you have Voq read aloud</li>
+        <li>Your browsing history</li>
+        <li>Personal information, such as your name, email, or IP address</li>
+        <li>Usage analytics or telemetry</li>
+      </ul>
+      <p>
+        Voq does not use cookies, does not include any third-party trackers,
+        and does not share data with any third party, because no data is
+        collected in the first place.
+      </p>
+
+      <h2>Permissions</h2>
+      <p>
+        Voq requests only the browser permissions it needs to read the
+        current page's text aloud and display its reading controls. These
+        permissions are used solely to provide that functionality on your
+        device and are never used to collect or transmit data elsewhere.
+      </p>
+
+      <h2>Accounts</h2>
+      <p>
+        Voq does not require you to create an account or sign in. You can
+        install and use Voq immediately after adding it to Chrome.
+      </p>
+
+      <h2>Children's privacy</h2>
+      <p>
+        Voq does not knowingly collect any data from anyone, including
+        children, because it does not collect data at all.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this privacy policy ever changes, the updated version will be
+        posted on this page with a revised "Last updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this privacy policy, you can reach out
+        via the contact information listed on Voq's Chrome Web Store
+        listing.
+      </p>
+    </article>
+  </div>
+</Base>

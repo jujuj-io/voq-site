@@ -17,7 +17,7 @@ const {
   canonical,
 } = Astro.props;
 
-const siteUrl = 'https://voq.app';
+const siteUrl = 'https://voq-site.vercel.app';
 const pageUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const resolvedOgTitle = ogTitle ?? title;
 const resolvedOgDesc = ogDescription ?? description;
@@ -66,6 +66,7 @@ const resolvedOgDesc = ogDescription ?? description;
     <footer>
       <div class="container">
         <p>&copy; {new Date().getFullYear()} Voq &mdash; Free Text to Speech for Chrome</p>
+        <p><a href="/privacy">Privacy Policy</a></p>
       </div>
     </footer>
   </body>
