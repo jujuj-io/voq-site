@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const lastUpdated = 'July 7, 2026';
+const lastUpdated = 'July 17, 2026';
 ---
 
 <Base
   title="Privacy Policy — Voq"
-  description="Voq's privacy policy: the Chrome extension reads webpage text aloud using your browser's built-in Web Speech API and does not collect, store, or transmit any user data."
+  description="Voq's privacy policy: by default Voq reads webpage text using your browser's built-in voice, with an optional limited-use natural voice powered by Google Cloud Text-to-Speech."
 >
   <div class="container">
     <article class="prose">
@@ -21,19 +21,28 @@ const lastUpdated = 'July 7, 2026';
       <h2>Summary</h2>
       <ul>
         <li>Voq does not collect any personal data.</li>
-        <li>Voq does not store any user data, on your device or on a server.</li>
         <li>Voq does not require an account or sign-up.</li>
         <li>Voq has no analytics, tracking, or advertising of any kind.</li>
+        <li>By default, Voq reads text using your browser's built-in voice, entirely on your device.</li>
+        <li>For a limited daily amount of natural-sounding speech, selected text is sent securely to Voq's own relay service and Google Cloud Text-to-Speech to generate audio, then immediately discarded.</li>
       </ul>
 
       <h2>How Voq works</h2>
       <p>
-        When you select text on a webpage and choose to have it read aloud,
+        Voq offers two ways to read text aloud.
+      </p>
+      <p>
+        <strong>Standard voice (default):</strong> When you select text and choose to have it read aloud,
         Voq passes that text directly to your browser's built-in
         <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener">Web Speech API</a>,
-        which converts it to speech on your device. The text is not sent to
-        Voq's servers, because Voq does not operate any servers that process
-        or store webpage content.
+        which converts it to speech on your device. The text never leaves your browser.
+      </p>
+      <p>
+        <strong>Natural voice (limited daily use):</strong> To offer a more natural-sounding voice, Voq can
+        optionally send selected text to Voq's own relay service, which forwards it to Google Cloud
+        Text-to-Speech to generate audio. The audio is returned to your browser and played immediately.
+        The text is not stored by Voq or by Google after the audio is generated. This option is limited
+        to a small amount of use per day, after which Voq automatically reverts to the standard on-device voice.
       </p>
 
       <h2>Data collection</h2>
@@ -41,23 +50,38 @@ const lastUpdated = 'July 7, 2026';
         Voq does not collect, store, or transmit any of the following:
       </p>
       <ul>
-        <li>The text or webpages you have Voq read aloud</li>
         <li>Your browsing history</li>
         <li>Personal information, such as your name, email, or IP address</li>
         <li>Usage analytics or telemetry</li>
+        <li>Any text read using the standard on-device voice</li>
       </ul>
       <p>
-        Voq does not use cookies, does not include any third-party trackers,
-        and does not share data with any third party, because no data is
-        collected in the first place.
+        When natural voice is used, the selected text is transmitted solely to generate audio and is
+        not logged or stored by Voq. Voq keeps a small daily usage counter (how many characters of
+        natural voice have been used today) stored only on your own device, tied to a random identifier
+        that is not linked to your identity in any way.
+      </p>
+      <p>
+        Voq does not use cookies, does not include any third-party trackers, and does not sell or
+        share data with any third party.
+      </p>
+
+      <h2>Third-party services</h2>
+      <p>
+        When natural voice is used, text is processed by
+        <a href="https://cloud.google.com/text-to-speech" target="_blank" rel="noopener">Google Cloud Text-to-Speech</a>
+        solely to generate audio. Google's handling of this data is governed by
+        <a href="https://cloud.google.com/terms/cloud-privacy-notice" target="_blank" rel="noopener">Google Cloud's privacy terms</a>.
+        Voq does not send any personally identifying information alongside this text.
       </p>
 
       <h2>Permissions</h2>
       <p>
         Voq requests only the browser permissions it needs to read the
-        current page's text aloud and display its reading controls. These
-        permissions are used solely to provide that functionality on your
-        device and are never used to collect or transmit data elsewhere.
+        current page's text aloud, display its reading controls, and
+        optionally generate natural-sounding audio. These permissions are
+        used solely to provide that functionality and are never used to
+        collect data for any other purpose.
       </p>
 
       <h2>Accounts</h2>
@@ -68,8 +92,8 @@ const lastUpdated = 'July 7, 2026';
 
       <h2>Children's privacy</h2>
       <p>
-        Voq does not knowingly collect any data from anyone, including
-        children, because it does not collect data at all.
+        Voq does not knowingly collect any personal data from anyone,
+        including children.
       </p>
 
       <h2>Changes to this policy</h2>
