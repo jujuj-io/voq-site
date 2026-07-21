@@ -6,6 +6,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    lang: z.string().default('en'),
   }),
 });
 
@@ -17,6 +18,7 @@ const platforms = defineCollection({
     description: z.string(),
     metaDescription: z.string(),
     steps: z.array(z.string()),
+    lang: z.string().default('en'),
   }),
 });
 
