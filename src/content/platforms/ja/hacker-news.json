@@ -1,0 +1,15 @@
+{
+  "name": "Hacker News",
+  "slug": "hacker-news",
+  "description": "Voqの無料Chrome用テキスト読み上げ拡張機能で、Hacker Newsをハンズフリーで聞けます。",
+  "metaDescription": "Voqを使ってHacker Newsを音声で聞きましょう。無料のChrome拡張機能、アカウント登録不要。news.ycombinator.comで動作します。",
+  "steps": [
+    "Chromeウェブストアから Voq をインストールしてください。無料でアカウントも不要です。",
+    "news.ycombinator.com を開き、聞きたいHacker Newsのコンテンツを見つけてください。",
+    "Voqに読み上げてほしいテキストを選択してください。",
+    "Chromeツールバーの Voq アイコンをクリックするか、右クリックして「Voqで読み上げる」を選択してください。",
+    "Voqの読み上げパネルが開き、話されている単語をハイライトしながらテキストを読み上げます。",
+    "再生コントロールで一時停止、再開、読み上げ速度の調整ができます。"
+  ],
+  "lang": "ja"
+}

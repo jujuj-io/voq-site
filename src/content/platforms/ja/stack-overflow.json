@@ -1,0 +1,15 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "Voqの無料Chrome用テキスト読み上げ拡張機能で、Stack Overflowをハンズフリーで聞けます。",
+  "metaDescription": "Voqを使ってStack Overflowを音声で聞きましょう。無料のChrome拡張機能、アカウント登録不要。stackoverflow.comで動作します。",
+  "steps": [
+    "Chromeウェブストアから Voq をインストールしてください。無料でアカウントも不要です。",
+    "stackoverflow.com を開き、聞きたいStack Overflowのコンテンツを見つけてください。",
+    "Voqに読み上げてほしいテキストを選択してください。",
+    "Chromeツールバーの Voq アイコンをクリックするか、右クリックして「Voqで読み上げる」を選択してください。",
+    "Voqの読み上げパネルが開き、話されている単語をハイライトしながらテキストを読み上げます。",
+    "再生コントロールで一時停止、再開、読み上げ速度の調整ができます。"
+  ],
+  "lang": "ja"
+}
