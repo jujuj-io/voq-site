@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import ReadAloudPlatformPage from '../../../components/ReadAloudPlatformPage.astro';
+
+export async function getStaticPaths() {
+  const platforms = await getCollection('platforms', ({ id }) => id.startsWith('es/'));
+  return platforms.map((entry) => ({
+    params: { platform: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+<ReadAloudPlatformPage lang="es" entry={entry} />
