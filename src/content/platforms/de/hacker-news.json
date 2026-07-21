@@ -1,0 +1,15 @@
+{
+  "name": "Hacker News",
+  "slug": "hacker-news",
+  "description": "Lassen Sie sich Hacker News freihändig vorlesen – mit Voqs kostenloser Text-to-Speech-Erweiterung für Chrome.",
+  "metaDescription": "Nutzen Sie Voq, um sich Hacker News vorlesen zu lassen. Kostenlose Chrome-Erweiterung – kein Konto nötig. Funktioniert auf news.ycombinator.com.",
+  "steps": [
+    "Installieren Sie Voq aus dem Chrome Web Store – kostenlos, kein Konto erforderlich.",
+    "Öffnen Sie news.ycombinator.com und suchen Sie den Hacker News-Inhalt, den Sie hören möchten.",
+    "Markieren Sie den Text, den Voq vorlesen soll.",
+    "Klicken Sie auf das Voq-Symbol in der Chrome-Symbolleiste oder klicken Sie mit der rechten Maustaste und wählen Sie „Mit Voq vorlesen“.",
+    "Voq öffnet sein Lesepanel und liest den Text vor, wobei jedes Wort beim Sprechen hervorgehoben wird.",
+    "Nutzen Sie die Wiedergabesteuerung, um zu pausieren, fortzusetzen oder die Lesegeschwindigkeit anzupassen."
+  ],
+  "lang": "de"
+}
