@@ -1,0 +1,15 @@
+{
+  "name": "Reddit",
+  "slug": "reddit",
+  "description": "Listen to Reddit threads, posts, and comments hands-free with Voq.",
+  "metaDescription": "Use Voq to read Reddit posts and comments aloud. Free text-to-speech Chrome extension — great for long threads.",
+  "steps": [
+    "Install Voq from the Chrome Web Store — it is completely free.",
+    "Open any Reddit thread you want to listen to.",
+    "Select the post body or any comment you want to hear.",
+    "Click the Voq toolbar icon or right-click and choose 'Read with Voq'.",
+    "Voq opens a panel and reads the selected text aloud.",
+    "Continue browsing or multitasking while Voq reads the thread to you."
+  ],
+  "lang": "en"
+}

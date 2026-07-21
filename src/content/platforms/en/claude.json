@@ -1,0 +1,15 @@
+{
+  "name": "Claude",
+  "slug": "claude",
+  "description": "Have Claude's AI responses read aloud while you follow along or multitask.",
+  "metaDescription": "Use Voq to listen to Claude AI responses on claude.ai. Free text-to-speech Chrome extension with multilingual support.",
+  "steps": [
+    "Install Voq from the Chrome Web Store — it is free and requires no sign-up.",
+    "Go to claude.ai and open or start a conversation.",
+    "Select the text from Claude's response that you want to hear.",
+    "Click the Voq toolbar icon or right-click and choose 'Read with Voq'.",
+    "The Voq reading panel opens and reads the selected text aloud.",
+    "You can pause, skip, or change the voice at any time from the panel."
+  ],
+  "lang": "en"
+}

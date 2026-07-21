@@ -1,0 +1,15 @@
+{
+  "name": "Perplexity",
+  "slug": "perplexity",
+  "description": "Have Perplexity AI search answers read aloud so you can absorb information while doing other things.",
+  "metaDescription": "Listen to Perplexity AI answers with Voq — free text-to-speech Chrome extension with multilingual support and word highlighting.",
+  "steps": [
+    "Install Voq from the Chrome Web Store for free.",
+    "Visit perplexity.ai and search for anything.",
+    "Select the answer text or a specific section you want to hear.",
+    "Click the Voq toolbar icon or right-click and choose 'Read with Voq'.",
+    "Voq reads the text aloud with word-by-word highlighting in its reading panel.",
+    "Use the controls to pause, rewind, or change the speaking rate."
+  ],
+  "lang": "en"
+}
