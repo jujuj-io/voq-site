@@ -50,6 +50,7 @@ const LANG_NAMES = {
 const t = NAV[lang] ?? NAV.en;
 const localeHome = (l) => (l === 'en' ? '/' : `/${l}/`);
 const localePath = (l) => (l === 'en' ? (path || '/') : `/${l}${path}`);
+const localeLink = (slug) => (lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
 const isRTL = lang === 'ar';
 ---
 
@@ -115,18 +116,8 @@ const isRTL = lang === 'ar';
     <div class="container">
       <a class="logo" href={localeHome(lang)}>Voq</a>
       <ul class="nav-links">
-        <li><a href={lang === 'en' ? '/blog' : `/${lang}/blog`}>{t.blog}</a></li>
-        <li><a href={lang === 'en' ? '/read-aloud' : `/${lang}/read-aloud`}>{t.platforms}</a></li>
-        <li><a href={lang === 'en' ? '/pricing' : `/${lang}/pricing`}>{t.pricing}</a></li>
-        <li class="lang-switcher">
-          <label for="lang-select" class="sr-only">{t.lang}</label>
-          <select id="lang-select" onchange="if(this.value) window.location.href=this.value;">
-            {LOCALES.map((l) => (
-              <option value={`${siteUrl}${localePath(l)}`} selected={l === lang}>{LANG_NAMES[l]}</option>
-            ))}
-          </select>
-        </li>
-        <li><a href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">{t.install}</a></li>
+        <li><a href={localeLink('pricing')}>{t.pricing}</a></li>
+        <li><a class="install-btn" href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">{t.install}</a></li>
       </ul>
     </div>
   </nav>
@@ -137,14 +128,51 @@ const isRTL = lang === 'ar';
 
   <footer>
     <div class="container">
-      <p>&copy; {new Date().getFullYear()} Voq &mdash; Free Text to Speech for Chrome</p>
-      <p><a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`}>{t.privacy}</a></p>
+      <div class="footer-links">
+        <a href={localeLink('blog')}>{t.blog}</a>
+        <a href={localeLink('read-aloud')}>{t.platforms}</a>
+        <a href={localeLink('pricing')}>{t.pricing}</a>
+        <a href={localeLink('privacy')}>{t.privacy}</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Voq &mdash; Free Text to Speech for Chrome</p>
+        <div class="lang-switcher">
+          <label for="lang-select" class="sr-only">{t.lang}</label>
+          <select id="lang-select" onchange="if(this.value) window.location.href=this.value;">
+            {LOCALES.map((l) => (
+              <option value={`${siteUrl}${localePath(l)}`} selected={l === lang}>{LANG_NAMES[l]}</option>
+            ))}
+          </select>
+        </div>
+      </div>
     </div>
   </footer>
 </body>
 </html>
 
 <style>
+  .install-btn {
+    border: 1px solid #111;
+    border-radius: 8px;
+    padding: 6px 14px;
+  }
+  footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
   .lang-switcher select {
     font-size: 13px;
     padding: 4px 6px;
