@@ -1,0 +1,15 @@
+{
+  "name": "Reddit",
+  "slug": "reddit",
+  "description": "Luister handsfree naar Reddit met Voq's gratis tekst-naar-spraak-extensie voor Chrome.",
+  "metaDescription": "Gebruik Voq om Reddit hardop te laten voorlezen. Gratis Chrome-extensie, geen account nodig. Werkt op reddit.com.",
+  "steps": [
+    "Installeer Voq via de Chrome Web Store — gratis en zonder account.",
+    "Open reddit.com en zoek de Reddit-inhoud die je wilt beluisteren.",
+    "Selecteer de tekst die je door Voq wilt laten voorlezen.",
+    "Klik op het Voq-icoon in de Chrome-werkbalk, of klik met de rechtermuisknop en kies 'Lees voor met Voq'.",
+    "Voq opent het voorleespaneel en leest de tekst hardop voor, waarbij elk woord wordt gemarkeerd terwijl het wordt uitgesproken.",
+    "Gebruik de afspeelknoppen om te pauzeren, hervatten of de voorleessnelheid aan te passen."
+  ],
+  "lang": "nl"
+}

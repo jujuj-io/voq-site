@@ -1,0 +1,15 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "Luister handsfree naar Stack Overflow met Voq's gratis tekst-naar-spraak-extensie voor Chrome.",
+  "metaDescription": "Gebruik Voq om Stack Overflow hardop te laten voorlezen. Gratis Chrome-extensie, geen account nodig. Werkt op stackoverflow.com.",
+  "steps": [
+    "Installeer Voq via de Chrome Web Store — gratis en zonder account.",
+    "Open stackoverflow.com en zoek de Stack Overflow-inhoud die je wilt beluisteren.",
+    "Selecteer de tekst die je door Voq wilt laten voorlezen.",
+    "Klik op het Voq-icoon in de Chrome-werkbalk, of klik met de rechtermuisknop en kies 'Lees voor met Voq'.",
+    "Voq opent het voorleespaneel en leest de tekst hardop voor, waarbij elk woord wordt gemarkeerd terwijl het wordt uitgesproken.",
+    "Gebruik de afspeelknoppen om te pauzeren, hervatten of de voorleessnelheid aan te passen."
+  ],
+  "lang": "nl"
+}
