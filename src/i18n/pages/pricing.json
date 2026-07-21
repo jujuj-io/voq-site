@@ -12,7 +12,18 @@
     "freeWho": "Natural AI voice, every day, up to a daily limit",
     "foundingTag": "founding rate",
     "foundingWho": "No daily limit, ever — while you stay subscribed",
+    "subscribeBtn": "Get the founding rate — $2/mo",
+    "subscribeNoteBefore": "No extension yet? ",
+    "installFirstLinkText": "Install Voq first",
+    "subscribeNoteAfter": " — you'll need it to enter your code after checkout.",
     "lockin": "The founding rate is for early users only. As more people join, the price for new subscribers rises — on its way to $5/mo. Whatever you lock in stays yours forever, even after the price moves. Early birds win. Actual worms not included.",
+    "activateH2": "How to activate",
+    "steps": [
+      { "title": "Install the Chrome extension", "descBefore": "Grab Voq from the ", "descLinkText": "Chrome Web Store", "descAfter": ". It's free, and this is where your subscription actually gets used — do this first." },
+      { "title": "Subscribe", "desc": "Easiest way: click the key icon inside the Voq panel and choose upgrade — this links your subscription to your browser automatically, so it just activates, no code needed. You can also use the button above; that route hands you a code instead." },
+      { "title": "If you get a code, copy it", "desc": "Only relevant if you subscribed from this page: Stripe's confirmation screen shows a short code. You don't need to memorize it — just copy it." },
+      { "title": "Paste it into Voq", "desc": "Open the Voq panel, click the key icon, paste your code, hit activate. You're unlimited on this device from here on out." }
+    ],
     "whatH2": "Okay but what am I actually paying for?",
     "cards": [
       {
@@ -53,7 +64,18 @@
     "freeWho": "Natürliche KI-Stimme, täglich, bis zu einem Tageslimit",
     "foundingTag": "Gründungsrate",
     "foundingWho": "Kein Tageslimit, solange, wie Sie abonniert bleiben",
+    "subscribeBtn": "Gründungsrate sichern — 2 €/Monat",
+    "subscribeNoteBefore": "Noch keine Erweiterung? ",
+    "installFirstLinkText": "Voq zuerst installieren",
+    "subscribeNoteAfter": " — Sie brauchen sie, um Ihren Code nach dem Checkout einzugeben.",
     "lockin": "Die Gründungsrate gilt nur für frühe Nutzer. Je mehr Menschen dazukommen, desto mehr steigt der Preis für neue Abonnenten — auf dem Weg zu 5 €/Monat. Was auch immer Sie sich sichern, bleibt für immer Ihres, auch wenn sich der Preis ändert. Frühe Vögel gewinnen. Würmer nicht inklusive.",
+    "activateH2": "So aktivieren Sie",
+    "steps": [
+      { "title": "Chrome-Erweiterung installieren", "descBefore": "Holen Sie sich Voq aus dem ", "descLinkText": "Chrome Web Store", "descAfter": ". Sie ist kostenlos, und hier wird Ihr Abonnement tatsächlich genutzt — machen Sie das zuerst." },
+      { "title": "Abonnieren", "desc": "Am einfachsten: Klicken Sie im Voq-Panel auf das Schlüssel-Symbol und wählen Sie Upgrade — das verknüpft Ihr Abonnement automatisch mit Ihrem Browser, sodass es sich einfach aktiviert, kein Code nötig. Sie können auch die Schaltfläche oben verwenden; dieser Weg gibt Ihnen stattdessen einen Code." },
+      { "title": "Falls Sie einen Code erhalten, kopieren Sie ihn", "desc": "Nur relevant, wenn Sie sich von dieser Seite aus angemeldet haben: Der Bestätigungsbildschirm von Stripe zeigt einen kurzen Code an. Sie müssen ihn sich nicht merken — kopieren Sie ihn einfach." },
+      { "title": "In Voq einfügen", "desc": "Öffnen Sie das Voq-Panel, klicken Sie auf das Schlüssel-Symbol, fügen Sie Ihren Code ein und klicken Sie auf Aktivieren. Ab sofort haben Sie auf diesem Gerät kein Limit mehr." }
+    ],
     "whatH2": "Okay, aber wofür bezahle ich eigentlich?",
     "cards": [
       {
@@ -94,7 +116,18 @@
     "freeWho": "Voz de IA natural, todos los días, hasta un límite diario",
     "foundingTag": "tarifa fundadora",
     "foundingWho": "Sin límite diario, nunca, mientras sigas suscrito",
+    "subscribeBtn": "Consigue la tarifa fundadora — $2/mes",
+    "subscribeNoteBefore": "¿Aún no tienes la extensión? ",
+    "installFirstLinkText": "Instala Voq primero",
+    "subscribeNoteAfter": " — la necesitarás para introducir tu código después del pago.",
     "lockin": "La tarifa fundadora es solo para usuarios tempranos. A medida que se unen más personas, el precio para nuevos suscriptores sube — camino a $5/mes. Lo que asegures es tuyo para siempre, incluso después de que el precio cambie. Quien madruga, gana. Gusanos no incluidos.",
+    "activateH2": "Cómo activarlo",
+    "steps": [
+      { "title": "Instala la extensión de Chrome", "descBefore": "Consigue Voq en la ", "descLinkText": "Chrome Web Store", "descAfter": ". Es gratis, y aquí es donde realmente se usa tu suscripción — hazlo primero." },
+      { "title": "Suscríbete", "desc": "La forma más fácil: haz clic en el icono de la llave dentro del panel de Voq y elige actualizar — esto vincula tu suscripción a tu navegador automáticamente, así se activa solo, sin necesidad de código. También puedes usar el botón de arriba; esa vía te da un código en su lugar." },
+      { "title": "Si recibes un código, cópialo", "desc": "Solo relevante si te suscribiste desde esta página: la pantalla de confirmación de Stripe muestra un código corto. No necesitas memorizarlo, solo cópialo." },
+      { "title": "Pégalo en Voq", "desc": "Abre el panel de Voq, haz clic en el icono de la llave, pega tu código y pulsa activar. A partir de ahí tendrás uso ilimitado en este dispositivo." }
+    ],
     "whatH2": "Vale, ¿pero por qué estoy pagando exactamente?",
     "cards": [
       {
@@ -135,7 +168,18 @@
     "freeWho": "Voix IA naturelle, chaque jour, jusqu'à une limite quotidienne",
     "foundingTag": "tarif fondateur",
     "foundingWho": "Aucune limite quotidienne, tant que vous restez abonné",
+    "subscribeBtn": "Obtenir le tarif fondateur — 2 $/mois",
+    "subscribeNoteBefore": "Pas encore l'extension ? ",
+    "installFirstLinkText": "Installez d'abord Voq",
+    "subscribeNoteAfter": " — vous en aurez besoin pour saisir votre code après le paiement.",
     "lockin": "Le tarif fondateur est réservé aux premiers utilisateurs. À mesure que plus de gens rejoignent, le prix pour les nouveaux abonnés augmente — en direction de 5 $/mois. Ce que vous verrouillez reste à vous pour toujours, même après que le prix change. Les lève-tôt gagnent. Vers non inclus.",
+    "activateH2": "Comment activer",
+    "steps": [
+      { "title": "Installez l'extension Chrome", "descBefore": "Téléchargez Voq depuis le ", "descLinkText": "Chrome Web Store", "descAfter": ". C'est gratuit, et c'est là que votre abonnement est réellement utilisé — faites-le en premier." },
+      { "title": "Abonnez-vous", "desc": "Le plus simple : cliquez sur l'icône clé dans le panneau Voq et choisissez de passer à l'offre supérieure — cela relie automatiquement votre abonnement à votre navigateur, donc il s'active tout seul, sans code. Vous pouvez aussi utiliser le bouton ci-dessus ; cette méthode vous donne un code à la place." },
+      { "title": "Si vous recevez un code, copiez-le", "desc": "Pertinent uniquement si vous vous êtes abonné depuis cette page : l'écran de confirmation de Stripe affiche un code court. Pas besoin de le mémoriser — copiez-le simplement." },
+      { "title": "Collez-le dans Voq", "desc": "Ouvrez le panneau Voq, cliquez sur l'icône clé, collez votre code et cliquez sur activer. Vous êtes illimité sur cet appareil à partir de maintenant." }
+    ],
     "whatH2": "D'accord, mais je paie pour quoi exactement ?",
     "cards": [
       {
@@ -176,7 +220,18 @@
     "freeWho": "Voce IA naturale, ogni giorno, fino a un limite giornaliero",
     "foundingTag": "tariffa fondatore",
     "foundingWho": "Nessun limite giornaliero, finché resti abbonato",
+    "subscribeBtn": "Ottieni la tariffa fondatore — 2 $/mese",
+    "subscribeNoteBefore": "Non hai ancora l'estensione? ",
+    "installFirstLinkText": "Installa prima Voq",
+    "subscribeNoteAfter": " — ti servirà per inserire il codice dopo il pagamento.",
     "lockin": "La tariffa fondatore è riservata solo ai primi utenti. Man mano che si uniscono più persone, il prezzo per i nuovi abbonati sale — verso i 5 $/mese. Qualunque tariffa tu blocchi resta tua per sempre, anche dopo che il prezzo cambia. Chi arriva prima vince. Vermi non inclusi.",
+    "activateH2": "Come attivarlo",
+    "steps": [
+      { "title": "Installa l'estensione Chrome", "descBefore": "Scarica Voq dal ", "descLinkText": "Chrome Web Store", "descAfter": ". È gratis, ed è qui che il tuo abbonamento viene effettivamente utilizzato — fallo per primo." },
+      { "title": "Abbonati", "desc": "Il modo più semplice: clicca sull'icona della chiave nel pannello di Voq e scegli di aggiornare — questo collega automaticamente il tuo abbonamento al browser, quindi si attiva da solo, senza bisogno di codice. Puoi anche usare il pulsante sopra; questo percorso ti fornisce invece un codice." },
+      { "title": "Se ricevi un codice, copialo", "desc": "Rilevante solo se ti sei abbonato da questa pagina: la schermata di conferma di Stripe mostra un codice breve. Non serve memorizzarlo — basta copiarlo." },
+      { "title": "Incollalo in Voq", "desc": "Apri il pannello di Voq, clicca sull'icona della chiave, incolla il codice e premi attiva. Da questo momento sei illimitato su questo dispositivo." }
+    ],
     "whatH2": "Ok, ma per cosa sto effettivamente pagando?",
     "cards": [
       {
@@ -217,7 +272,18 @@
     "freeWho": "自然なAI音声を毎日、1日の上限まで利用可能",
     "foundingTag": "ファウンダー料金",
     "foundingWho": "購読を続ける限り、1日の上限なし",
+    "subscribeBtn": "ファウンダー料金を申し込む — 月額2ドル",
+    "subscribeNoteBefore": "まだ拡張機能をお持ちでない方は？ ",
+    "installFirstLinkText": "先にVoqをインストール",
+    "subscribeNoteAfter": "してください — 決済後にコードを入力する際に必要です。",
     "lockin": "ファウンダー料金は早期ユーザー限定です。利用者が増えるにつれ、新規購読者向けの価格は上昇し、最終的には月額5ドルになります。一度確保した料金は、価格が変わった後もずっとあなたのものです。早い者勝ちです。虫は含まれません。",
+    "activateH2": "有効化の方法",
+    "steps": [
+      { "title": "Chrome拡張機能をインストール", "descBefore": "", "descLinkText": "Chromeウェブストア", "descAfter": "からVoqを入手してください。無料で、実際に購読が使われるのはここなので、まずこれを行ってください。" },
+      { "title": "購読する", "desc": "最も簡単な方法：Voqパネル内の鍵アイコンをクリックしてアップグレードを選択します——これにより購読が自動的にブラウザに紐付けられ、コード不要でそのまま有効化されます。上のボタンを使うこともできますが、その場合は代わりにコードが発行されます。" },
+      { "title": "コードが発行されたらコピーする", "desc": "このページから購読した場合のみ関係します：Stripeの確認画面に短いコードが表示されます。覚える必要はありません——コピーするだけです。" },
+      { "title": "Voqに貼り付ける", "desc": "Voqパネルを開き、鍵アイコンをクリックしてコードを貼り付け、有効化を押してください。これ以降、このデバイスでは無制限に利用できます。" }
+    ],
     "whatH2": "で、実際何にお金を払っているの？",
     "cards": [
       {
@@ -258,7 +324,18 @@
     "freeWho": "Natuurlijke AI-stem, elke dag, tot een dagelijkse limiet",
     "foundingTag": "founding-tarief",
     "foundingWho": "Nooit een dagelijkse limiet, zolang je geabonneerd blijft",
+    "subscribeBtn": "Founding-tarief bemachtigen — $2/maand",
+    "subscribeNoteBefore": "Nog geen extensie? ",
+    "installFirstLinkText": "Installeer eerst Voq",
+    "subscribeNoteAfter": " — je hebt hem nodig om je code na het afrekenen in te voeren.",
     "lockin": "Het founding-tarief is alleen voor vroege gebruikers. Naarmate meer mensen zich aansluiten, stijgt de prijs voor nieuwe abonnees — op weg naar $5/maand. Wat je ook vastlegt, blijft voor altijd van jou, zelfs nadat de prijs verandert. Vroege vogels winnen. Wormen niet inbegrepen.",
+    "activateH2": "Zo activeer je het",
+    "steps": [
+      { "title": "Installeer de Chrome-extensie", "descBefore": "Haal Voq uit de ", "descLinkText": "Chrome Web Store", "descAfter": ". Het is gratis, en hier wordt je abonnement daadwerkelijk gebruikt — doe dit eerst." },
+      { "title": "Abonneer je", "desc": "Makkelijkste manier: klik op het sleutelicoon in het Voq-paneel en kies upgrade — dit koppelt je abonnement automatisch aan je browser, zodat het gewoon activeert, geen code nodig. Je kunt ook de knop hierboven gebruiken; die route geeft je in plaats daarvan een code." },
+      { "title": "Als je een code krijgt, kopieer die", "desc": "Alleen relevant als je je vanaf deze pagina hebt geabonneerd: het bevestigingsscherm van Stripe toont een korte code. Je hoeft hem niet te onthouden — kopieer hem gewoon." },
+      { "title": "Plak hem in Voq", "desc": "Open het Voq-paneel, klik op het sleutelicoon, plak je code en druk op activeren. Vanaf nu heb je onbeperkt gebruik op dit apparaat." }
+    ],
     "whatH2": "Oké, maar waar betaal ik nu eigenlijk voor?",
     "cards": [
       {
@@ -299,7 +376,18 @@
     "freeWho": "Naturalny głos AI, codziennie, do dziennego limitu",
     "foundingTag": "stawka założycielska",
     "foundingWho": "Brak dziennego limitu, dopóki jesteś subskrybentem",
+    "subscribeBtn": "Zdobądź stawkę założycielską — 2 USD/mies.",
+    "subscribeNoteBefore": "Nie masz jeszcze rozszerzenia? ",
+    "installFirstLinkText": "Najpierw zainstaluj Voq",
+    "subscribeNoteAfter": " — będzie Ci potrzebne, aby wprowadzić kod po dokonaniu płatności.",
     "lockin": "Stawka założycielska jest tylko dla wczesnych użytkowników. W miarę dołączania kolejnych osób cena dla nowych subskrybentów rośnie — w kierunku 5 USD/mies. Cokolwiek zablokujesz, zostaje Twoje na zawsze, nawet po zmianie ceny. Kto pierwszy, ten lepszy. Robaki nie wliczone.",
+    "activateH2": "Jak aktywować",
+    "steps": [
+      { "title": "Zainstaluj rozszerzenie Chrome", "descBefore": "Pobierz Voq z ", "descLinkText": "Chrome Web Store", "descAfter": ". Jest darmowe, i to właśnie tutaj Twoja subskrypcja jest faktycznie wykorzystywana — zrób to najpierw." },
+      { "title": "Zasubskrybuj", "desc": "Najprościej: kliknij ikonę klucza w panelu Voq i wybierz uaktualnienie — to automatycznie łączy Twoją subskrypcję z przeglądarką, więc po prostu się aktywuje, bez potrzeby kodu. Możesz też użyć przycisku powyżej; ta droga zamiast tego da Ci kod." },
+      { "title": "Jeśli otrzymasz kod, skopiuj go", "desc": "Istotne tylko wtedy, gdy zasubskrybowałeś z tej strony: ekran potwierdzenia Stripe pokazuje krótki kod. Nie musisz go zapamiętywać — po prostu go skopiuj." },
+      { "title": "Wklej go w Voq", "desc": "Otwórz panel Voq, kliknij ikonę klucza, wklej kod i naciśnij aktywuj. Od teraz masz nieograniczony dostęp na tym urządzeniu." }
+    ],
     "whatH2": "Dobrze, ale za co właściwie płacę?",
     "cards": [
       {
@@ -340,7 +428,18 @@
     "freeWho": "Voz de IA natural, todos os dias, até um limite diário",
     "foundingTag": "taxa fundadora",
     "foundingWho": "Sem limite diário, enquanto você continuar assinante",
+    "subscribeBtn": "Garantir a taxa fundadora — $2/mês",
+    "subscribeNoteBefore": "Ainda não tem a extensão? ",
+    "installFirstLinkText": "Instale o Voq primeiro",
+    "subscribeNoteAfter": " — você precisará dele para inserir seu código após o checkout.",
     "lockin": "A taxa fundadora é apenas para os primeiros usuários. À medida que mais pessoas entram, o preço para novos assinantes sobe — a caminho de $5/mês. O que você garantir é seu para sempre, mesmo depois que o preço mudar. Quem chega primeiro, ganha. Minhocas não incluídas.",
+    "activateH2": "Como ativar",
+    "steps": [
+      { "title": "Instale a extensão do Chrome", "descBefore": "Baixe o Voq na ", "descLinkText": "Chrome Web Store", "descAfter": ". É grátis, e é aqui que sua assinatura é realmente usada — faça isso primeiro." },
+      { "title": "Assine", "desc": "Forma mais fácil: clique no ícone de chave dentro do painel do Voq e escolha fazer upgrade — isso vincula sua assinatura ao seu navegador automaticamente, então ela ativa sozinha, sem precisar de código. Você também pode usar o botão acima; esse caminho te dá um código em vez disso." },
+      { "title": "Se receber um código, copie-o", "desc": "Só é relevante se você assinou por esta página: a tela de confirmação da Stripe mostra um código curto. Você não precisa decorá-lo — apenas copie." },
+      { "title": "Cole-o no Voq", "desc": "Abra o painel do Voq, clique no ícone de chave, cole seu código e aperte ativar. A partir daí, você tem uso ilimitado neste dispositivo." }
+    ],
     "whatH2": "Ok, mas pelo que estou realmente pagando?",
     "cards": [
       {
@@ -381,7 +480,18 @@
     "freeWho": "自然 AI 语音，每天可用，直到达到每日限额",
     "foundingTag": "创始价",
     "foundingWho": "只要保持订阅，永无每日限额",
+    "subscribeBtn": "获取创始价 — 每月2美元",
+    "subscribeNoteBefore": "还没有安装扩展程序？",
+    "installFirstLinkText": "请先安装 Voq",
+    "subscribeNoteAfter": "——结账后你需要用它来输入你的代码。",
     "lockin": "创始价仅面向早期用户。随着更多人加入，新订阅者的价格会上涨——最终涨到每月 5 美元。无论你锁定了什么价格，即使日后价格变动，它也将永远属于你。早鸟赢。虫子不包含在内。",
+    "activateH2": "如何激活",
+    "steps": [
+      { "title": "安装 Chrome 扩展程序", "descBefore": "从 ", "descLinkText": "Chrome 网上应用店", "descAfter": "获取 Voq。它是免费的，而且你的订阅实际就是在这里被使用的——请先完成这一步。" },
+      { "title": "订阅", "desc": "最简单的方式：点击 Voq 面板中的钥匙图标并选择升级——这会自动将你的订阅与浏览器关联，无需代码即可直接激活。你也可以使用上方的按钮；那种方式会给你一个代码。" },
+      { "title": "如果收到代码，请复制它", "desc": "仅在你通过本页面订阅时才相关：Stripe 的确认页面会显示一个短代码。你不需要记住它——复制即可。" },
+      { "title": "将其粘贴到 Voq 中", "desc": "打开 Voq 面板，点击钥匙图标，粘贴你的代码，然后点击激活。从此刻起，你在此设备上将不再受限。" }
+    ],
     "whatH2": "好吧，但我到底在为什么付费？",
     "cards": [
       {
@@ -422,7 +532,18 @@
     "freeWho": "صوت ذكاء اصطناعي طبيعي، كل يوم، حتى حد يومي",
     "foundingTag": "سعر التأسيس",
     "foundingWho": "بلا حد يومي على الإطلاق، طالما بقي اشتراكك فعالًا",
+    "subscribeBtn": "احصل على سعر التأسيس — دولاران شهريًا",
+    "subscribeNoteBefore": "ليس لديك الإضافة بعد؟ ",
+    "installFirstLinkText": "ثبّت Voq أولاً",
+    "subscribeNoteAfter": " — ستحتاج إليه لإدخال رمزك بعد إتمام الدفع.",
     "lockin": "سعر التأسيس مخصص للمستخدمين الأوائل فقط. مع انضمام المزيد من الأشخاص، يرتفع السعر للمشتركين الجدد — في طريقه إلى 5 دولارات شهريًا. أيًا كان السعر الذي تحصل عليه، يبقى لك إلى الأبد، حتى بعد تغيّر السعر. من يسبق يفز. الديدان غير مشمولة.",
+    "activateH2": "كيفية التفعيل",
+    "steps": [
+      { "title": "ثبّت إضافة Chrome", "descBefore": "احصل على Voq من ", "descLinkText": "متجر Chrome الإلكتروني", "descAfter": ". إنه مجاني، وهنا يتم استخدام اشتراكك فعليًا — افعل هذا أولاً." },
+      { "title": "اشترك", "desc": "أسهل طريقة: انقر على أيقونة المفتاح داخل لوحة Voq واختر الترقية — هذا يربط اشتراكك بمتصفحك تلقائيًا، فيتم التفعيل مباشرة دون الحاجة إلى رمز. يمكنك أيضًا استخدام الزر أعلاه؛ يمنحك هذا المسار رمزًا بدلاً من ذلك." },
+      { "title": "إذا حصلت على رمز، انسخه", "desc": "ذو صلة فقط إذا اشتركت من هذه الصفحة: تعرض شاشة تأكيد Stripe رمزًا قصيرًا. لا حاجة لحفظه — فقط انسخه." },
+      { "title": "الصقه في Voq", "desc": "افتح لوحة Voq، انقر على أيقونة المفتاح، الصق رمزك، واضغط على تفعيل. ستصبح غير محدود على هذا الجهاز من الآن فصاعدًا." }
+    ],
     "whatH2": "حسنًا، لكن علام أدفع فعليًا؟",
     "cards": [
       {
