@@ -1,0 +1,15 @@
+{
+  "name": "Hacker News",
+  "slug": "hacker-news",
+  "description": "Ouça Hacker News sem usar as mãos com a extensão gratuita de texto para fala da Voq para Chrome.",
+  "metaDescription": "Use o Voq para ouvir Hacker News em voz alta. Extensão gratuita para Chrome — sem necessidade de conta. Funciona em news.ycombinator.com.",
+  "steps": [
+    "Instale o Voq na Chrome Web Store — é gratuito e não exige conta.",
+    "Abra news.ycombinator.com e encontre o conteúdo de Hacker News que deseja ouvir.",
+    "Selecione o texto que deseja que o Voq leia em voz alta.",
+    "Clique no ícone do Voq na barra de ferramentas do Chrome, ou clique com o botão direito e escolha \"Ler com Voq\".",
+    "O Voq abre seu painel de leitura e lê o texto em voz alta, destacando cada palavra à medida que é pronunciada.",
+    "Use os controles de reprodução para pausar, retomar ou ajustar a velocidade de leitura."
+  ],
+  "lang": "pt"
+}

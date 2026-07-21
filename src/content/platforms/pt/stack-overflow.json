@@ -1,0 +1,15 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "Ouça Stack Overflow sem usar as mãos com a extensão gratuita de texto para fala da Voq para Chrome.",
+  "metaDescription": "Use o Voq para ouvir Stack Overflow em voz alta. Extensão gratuita para Chrome — sem necessidade de conta. Funciona em stackoverflow.com.",
+  "steps": [
+    "Instale o Voq na Chrome Web Store — é gratuito e não exige conta.",
+    "Abra stackoverflow.com e encontre o conteúdo de Stack Overflow que deseja ouvir.",
+    "Selecione o texto que deseja que o Voq leia em voz alta.",
+    "Clique no ícone do Voq na barra de ferramentas do Chrome, ou clique com o botão direito e escolha \"Ler com Voq\".",
+    "O Voq abre seu painel de leitura e lê o texto em voz alta, destacando cada palavra à medida que é pronunciada.",
+    "Use os controles de reprodução para pausar, retomar ou ajustar a velocidade de leitura."
+  ],
+  "lang": "pt"
+}
