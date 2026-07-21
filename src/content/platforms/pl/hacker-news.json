@@ -1,0 +1,15 @@
+{
+  "name": "Hacker News",
+  "slug": "hacker-news",
+  "description": "Słuchaj Hacker News bezdotykowo dzięki darmowemu rozszerzeniu Voq zamieniającemu tekst na mowę w Chrome.",
+  "metaDescription": "Użyj Voq, aby odsłuchać Hacker News na głos. Darmowe rozszerzenie Chrome — bez konieczności zakładania konta. Działa na news.ycombinator.com.",
+  "steps": [
+    "Zainstaluj Voq ze Chrome Web Store — jest darmowy i nie wymaga konta.",
+    "Otwórz news.ycombinator.com i znajdź treść Hacker News, którą chcesz odsłuchać.",
+    "Zaznacz tekst, który ma odczytać Voq.",
+    "Kliknij ikonę Voq na pasku narzędzi Chrome lub kliknij prawym przyciskiem myszy i wybierz „Czytaj z Voq”.",
+    "Voq otworzy panel odczytu i przeczyta tekst na głos, podświetlając każde słowo w miarę czytania.",
+    "Użyj przycisków odtwarzania, aby wstrzymać, wznowić lub dostosować szybkość czytania."
+  ],
+  "lang": "pl"
+}

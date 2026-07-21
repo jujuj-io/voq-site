@@ -1,0 +1,15 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "Słuchaj Stack Overflow bezdotykowo dzięki darmowemu rozszerzeniu Voq zamieniającemu tekst na mowę w Chrome.",
+  "metaDescription": "Użyj Voq, aby odsłuchać Stack Overflow na głos. Darmowe rozszerzenie Chrome — bez konieczności zakładania konta. Działa na stackoverflow.com.",
+  "steps": [
+    "Zainstaluj Voq ze Chrome Web Store — jest darmowy i nie wymaga konta.",
+    "Otwórz stackoverflow.com i znajdź treść Stack Overflow, którą chcesz odsłuchać.",
+    "Zaznacz tekst, który ma odczytać Voq.",
+    "Kliknij ikonę Voq na pasku narzędzi Chrome lub kliknij prawym przyciskiem myszy i wybierz „Czytaj z Voq”.",
+    "Voq otworzy panel odczytu i przeczyta tekst na głos, podświetlając każde słowo w miarę czytania.",
+    "Użyj przycisków odtwarzania, aby wstrzymać, wznowić lub dostosować szybkość czytania."
+  ],
+  "lang": "pl"
+}

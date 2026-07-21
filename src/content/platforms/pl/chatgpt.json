@@ -1,0 +1,15 @@
+{
+  "name": "ChatGPT",
+  "slug": "chatgpt",
+  "description": "Słuchaj ChatGPT bezdotykowo dzięki darmowemu rozszerzeniu Voq zamieniającemu tekst na mowę w Chrome.",
+  "metaDescription": "Użyj Voq, aby odsłuchać ChatGPT na głos. Darmowe rozszerzenie Chrome — bez konieczności zakładania konta. Działa na chat.openai.com.",
+  "steps": [
+    "Zainstaluj Voq ze Chrome Web Store — jest darmowy i nie wymaga konta.",
+    "Otwórz chat.openai.com i znajdź treść ChatGPT, którą chcesz odsłuchać.",
+    "Zaznacz tekst, który ma odczytać Voq.",
+    "Kliknij ikonę Voq na pasku narzędzi Chrome lub kliknij prawym przyciskiem myszy i wybierz „Czytaj z Voq”.",
+    "Voq otworzy panel odczytu i przeczyta tekst na głos, podświetlając każde słowo w miarę czytania.",
+    "Użyj przycisków odtwarzania, aby wstrzymać, wznowić lub dostosować szybkość czytania."
+  ],
+  "lang": "pl"
+}
