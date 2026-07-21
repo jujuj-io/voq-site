@@ -5,18 +5,21 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  lang?: string;
+  path?: string;
+  dateLocale?: string;
 }
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, pubDate, lang = 'en', path = '', dateLocale = 'en-US' } = Astro.props;
 
-const formatted = pubDate.toLocaleDateString('en-US', {
+const formatted = pubDate.toLocaleDateString(dateLocale, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 ---
 
-<Base title={`${title} — Voq Blog`} description={description}>
+<Base title={`${title} — Voq Blog`} description={description} lang={lang} path={path}>
   <div class="container">
     <article class="prose">
       <h1>{title}</h1>

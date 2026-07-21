@@ -7,6 +7,8 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   canonical?: string;
+  lang?: string;
+  path?: string; // locale-less path, e.g. '', '/pricing', '/read-aloud/chatgpt'
 }
 
 const {
@@ -15,16 +17,44 @@ const {
   ogTitle,
   ogDescription,
   canonical,
+  lang = 'en',
+  path = '',
 } = Astro.props;
 
 const siteUrl = 'https://getvoq.com';
 const pageUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const resolvedOgTitle = ogTitle ?? title;
 const resolvedOgDesc = ogDescription ?? description;
+
+const LOCALES = ['en', 'ar', 'de', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'zh-CN'];
+
+const NAV = {
+  en: { blog: 'Blog', platforms: 'Platforms', pricing: 'Pricing', install: 'Install Free', privacy: 'Privacy Policy', lang: 'Language' },
+  ar: { blog: 'المدونة', platforms: 'المنصات', pricing: 'الأسعار', install: 'تثبيت مجاني', privacy: 'سياسة الخصوصية', lang: 'اللغة' },
+  de: { blog: 'Blog', platforms: 'Plattformen', pricing: 'Preise', install: 'Kostenlos installieren', privacy: 'Datenschutz', lang: 'Sprache' },
+  es: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Precios', install: 'Instalar gratis', privacy: 'Privacidad', lang: 'Idioma' },
+  fr: { blog: 'Blog', platforms: 'Plateformes', pricing: 'Tarifs', install: 'Installer gratuitement', privacy: 'Confidentialité', lang: 'Langue' },
+  it: { blog: 'Blog', platforms: 'Piattaforme', pricing: 'Prezzi', install: 'Installa gratis', privacy: 'Privacy', lang: 'Lingua' },
+  ja: { blog: 'ブログ', platforms: 'プラットフォーム', pricing: '料金', install: '無料でインストール', privacy: 'プライバシーポリシー', lang: '言語' },
+  nl: { blog: 'Blog', platforms: 'Platforms', pricing: 'Prijzen', install: 'Gratis installeren', privacy: 'Privacybeleid', lang: 'Taal' },
+  pl: { blog: 'Blog', platforms: 'Platformy', pricing: 'Cennik', install: 'Zainstaluj za darmo', privacy: 'Polityka prywatności', lang: 'Język' },
+  pt: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Preços', install: 'Instalar grátis', privacy: 'Privacidade', lang: 'Idioma' },
+  'zh-CN': { blog: '博客', platforms: '平台', pricing: '定价', install: '免费安装', privacy: '隐私政策', lang: '语言' },
+};
+
+const LANG_NAMES = {
+  en: 'English', ar: 'العربية', de: 'Deutsch', es: 'Español', fr: 'Français',
+  it: 'Italiano', ja: '日本語', nl: 'Nederlands', pl: 'Polski', pt: 'Português', 'zh-CN': '中文',
+};
+
+const t = NAV[lang] ?? NAV.en;
+const localeHome = (l) => (l === 'en' ? '/' : `/${l}/`);
+const localePath = (l) => (l === 'en' ? (path || '/') : `/${l}${path}`);
+const isRTL = lang === 'ar';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} dir={isRTL ? 'rtl' : 'ltr'}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,6 +62,12 @@ const resolvedOgDesc = ogDescription ?? description;
   <meta name="description" content={description} />
   <link rel="canonical" href={pageUrl} />
   <meta name="google-site-verification" content="MoQoJG_AiLC8iMQS468Yrs1x-81A6ewRgJAea-bQEiQ" />
+
+  <!-- hreflang alternates -->
+  {LOCALES.map((l) => (
+    <link rel="alternate" hreflang={l === 'zh-CN' ? 'zh-CN' : l} href={`${siteUrl}${localePath(l)}`} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${localePath('en')}`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -47,16 +83,50 @@ const resolvedOgDesc = ogDescription ?? description;
 
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="generator" content={Astro.generator} />
+
+  <script define:vars={{ lang, path, LOCALES }} is:inline>
+    (function () {
+      try {
+        if (lang !== 'en') return; // only redirect from the default-locale pages
+        if (document.cookie.indexOf('voq_lang_pref=') !== -1) return;
+        var supported = LOCALES.filter(function (l) { return l !== 'en'; });
+        var browserLangs = navigator.languages || [navigator.language || ''];
+        var match = null;
+        for (var i = 0; i < browserLangs.length && !match; i++) {
+          var bl = (browserLangs[i] || '').toLowerCase();
+          for (var j = 0; j < supported.length; j++) {
+            var code = supported[j].toLowerCase();
+            if (bl === code || bl.indexOf(code.split('-')[0] + '-') === 0 || bl === code.split('-')[0]) {
+              match = supported[j];
+              break;
+            }
+          }
+        }
+        if (match) {
+          document.cookie = 'voq_lang_pref=' + match + '; path=/; max-age=' + 60 * 60 * 24 * 365;
+          window.location.replace('https://getvoq.com/' + match + path);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <nav>
     <div class="container">
-      <a class="logo" href="/">Voq</a>
+      <a class="logo" href={localeHome(lang)}>Voq</a>
       <ul class="nav-links">
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/read-aloud">Platforms</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">Install Free</a></li>
+        <li><a href={lang === 'en' ? '/blog' : `/${lang}/blog`}>{t.blog}</a></li>
+        <li><a href={lang === 'en' ? '/read-aloud' : `/${lang}/read-aloud`}>{t.platforms}</a></li>
+        <li><a href={lang === 'en' ? '/pricing' : `/${lang}/pricing`}>{t.pricing}</a></li>
+        <li class="lang-switcher">
+          <label for="lang-select" class="sr-only">{t.lang}</label>
+          <select id="lang-select" onchange="if(this.value) window.location.href=this.value;">
+            {LOCALES.map((l) => (
+              <option value={`${siteUrl}${localePath(l)}`} selected={l === lang}>{LANG_NAMES[l]}</option>
+            ))}
+          </select>
+        </li>
+        <li><a href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">{t.install}</a></li>
       </ul>
     </div>
   </nav>
@@ -68,8 +138,26 @@ const resolvedOgDesc = ogDescription ?? description;
   <footer>
     <div class="container">
       <p>&copy; {new Date().getFullYear()} Voq &mdash; Free Text to Speech for Chrome</p>
-      <p><a href="/privacy">Privacy Policy</a></p>
+      <p><a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`}>{t.privacy}</a></p>
     </div>
   </footer>
 </body>
 </html>
+
+<style>
+  .lang-switcher select {
+    font-size: 13px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+</style>
