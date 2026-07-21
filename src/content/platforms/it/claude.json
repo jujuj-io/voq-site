@@ -1,0 +1,15 @@
+{
+  "name": "Claude",
+  "slug": "claude",
+  "description": "Ascolta Claude a mani libere con l'estensione gratuita di sintesi vocale di Voq per Chrome.",
+  "metaDescription": "Usa Voq per ascoltare Claude ad alta voce. Estensione Chrome gratuita, nessun account richiesto. Funziona su claude.ai.",
+  "steps": [
+    "Installa Voq dal Chrome Web Store: è gratis e non richiede un account.",
+    "Apri claude.ai e trova il contenuto di Claude che vuoi ascoltare.",
+    "Seleziona il testo che vuoi far leggere a Voq.",
+    "Clicca sull'icona di Voq nella barra degli strumenti di Chrome, oppure fai clic destro e scegli \"Leggi con Voq\".",
+    "Voq apre il suo pannello di lettura e legge il testo ad alta voce, evidenziando ogni parola man mano che viene pronunciata.",
+    "Usa i controlli di riproduzione per mettere in pausa, riprendere o regolare la velocità di lettura."
+  ],
+  "lang": "it"
+}
