@@ -1,0 +1,442 @@
+{
+  "en": {
+    "title": "Voq — Free Text to Speech for Chrome",
+    "description": "Voq is a free Chrome extension that reads any webpage aloud. Multilingual support, a reading panel, and works on ChatGPT, Claude, Reddit, and more.",
+    "h1": "Free Text to Speech<br />for Chrome",
+    "tagline": "Voq reads any webpage aloud — AI assistants, forums, articles. Multilingual, free, and no account required.",
+    "ctaBtn": "Add to Chrome — It's Free",
+    "featuresH2": "Everything you need to listen to the web",
+    "features": [
+      {
+        "title": "Multilingual",
+        "desc": "Reads text in dozens of languages using high-quality voices."
+      },
+      {
+        "title": "Reading Panel",
+        "desc": "Highlights words as they are spoken so you can follow along."
+      },
+      {
+        "title": "Works on AI Assistants",
+        "desc": "Reads responses from ChatGPT, Claude, Gemini, and Perplexity."
+      },
+      {
+        "title": "Works on Forums",
+        "desc": "Listen to threads on Reddit, Hacker News, and Stack Overflow."
+      },
+      {
+        "title": "Free Every Day",
+        "desc": "Natural AI voice, free daily. Optional $2/mo founding rate removes the daily limit."
+      },
+      {
+        "title": "One Click",
+        "desc": "Select any text on any page and press play. That is it."
+      }
+    ],
+    "platformsTitle": "Platform Guides",
+    "platformsDesc": "Step-by-step instructions for using Voq on your favourite sites.",
+    "platformsCta": "See all platforms →",
+    "blogTitle": "Blog",
+    "blogDesc": "Tips, updates, and ideas for getting the most out of Voq.",
+    "blogCta": "Read the blog →"
+  },
+  "de": {
+    "title": "Voq — Kostenlose Text-to-Speech-Erweiterung für Chrome",
+    "description": "Voq ist eine kostenlose Chrome-Erweiterung, die jede Webseite vorliest. Mehrsprachig, mit Lesepanel, funktioniert bei ChatGPT, Claude, Reddit und mehr.",
+    "h1": "Kostenlose Text-to-Speech-<br />Erweiterung für Chrome",
+    "tagline": "Voq liest jede Webseite vor — KI-Assistenten, Foren, Artikel. Mehrsprachig, kostenlos, kein Konto nötig.",
+    "ctaBtn": "Zu Chrome hinzufügen — kostenlos",
+    "featuresH2": "Alles, was Sie brauchen, um sich das Web vorlesen zu lassen",
+    "features": [
+      {
+        "title": "Mehrsprachig",
+        "desc": "Liest Texte in Dutzenden Sprachen mit hochwertigen Stimmen vor."
+      },
+      {
+        "title": "Lesepanel",
+        "desc": "Hebt Wörter beim Sprechen hervor, damit Sie mitlesen können."
+      },
+      {
+        "title": "Funktioniert bei KI-Assistenten",
+        "desc": "Liest Antworten von ChatGPT, Claude, Gemini und Perplexity vor."
+      },
+      {
+        "title": "Funktioniert in Foren",
+        "desc": "Hören Sie sich Threads auf Reddit, Hacker News und Stack Overflow an."
+      },
+      {
+        "title": "Jeden Tag kostenlos",
+        "desc": "Natürliche KI-Stimme, täglich kostenlos. Optionale Founding-Rate für 2 $/Monat entfernt das Tageslimit."
+      },
+      {
+        "title": "Ein Klick",
+        "desc": "Text auf jeder Seite markieren und Play drücken. Das ist alles."
+      }
+    ],
+    "platformsTitle": "Plattform-Anleitungen",
+    "platformsDesc": "Schritt-für-Schritt-Anleitungen für Voq auf Ihren Lieblingsseiten.",
+    "platformsCta": "Alle Plattformen ansehen →",
+    "blogTitle": "Blog",
+    "blogDesc": "Tipps, Neuigkeiten und Ideen, um das Beste aus Voq herauszuholen.",
+    "blogCta": "Blog lesen →"
+  },
+  "es": {
+    "title": "Voq — Texto a voz gratis para Chrome",
+    "description": "Voq es una extensión gratuita de Chrome que lee en voz alta cualquier página web. Soporte multilingüe, panel de lectura, y funciona en ChatGPT, Claude, Reddit y más.",
+    "h1": "Texto a voz gratis<br />para Chrome",
+    "tagline": "Voq lee en voz alta cualquier página web — asistentes de IA, foros, artículos. Multilingüe, gratis, sin necesidad de cuenta.",
+    "ctaBtn": "Añadir a Chrome — Es gratis",
+    "featuresH2": "Todo lo que necesitas para escuchar la web",
+    "features": [
+      {
+        "title": "Multilingüe",
+        "desc": "Lee texto en decenas de idiomas con voces de alta calidad."
+      },
+      {
+        "title": "Panel de lectura",
+        "desc": "Resalta las palabras a medida que se pronuncian para que puedas seguir el texto."
+      },
+      {
+        "title": "Funciona con asistentes de IA",
+        "desc": "Lee respuestas de ChatGPT, Claude, Gemini y Perplexity."
+      },
+      {
+        "title": "Funciona en foros",
+        "desc": "Escucha hilos de Reddit, Hacker News y Stack Overflow."
+      },
+      {
+        "title": "Gratis todos los días",
+        "desc": "Voz de IA natural, gratis a diario. La tarifa fundadora opcional de $2/mes elimina el límite diario."
+      },
+      {
+        "title": "Un solo clic",
+        "desc": "Selecciona cualquier texto en cualquier página y pulsa reproducir. Eso es todo."
+      }
+    ],
+    "platformsTitle": "Guías de plataformas",
+    "platformsDesc": "Instrucciones paso a paso para usar Voq en tus sitios favoritos.",
+    "platformsCta": "Ver todas las plataformas →",
+    "blogTitle": "Blog",
+    "blogDesc": "Consejos, novedades e ideas para sacar el máximo partido a Voq.",
+    "blogCta": "Leer el blog →"
+  },
+  "fr": {
+    "title": "Voq — Synthèse vocale gratuite pour Chrome",
+    "description": "Voq est une extension Chrome gratuite qui lit à voix haute n'importe quelle page web. Support multilingue, panneau de lecture, fonctionne sur ChatGPT, Claude, Reddit et plus.",
+    "h1": "Synthèse vocale gratuite<br />pour Chrome",
+    "tagline": "Voq lit à voix haute n'importe quelle page web — assistants IA, forums, articles. Multilingue, gratuit, sans compte requis.",
+    "ctaBtn": "Ajouter à Chrome — Gratuit",
+    "featuresH2": "Tout ce qu'il faut pour écouter le web",
+    "features": [
+      {
+        "title": "Multilingue",
+        "desc": "Lit le texte dans des dizaines de langues avec des voix de haute qualité."
+      },
+      {
+        "title": "Panneau de lecture",
+        "desc": "Surligne les mots au fur et à mesure pour que vous puissiez suivre."
+      },
+      {
+        "title": "Fonctionne avec les assistants IA",
+        "desc": "Lit les réponses de ChatGPT, Claude, Gemini et Perplexity."
+      },
+      {
+        "title": "Fonctionne sur les forums",
+        "desc": "Écoutez les fils de discussion sur Reddit, Hacker News et Stack Overflow."
+      },
+      {
+        "title": "Gratuit tous les jours",
+        "desc": "Voix IA naturelle, gratuite chaque jour. Le tarif fondateur optionnel à 2 $/mois supprime la limite quotidienne."
+      },
+      {
+        "title": "Un seul clic",
+        "desc": "Sélectionnez du texte sur n'importe quelle page et appuyez sur lecture. C'est tout."
+      }
+    ],
+    "platformsTitle": "Guides par plateforme",
+    "platformsDesc": "Instructions étape par étape pour utiliser Voq sur vos sites préférés.",
+    "platformsCta": "Voir toutes les plateformes →",
+    "blogTitle": "Blog",
+    "blogDesc": "Astuces, actualités et idées pour tirer le meilleur de Voq.",
+    "blogCta": "Lire le blog →"
+  },
+  "it": {
+    "title": "Voq — Sintesi vocale gratuita per Chrome",
+    "description": "Voq è un'estensione gratuita di Chrome che legge ad alta voce qualsiasi pagina web. Supporto multilingue, pannello di lettura, funziona su ChatGPT, Claude, Reddit e altro.",
+    "h1": "Sintesi vocale gratuita<br />per Chrome",
+    "tagline": "Voq legge ad alta voce qualsiasi pagina web — assistenti IA, forum, articoli. Multilingue, gratuito, senza bisogno di account.",
+    "ctaBtn": "Aggiungi a Chrome — È gratis",
+    "featuresH2": "Tutto ciò che serve per ascoltare il web",
+    "features": [
+      {
+        "title": "Multilingue",
+        "desc": "Legge testi in decine di lingue con voci di alta qualità."
+      },
+      {
+        "title": "Pannello di lettura",
+        "desc": "Evidenzia le parole mentre vengono pronunciate, così puoi seguire il testo."
+      },
+      {
+        "title": "Funziona con gli assistenti IA",
+        "desc": "Legge le risposte di ChatGPT, Claude, Gemini e Perplexity."
+      },
+      {
+        "title": "Funziona sui forum",
+        "desc": "Ascolta le discussioni su Reddit, Hacker News e Stack Overflow."
+      },
+      {
+        "title": "Gratis ogni giorno",
+        "desc": "Voce IA naturale, gratis ogni giorno. La tariffa fondatore opzionale a 2 $/mese rimuove il limite giornaliero."
+      },
+      {
+        "title": "Un solo clic",
+        "desc": "Seleziona qualsiasi testo su qualsiasi pagina e premi play. Tutto qui."
+      }
+    ],
+    "platformsTitle": "Guide per piattaforma",
+    "platformsDesc": "Istruzioni passo passo per usare Voq sui tuoi siti preferiti.",
+    "platformsCta": "Vedi tutte le piattaforme →",
+    "blogTitle": "Blog",
+    "blogDesc": "Consigli, novità e idee per sfruttare al meglio Voq.",
+    "blogCta": "Leggi il blog →"
+  },
+  "ja": {
+    "title": "Voq — Chrome用無料テキスト読み上げ",
+    "description": "Voqはあらゆるウェブページを読み上げる無料のChrome拡張機能です。多言語対応、読み上げパネル搭載。ChatGPT、Claude、Redditなどでも使えます。",
+    "h1": "Chrome用<br />無料テキスト読み上げ",
+    "tagline": "VoqはAIアシスタント、フォーラム、記事などあらゆるウェブページを読み上げます。多言語対応・無料・アカウント登録不要。",
+    "ctaBtn": "Chromeに追加 — 無料",
+    "featuresH2": "ウェブを聞くために必要なすべて",
+    "features": [
+      {
+        "title": "多言語対応",
+        "desc": "高品質な音声で数十の言語のテキストを読み上げます。"
+      },
+      {
+        "title": "読み上げパネル",
+        "desc": "話されている単語をハイライト表示するので、目で追うことができます。"
+      },
+      {
+        "title": "AIアシスタントに対応",
+        "desc": "ChatGPT、Claude、Gemini、Perplexityの回答を読み上げます。"
+      },
+      {
+        "title": "フォーラムに対応",
+        "desc": "Reddit、Hacker News、Stack Overflowのスレッドを聞けます。"
+      },
+      {
+        "title": "毎日無料",
+        "desc": "自然なAI音声を毎日無料で。月額2ドルのファウンダー料金（オプション）で1日の上限を撤廃できます。"
+      },
+      {
+        "title": "ワンクリック",
+        "desc": "任意のページで任意のテキストを選択し、再生を押すだけです。"
+      }
+    ],
+    "platformsTitle": "プラットフォームガイド",
+    "platformsDesc": "お気に入りのサイトでVoqを使うためのステップバイステップガイド。",
+    "platformsCta": "すべてのプラットフォームを見る →",
+    "blogTitle": "ブログ",
+    "blogDesc": "Voqを最大限活用するためのヒント、最新情報、アイデア。",
+    "blogCta": "ブログを読む →"
+  },
+  "nl": {
+    "title": "Voq — Gratis tekst-naar-spraak voor Chrome",
+    "description": "Voq is een gratis Chrome-extensie die elke webpagina hardop voorleest. Meertalig, met voorleespaneel, werkt op ChatGPT, Claude, Reddit en meer.",
+    "h1": "Gratis tekst-naar-spraak<br />voor Chrome",
+    "tagline": "Voq leest elke webpagina hardop voor — AI-assistenten, forums, artikelen. Meertalig, gratis en geen account nodig.",
+    "ctaBtn": "Toevoegen aan Chrome — Gratis",
+    "featuresH2": "Alles wat je nodig hebt om naar het web te luisteren",
+    "features": [
+      {
+        "title": "Meertalig",
+        "desc": "Leest tekst voor in tientallen talen met hoogwaardige stemmen."
+      },
+      {
+        "title": "Voorleespaneel",
+        "desc": "Markeert woorden terwijl ze worden uitgesproken, zodat je kunt meelezen."
+      },
+      {
+        "title": "Werkt met AI-assistenten",
+        "desc": "Leest antwoorden van ChatGPT, Claude, Gemini en Perplexity voor."
+      },
+      {
+        "title": "Werkt op forums",
+        "desc": "Luister naar threads op Reddit, Hacker News en Stack Overflow."
+      },
+      {
+        "title": "Elke dag gratis",
+        "desc": "Natuurlijke AI-stem, dagelijks gratis. Optioneel founding-tarief van $2/maand verwijdert de dagelijkse limiet."
+      },
+      {
+        "title": "Eén klik",
+        "desc": "Selecteer tekst op elke pagina en druk op afspelen. Dat is alles."
+      }
+    ],
+    "platformsTitle": "Platformgidsen",
+    "platformsDesc": "Stapsgewijze instructies om Voq te gebruiken op je favoriete sites.",
+    "platformsCta": "Bekijk alle platforms →",
+    "blogTitle": "Blog",
+    "blogDesc": "Tips, updates en ideeën om het meeste uit Voq te halen.",
+    "blogCta": "Lees de blog →"
+  },
+  "pl": {
+    "title": "Voq — Darmowa zamiana tekstu na mowę dla Chrome",
+    "description": "Voq to darmowe rozszerzenie Chrome, które czyta na głos dowolną stronę internetową. Obsługa wielu języków, panel czytania, działa z ChatGPT, Claude, Reddit i innymi.",
+    "h1": "Darmowa zamiana tekstu<br />na mowę dla Chrome",
+    "tagline": "Voq czyta na głos dowolną stronę internetową — asystentów AI, fora, artykuły. Wielojęzyczne, darmowe, bez konieczności zakładania konta.",
+    "ctaBtn": "Dodaj do Chrome — Za darmo",
+    "featuresH2": "Wszystko, czego potrzebujesz, aby słuchać internetu",
+    "features": [
+      {
+        "title": "Wielojęzyczność",
+        "desc": "Czyta tekst w dziesiątkach języków przy użyciu wysokiej jakości głosów."
+      },
+      {
+        "title": "Panel czytania",
+        "desc": "Podświetla słowa w miarę ich wypowiadania, dzięki czemu możesz śledzić tekst."
+      },
+      {
+        "title": "Działa z asystentami AI",
+        "desc": "Czyta odpowiedzi z ChatGPT, Claude, Gemini i Perplexity."
+      },
+      {
+        "title": "Działa na forach",
+        "desc": "Słuchaj wątków na Reddit, Hacker News i Stack Overflow."
+      },
+      {
+        "title": "Darmowe każdego dnia",
+        "desc": "Naturalny głos AI, darmowy codziennie. Opcjonalna stawka założycielska 2 USD/mies. znosi dzienny limit."
+      },
+      {
+        "title": "Jedno kliknięcie",
+        "desc": "Zaznacz dowolny tekst na dowolnej stronie i naciśnij odtwórz. To wszystko."
+      }
+    ],
+    "platformsTitle": "Przewodniki po platformach",
+    "platformsDesc": "Instrukcje krok po kroku dotyczące korzystania z Voq na ulubionych stronach.",
+    "platformsCta": "Zobacz wszystkie platformy →",
+    "blogTitle": "Blog",
+    "blogDesc": "Wskazówki, aktualności i pomysły, jak najlepiej wykorzystać Voq.",
+    "blogCta": "Czytaj bloga →"
+  },
+  "pt": {
+    "title": "Voq — Texto para fala grátis para Chrome",
+    "description": "Voq é uma extensão gratuita do Chrome que lê em voz alta qualquer página da web. Suporte a vários idiomas, painel de leitura, funciona no ChatGPT, Claude, Reddit e mais.",
+    "h1": "Texto para fala grátis<br />para Chrome",
+    "tagline": "O Voq lê em voz alta qualquer página da web — assistentes de IA, fóruns, artigos. Multilíngue, gratuito e sem necessidade de conta.",
+    "ctaBtn": "Adicionar ao Chrome — É grátis",
+    "featuresH2": "Tudo o que você precisa para ouvir a web",
+    "features": [
+      {
+        "title": "Multilíngue",
+        "desc": "Lê textos em dezenas de idiomas com vozes de alta qualidade."
+      },
+      {
+        "title": "Painel de leitura",
+        "desc": "Destaca as palavras conforme são pronunciadas para você acompanhar."
+      },
+      {
+        "title": "Funciona com assistentes de IA",
+        "desc": "Lê respostas do ChatGPT, Claude, Gemini e Perplexity."
+      },
+      {
+        "title": "Funciona em fóruns",
+        "desc": "Ouça discussões no Reddit, Hacker News e Stack Overflow."
+      },
+      {
+        "title": "Grátis todos os dias",
+        "desc": "Voz de IA natural, grátis diariamente. A taxa fundadora opcional de $2/mês remove o limite diário."
+      },
+      {
+        "title": "Um clique",
+        "desc": "Selecione qualquer texto em qualquer página e aperte play. É só isso."
+      }
+    ],
+    "platformsTitle": "Guias de plataformas",
+    "platformsDesc": "Instruções passo a passo para usar o Voq nos seus sites favoritos.",
+    "platformsCta": "Ver todas as plataformas →",
+    "blogTitle": "Blog",
+    "blogDesc": "Dicas, novidades e ideias para aproveitar ao máximo o Voq.",
+    "blogCta": "Ler o blog →"
+  },
+  "zh-CN": {
+    "title": "Voq — Chrome 免费文本转语音",
+    "description": "Voq 是一款免费的 Chrome 扩展程序，可以朗读任何网页内容。支持多语言，配有朗读面板，适用于 ChatGPT、Claude、Reddit 等。",
+    "h1": "Chrome 免费<br />文本转语音",
+    "tagline": "Voq 可以朗读任何网页——AI 助手、论坛、文章。支持多语言，免费，无需注册账号。",
+    "ctaBtn": "添加到 Chrome —— 免费",
+    "featuresH2": "收听网页所需的一切功能",
+    "features": [
+      {
+        "title": "多语言支持",
+        "desc": "使用高质量语音朗读数十种语言的文本。"
+      },
+      {
+        "title": "朗读面板",
+        "desc": "朗读时逐词高亮显示，方便你跟读。"
+      },
+      {
+        "title": "支持 AI 助手",
+        "desc": "朗读 ChatGPT、Claude、Gemini 和 Perplexity 的回复内容。"
+      },
+      {
+        "title": "支持论坛",
+        "desc": "收听 Reddit、Hacker News 和 Stack Overflow 上的帖子。"
+      },
+      {
+        "title": "每日免费",
+        "desc": "自然的 AI 语音，每日免费使用。可选的每月 2 美元创始价可取消每日限额。"
+      },
+      {
+        "title": "一键操作",
+        "desc": "在任意页面选中任意文本，点击播放即可，就这么简单。"
+      }
+    ],
+    "platformsTitle": "平台指南",
+    "platformsDesc": "在你常用的网站上使用 Voq 的详细分步说明。",
+    "platformsCta": "查看所有平台 →",
+    "blogTitle": "博客",
+    "blogDesc": "充分利用 Voq 的小技巧、更新和创意。",
+    "blogCta": "阅读博客 →"
+  },
+  "ar": {
+    "title": "Voq — تحويل النص إلى كلام مجانًا لمتصفح Chrome",
+    "description": "Voq هو إضافة Chrome مجانية تقرأ أي صفحة ويب بصوت عالٍ. دعم متعدد اللغات، لوحة قراءة، ويعمل مع ChatGPT وClaude وReddit وغيرها.",
+    "h1": "تحويل النص إلى كلام مجانًا<br />لمتصفح Chrome",
+    "tagline": "يقرأ Voq أي صفحة ويب بصوت عالٍ — مساعدو الذكاء الاصطناعي، المنتديات، المقالات. متعدد اللغات، مجاني، ولا يتطلب حسابًا.",
+    "ctaBtn": "أضِف إلى Chrome — مجانًا",
+    "featuresH2": "كل ما تحتاجه للاستماع إلى الويب",
+    "features": [
+      {
+        "title": "متعدد اللغات",
+        "desc": "يقرأ النصوص بعشرات اللغات باستخدام أصوات عالية الجودة."
+      },
+      {
+        "title": "لوحة القراءة",
+        "desc": "يُبرز الكلمات أثناء نطقها حتى تتمكن من المتابعة."
+      },
+      {
+        "title": "يعمل مع مساعدي الذكاء الاصطناعي",
+        "desc": "يقرأ ردود ChatGPT وClaude وGemini وPerplexity."
+      },
+      {
+        "title": "يعمل على المنتديات",
+        "desc": "استمع إلى المواضيع على Reddit وHacker News وStack Overflow."
+      },
+      {
+        "title": "مجاني كل يوم",
+        "desc": "صوت ذكاء اصطناعي طبيعي، مجاني يوميًا. سعر التأسيس الاختياري بـ 2 دولار شهريًا يزيل الحد اليومي."
+      },
+      {
+        "title": "نقرة واحدة",
+        "desc": "حدد أي نص في أي صفحة واضغط على تشغيل. هذا كل ما في الأمر."
+      }
+    ],
+    "platformsTitle": "أدلة المنصات",
+    "platformsDesc": "تعليمات خطوة بخطوة لاستخدام Voq على مواقعك المفضلة.",
+    "platformsCta": "عرض جميع المنصات ←",
+    "blogTitle": "المدونة",
+    "blogDesc": "نصائح وتحديثات وأفكار للاستفادة القصوى من Voq.",
+    "blogCta": "قراءة المدونة ←"
+  }
+}

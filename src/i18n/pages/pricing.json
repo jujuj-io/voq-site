@@ -1,0 +1,453 @@
+{
+  "en": {
+    "title": "Pricing — Voq",
+    "description": "Voq reads any webpage aloud with natural AI voices, free every day. Skip the daily limit for $2/mo as a founding member — locked in before the price rises to $5/mo.",
+    "eyebrow": "turn any page into something you can listen to",
+    "h1_before": "Voq reads the web to you.",
+    "h1_break": "Free every day. ",
+    "h1_em": "No limit",
+    "h1_after": " for $2/mo.",
+    "sub": "Articles, docs, that novel-length email — highlight it or open the panel and Voq reads it aloud in a natural AI voice. That's free, every single day, up to a daily listening budget. Want no daily cap at all? Lock in the founding rate before it goes up.",
+    "freeTag": "always free",
+    "freeWho": "Natural AI voice, every day, up to a daily limit",
+    "foundingTag": "founding rate",
+    "foundingWho": "No daily limit, ever — while you stay subscribed",
+    "lockin": "The founding rate is for early users only. As more people join, the price for new subscribers rises — on its way to $5/mo. Whatever you lock in stays yours forever, even after the price moves. Early birds win. Actual worms not included.",
+    "whatH2": "Okay but what am I actually paying for?",
+    "cards": [
+      {
+        "title": "♾️ No more \"you've used your free minutes today\"",
+        "desc": "The free tier already includes natural AI voice — it's capped at a generous daily budget. Paid removes the cap entirely, so long articles and binge-listening days are never a problem."
+      },
+      {
+        "title": "🎧 The same great voice, just unlimited",
+        "desc": "Free or paid, you're hearing the same natural-sounding AI voice, not a robotic browser default. Paying doesn't upgrade the voice — it removes the leash."
+      },
+      {
+        "title": "📑 Skip straight to what you need",
+        "desc": "The reading panel is structured, not just one long stream — so you can skip straight to the section you want instead of listening start to finish."
+      },
+      {
+        "title": "💸 You're funding a tiny, honest project",
+        "desc": "No VC money, no ads, no data broker deals. Just a small tool trying to cover its own server bills. Your $2/mo keeps the lights on and keeps Voq weird and independent."
+      }
+    ],
+    "noaccountsH2": "Wait, there's really no sign-up?",
+    "noaccountsP1": "Correct. No email, no password, no \"create an account to continue.\" You pay through Stripe's checkout, you get a short code back, you paste it into the Voq panel. That's the whole system.",
+    "noaccountsP2": "Once you've activated a code in Chrome, it just works — it remembers itself automatically, even if you uninstall and reinstall the extension, as long as you're signed into the same Chrome profile. Get a new computer, or want to move it somewhere else entirely? If your old device has been quiet for about a week, the code frees itself up automatically so you can activate it again elsewhere. No support ticket, no \"please verify your identity,\" no email required — because there was never one to begin with.",
+    "noaccountsTiny": "(One code = one active device at a time, so it can't be shared across a dozen people at once — but moving it to your own next laptop is designed to just work.)",
+    "ctaH2": "Ready to listen?",
+    "ctaP": "Install Voq, open any page, and hit play. No account, no credit card needed to start.",
+    "ctaBtn": "Install Voq — it's free"
+  },
+  "de": {
+    "title": "Preise — Voq",
+    "description": "Voq liest jede Webseite mit natürlichen KI-Stimmen vor, täglich kostenlos. Entfernen Sie das Tageslimit für 2 €/Monat als Gründungsmitglied — sichern Sie sich den Preis, bevor er auf 5 €/Monat steigt.",
+    "eyebrow": "verwandeln Sie jede Seite in etwas, das Sie sich anhören können",
+    "h1_before": "Voq liest Ihnen das Web vor.",
+    "h1_break": "Täglich kostenlos. ",
+    "h1_em": "Ohne Limit",
+    "h1_after": " für 2 €/Monat.",
+    "sub": "Artikel, Dokumente, diese romanlange E-Mail — markieren Sie sie oder öffnen Sie das Panel, und Voq liest es Ihnen in einer natürlichen KI-Stimme vor. Das ist kostenlos, jeden einzelnen Tag, bis zu einem täglichen Hörbudget. Wollen Sie gar kein Tageslimit? Sichern Sie sich die Gründungsrate, bevor sie steigt.",
+    "freeTag": "immer kostenlos",
+    "freeWho": "Natürliche KI-Stimme, täglich, bis zu einem Tageslimit",
+    "foundingTag": "Gründungsrate",
+    "foundingWho": "Kein Tageslimit, solange, wie Sie abonniert bleiben",
+    "lockin": "Die Gründungsrate gilt nur für frühe Nutzer. Je mehr Menschen dazukommen, desto mehr steigt der Preis für neue Abonnenten — auf dem Weg zu 5 €/Monat. Was auch immer Sie sich sichern, bleibt für immer Ihres, auch wenn sich der Preis ändert. Frühe Vögel gewinnen. Würmer nicht inklusive.",
+    "whatH2": "Okay, aber wofür bezahle ich eigentlich?",
+    "cards": [
+      {
+        "title": "♾️ Kein „Sie haben Ihre kostenlosen Minuten für heute aufgebraucht“ mehr",
+        "desc": "Die kostenlose Stufe enthält bereits natürliche KI-Stimme — begrenzt auf ein großzügiges Tagesbudget. Bezahlt entfernt das Limit komplett, sodass lange Artikel und Hörmarathons nie ein Problem sind."
+      },
+      {
+        "title": "🎧 Die gleiche großartige Stimme, nur unbegrenzt",
+        "desc": "Ob kostenlos oder bezahlt, Sie hören dieselbe natürlich klingende KI-Stimme, keinen roboterhaften Browser-Standard. Bezahlen verbessert nicht die Stimme — es entfernt die Leine."
+      },
+      {
+        "title": "📑 Direkt zu dem springen, was Sie brauchen",
+        "desc": "Das Lesepanel ist strukturiert, nicht nur ein langer Strom — so können Sie direkt zu dem Abschnitt springen, den Sie wollen, statt von Anfang bis Ende zu hören."
+      },
+      {
+        "title": "💸 Sie finanzieren ein kleines, ehrliches Projekt",
+        "desc": "Kein VC-Geld, keine Werbung, keine Datenhändler-Deals. Nur ein kleines Tool, das versucht, seine eigenen Serverkosten zu decken. Ihre 2 €/Monat halten den Betrieb am Laufen und Voq eigenwillig und unabhängig."
+      }
+    ],
+    "noaccountsH2": "Moment, es gibt wirklich keine Anmeldung?",
+    "noaccountsP1": "Richtig. Keine E-Mail, kein Passwort, kein „Konto erstellen, um fortzufahren“. Sie bezahlen über Stripes Checkout, erhalten einen kurzen Code zurück und fügen ihn im Voq-Panel ein. Das ist das ganze System.",
+    "noaccountsP2": "Sobald Sie einen Code in Chrome aktiviert haben, funktioniert es einfach — es merkt sich das automatisch, selbst wenn Sie die Erweiterung deinstallieren und neu installieren, solange Sie im selben Chrome-Profil angemeldet sind. Neuer Computer, oder möchten Sie ihn ganz woanders nutzen? Wenn Ihr altes Gerät etwa eine Woche inaktiv war, gibt sich der Code automatisch frei, damit Sie ihn woanders erneut aktivieren können. Kein Support-Ticket, kein „Bitte bestätigen Sie Ihre Identität“, keine E-Mail erforderlich — denn es gab von Anfang an keine.",
+    "noaccountsTiny": "(Ein Code = ein aktives Gerät gleichzeitig, sodass er nicht mit einem Dutzend Leuten gleichzeitig geteilt werden kann — aber der Umzug auf Ihren nächsten Laptop soll einfach funktionieren.)",
+    "ctaH2": "Bereit zuzuhören?",
+    "ctaP": "Installieren Sie Voq, öffnen Sie eine beliebige Seite und drücken Sie Play. Kein Konto, keine Kreditkarte zum Starten nötig.",
+    "ctaBtn": "Voq installieren — kostenlos"
+  },
+  "es": {
+    "title": "Precios — Voq",
+    "description": "Voq lee en voz alta cualquier página web con voces de IA naturales, gratis todos los días. Elimina el límite diario por $2/mes como miembro fundador — asegura el precio antes de que suba a $5/mes.",
+    "eyebrow": "convierte cualquier página en algo que puedes escuchar",
+    "h1_before": "Voq te lee la web.",
+    "h1_break": "Gratis todos los días. ",
+    "h1_em": "Sin límite",
+    "h1_after": " por $2/mes.",
+    "sub": "Artículos, documentos, ese correo interminable — resáltalo o abre el panel y Voq lo lee en voz alta con una voz de IA natural. Eso es gratis, todos los días, hasta un presupuesto diario de escucha. ¿Quieres cero límite diario? Asegura la tarifa fundadora antes de que suba.",
+    "freeTag": "siempre gratis",
+    "freeWho": "Voz de IA natural, todos los días, hasta un límite diario",
+    "foundingTag": "tarifa fundadora",
+    "foundingWho": "Sin límite diario, nunca, mientras sigas suscrito",
+    "lockin": "La tarifa fundadora es solo para usuarios tempranos. A medida que se unen más personas, el precio para nuevos suscriptores sube — camino a $5/mes. Lo que asegures es tuyo para siempre, incluso después de que el precio cambie. Quien madruga, gana. Gusanos no incluidos.",
+    "whatH2": "Vale, ¿pero por qué estoy pagando exactamente?",
+    "cards": [
+      {
+        "title": "♾️ Se acabó el \"ya usaste tus minutos gratis de hoy\"",
+        "desc": "El plan gratuito ya incluye voz de IA natural — con un límite en un generoso presupuesto diario. El plan de pago elimina el límite por completo, así que los artículos largos y las maratones de escucha nunca son un problema."
+      },
+      {
+        "title": "🎧 La misma gran voz, solo que sin límites",
+        "desc": "Gratis o de pago, escuchas la misma voz de IA natural, no la robótica por defecto del navegador. Pagar no mejora la voz — quita la correa."
+      },
+      {
+        "title": "📑 Salta directo a lo que necesitas",
+        "desc": "El panel de lectura está estructurado, no es solo un flujo largo — así puedes saltar directo a la sección que quieres en lugar de escuchar de principio a fin."
+      },
+      {
+        "title": "💸 Estás financiando un proyecto pequeño y honesto",
+        "desc": "Sin dinero de capital de riesgo, sin anuncios, sin acuerdos con corredores de datos. Solo una pequeña herramienta que intenta cubrir sus propios costos de servidor. Tus $2/mes mantienen las luces encendidas y a Voq raro e independiente."
+      }
+    ],
+    "noaccountsH2": "Espera, ¿de verdad no hay que registrarse?",
+    "noaccountsP1": "Correcto. Sin correo, sin contraseña, sin \"crea una cuenta para continuar\". Pagas a través del checkout de Stripe, recibes un código corto y lo pegas en el panel de Voq. Ese es todo el sistema.",
+    "noaccountsP2": "Una vez que hayas activado un código en Chrome, simplemente funciona — se recuerda automáticamente, incluso si desinstalas y reinstalas la extensión, siempre que estés conectado al mismo perfil de Chrome. ¿Nueva computadora, o quieres moverlo a otro lugar por completo? Si tu dispositivo anterior ha estado inactivo durante aproximadamente una semana, el código se libera automáticamente para que puedas activarlo de nuevo en otro lugar. Sin tickets de soporte, sin \"verifica tu identidad\", sin correo requerido — porque nunca hubo uno para empezar.",
+    "noaccountsTiny": "(Un código = un dispositivo activo a la vez, así que no se puede compartir entre una docena de personas a la vez — pero moverlo a tu próxima laptop está diseñado para simplemente funcionar.)",
+    "ctaH2": "¿Listo para escuchar?",
+    "ctaP": "Instala Voq, abre cualquier página y pulsa reproducir. No necesitas cuenta ni tarjeta de crédito para empezar.",
+    "ctaBtn": "Instalar Voq — es gratis"
+  },
+  "fr": {
+    "title": "Tarifs — Voq",
+    "description": "Voq lit à voix haute n'importe quelle page web avec des voix IA naturelles, gratuitement chaque jour. Supprimez la limite quotidienne pour 2 $/mois en tant que membre fondateur — verrouillez le tarif avant qu'il ne passe à 5 $/mois.",
+    "eyebrow": "transformez n'importe quelle page en quelque chose que vous pouvez écouter",
+    "h1_before": "Voq vous lit le web.",
+    "h1_break": "Gratuit chaque jour. ",
+    "h1_em": "Sans limite",
+    "h1_after": " pour 2 $/mois.",
+    "sub": "Articles, documents, cet e-mail interminable — surlignez-le ou ouvrez le panneau et Voq le lit à voix haute avec une voix IA naturelle. C'est gratuit, tous les jours, jusqu'à un budget d'écoute quotidien. Vous voulez zéro limite quotidienne ? Verrouillez le tarif fondateur avant qu'il n'augmente.",
+    "freeTag": "toujours gratuit",
+    "freeWho": "Voix IA naturelle, chaque jour, jusqu'à une limite quotidienne",
+    "foundingTag": "tarif fondateur",
+    "foundingWho": "Aucune limite quotidienne, tant que vous restez abonné",
+    "lockin": "Le tarif fondateur est réservé aux premiers utilisateurs. À mesure que plus de gens rejoignent, le prix pour les nouveaux abonnés augmente — en direction de 5 $/mois. Ce que vous verrouillez reste à vous pour toujours, même après que le prix change. Les lève-tôt gagnent. Vers non inclus.",
+    "whatH2": "D'accord, mais je paie pour quoi exactement ?",
+    "cards": [
+      {
+        "title": "♾️ Fini le « vous avez épuisé vos minutes gratuites aujourd'hui »",
+        "desc": "L'offre gratuite inclut déjà la voix IA naturelle — plafonnée à un généreux budget quotidien. La version payante supprime totalement le plafond, donc les longs articles et les journées d'écoute intensive ne posent jamais de problème."
+      },
+      {
+        "title": "🎧 La même excellente voix, juste illimitée",
+        "desc": "Gratuit ou payant, vous entendez la même voix IA au son naturel, pas un robot par défaut du navigateur. Payer n'améliore pas la voix — cela retire la laisse."
+      },
+      {
+        "title": "📑 Passez directement à ce dont vous avez besoin",
+        "desc": "Le panneau de lecture est structuré, pas juste un long flux — vous pouvez donc passer directement à la section voulue plutôt que d'écouter du début à la fin."
+      },
+      {
+        "title": "💸 Vous financez un petit projet honnête",
+        "desc": "Pas d'argent de capital-risque, pas de publicités, pas d'accords avec des courtiers de données. Juste un petit outil qui essaie de couvrir ses propres frais de serveur. Vos 2 $/mois gardent les lumières allumées et Voq bizarre et indépendant."
+      }
+    ],
+    "noaccountsH2": "Attendez, il n'y a vraiment pas d'inscription ?",
+    "noaccountsP1": "Exact. Pas d'e-mail, pas de mot de passe, pas de « créez un compte pour continuer ». Vous payez via le paiement Stripe, vous recevez un court code, vous le collez dans le panneau Voq. C'est tout le système.",
+    "noaccountsP2": "Une fois qu'un code est activé dans Chrome, ça fonctionne tout seul — il se souvient automatiquement, même si vous désinstallez et réinstallez l'extension, tant que vous êtes connecté au même profil Chrome. Nouvel ordinateur, ou vous voulez le déplacer ailleurs ? Si votre ancien appareil est resté inactif environ une semaine, le code se libère automatiquement pour que vous puissiez l'activer ailleurs. Aucun ticket de support, aucun « veuillez vérifier votre identité », aucun e-mail requis — car il n'y en a jamais eu.",
+    "noaccountsTiny": "(Un code = un appareil actif à la fois, donc il ne peut pas être partagé entre une dizaine de personnes à la fois — mais le déplacer vers votre prochain ordinateur portable est conçu pour simplement fonctionner.)",
+    "ctaH2": "Prêt à écouter ?",
+    "ctaP": "Installez Voq, ouvrez n'importe quelle page et appuyez sur lecture. Aucun compte, aucune carte de crédit nécessaire pour commencer.",
+    "ctaBtn": "Installer Voq — c'est gratuit"
+  },
+  "it": {
+    "title": "Prezzi — Voq",
+    "description": "Voq legge ad alta voce qualsiasi pagina web con voci IA naturali, gratis ogni giorno. Rimuovi il limite giornaliero per 2 $/mese come membro fondatore — blocca il prezzo prima che salga a 5 $/mese.",
+    "eyebrow": "trasforma qualsiasi pagina in qualcosa da ascoltare",
+    "h1_before": "Voq ti legge il web.",
+    "h1_break": "Gratis ogni giorno. ",
+    "h1_em": "Nessun limite",
+    "h1_after": " per 2 $/mese.",
+    "sub": "Articoli, documenti, quell'email lunga come un romanzo — evidenziala o apri il pannello e Voq la legge ad alta voce con una voce IA naturale. Gratis, ogni singolo giorno, fino a un budget di ascolto giornaliero. Vuoi zero limiti giornalieri? Blocca la tariffa fondatore prima che aumenti.",
+    "freeTag": "sempre gratis",
+    "freeWho": "Voce IA naturale, ogni giorno, fino a un limite giornaliero",
+    "foundingTag": "tariffa fondatore",
+    "foundingWho": "Nessun limite giornaliero, finché resti abbonato",
+    "lockin": "La tariffa fondatore è riservata solo ai primi utenti. Man mano che si uniscono più persone, il prezzo per i nuovi abbonati sale — verso i 5 $/mese. Qualunque tariffa tu blocchi resta tua per sempre, anche dopo che il prezzo cambia. Chi arriva prima vince. Vermi non inclusi.",
+    "whatH2": "Ok, ma per cosa sto effettivamente pagando?",
+    "cards": [
+      {
+        "title": "♾️ Basta con \"hai esaurito i minuti gratuiti di oggi\"",
+        "desc": "Il piano gratuito include già la voce IA naturale — con un limite su un generoso budget giornaliero. Il piano a pagamento rimuove del tutto il limite, quindi articoli lunghi e giornate di ascolto no-stop non sono mai un problema."
+      },
+      {
+        "title": "🎧 La stessa ottima voce, solo illimitata",
+        "desc": "Gratis o a pagamento, senti la stessa voce IA dal suono naturale, non quella robotica predefinita del browser. Pagare non migliora la voce — toglie il guinzaglio."
+      },
+      {
+        "title": "📑 Vai dritto a ciò che ti serve",
+        "desc": "Il pannello di lettura è strutturato, non solo un lungo flusso — così puoi saltare direttamente alla sezione che vuoi invece di ascoltare dall'inizio alla fine."
+      },
+      {
+        "title": "💸 Stai finanziando un piccolo progetto onesto",
+        "desc": "Niente soldi da venture capital, niente pubblicità, nessun accordo con data broker. Solo un piccolo strumento che cerca di coprire le proprie spese server. I tuoi 2 $/mese tengono le luci accese e Voq stravagante e indipendente."
+      }
+    ],
+    "noaccountsH2": "Aspetta, non serve davvero registrarsi?",
+    "noaccountsP1": "Esatto. Niente email, niente password, niente \"crea un account per continuare\". Paghi tramite il checkout di Stripe, ricevi un breve codice, lo incolli nel pannello di Voq. Questo è tutto il sistema.",
+    "noaccountsP2": "Una volta attivato un codice in Chrome, funziona semplicemente — si ricorda automaticamente, anche se disinstalli e reinstalli l'estensione, purché tu sia connesso allo stesso profilo Chrome. Nuovo computer, o vuoi spostarlo del tutto altrove? Se il tuo vecchio dispositivo è rimasto inattivo per circa una settimana, il codice si libera automaticamente così puoi attivarlo di nuovo altrove. Nessun ticket di supporto, nessun \"verifica la tua identità\", nessuna email richiesta — perché non ce n'è mai stata una.",
+    "noaccountsTiny": "(Un codice = un dispositivo attivo alla volta, quindi non può essere condiviso tra una dozzina di persone contemporaneamente — ma spostarlo sul tuo prossimo laptop è pensato per funzionare senza problemi.)",
+    "ctaH2": "Pronto ad ascoltare?",
+    "ctaP": "Installa Voq, apri qualsiasi pagina e premi play. Nessun account, nessuna carta di credito necessaria per iniziare.",
+    "ctaBtn": "Installa Voq — è gratis"
+  },
+  "ja": {
+    "title": "料金 — Voq",
+    "description": "Voqは自然なAI音声であらゆるウェブページを毎日無料で読み上げます。ファウンダー会員なら月額2ドルで1日の上限を撤廃——月額5ドルに上がる前に今の料金を確保しましょう。",
+    "eyebrow": "あらゆるページを「聞けるもの」に変える",
+    "h1_before": "Voqがウェブを読み上げます。",
+    "h1_break": "毎日無料。",
+    "h1_em": "上限なし",
+    "h1_after": "は月額2ドル。",
+    "sub": "記事、ドキュメント、小説並みに長いメール——選択するかパネルを開けば、Voqが自然なAI音声で読み上げます。それは毎日無料です（1日の利用上限あり）。1日の上限を完全になくしたいですか？値上げ前にファウンダー料金を確保しましょう。",
+    "freeTag": "常に無料",
+    "freeWho": "自然なAI音声を毎日、1日の上限まで利用可能",
+    "foundingTag": "ファウンダー料金",
+    "foundingWho": "購読を続ける限り、1日の上限なし",
+    "lockin": "ファウンダー料金は早期ユーザー限定です。利用者が増えるにつれ、新規購読者向けの価格は上昇し、最終的には月額5ドルになります。一度確保した料金は、価格が変わった後もずっとあなたのものです。早い者勝ちです。虫は含まれません。",
+    "whatH2": "で、実際何にお金を払っているの？",
+    "cards": [
+      {
+        "title": "♾️ 「今日の無料利用分を使い切りました」ともう言わせない",
+        "desc": "無料プランにもすでに自然なAI音声が含まれています——1日の利用上限（十分な量）付きです。有料プランは上限を完全に撤廃するので、長文記事や一気聞きの日も問題ありません。"
+      },
+      {
+        "title": "🎧 同じ素晴らしい音声が、無制限に",
+        "desc": "無料でも有料でも、聞こえる音声はブラウザ標準のロボット的な声ではなく、同じ自然な響きのAI音声です。課金しても音声がグレードアップするわけではありません——制限が外れるだけです。"
+      },
+      {
+        "title": "📑 必要な部分だけ聞ける",
+        "desc": "読み上げパネルは単なる一続きの音声ではなく構造化されているので、最初から最後まで聞く代わりに、聞きたいセクションへ直接飛べます。"
+      },
+      {
+        "title": "💸 小さくて誠実なプロジェクトを支援できる",
+        "desc": "VC資金なし、広告なし、データブローカーとの取引もなし。サーバー代を賄おうとする小さなツールです。月額2ドルが、Voqを独立した個性的なプロジェクトのまま維持する力になります。"
+      }
+    ],
+    "noaccountsH2": "え、本当に登録不要なの？",
+    "noaccountsP1": "その通りです。メールもパスワードも「続けるにはアカウントを作成」も不要です。Stripeの決済で支払うと短いコードが発行され、それをVoqのパネルに貼り付けるだけ。それが仕組みのすべてです。",
+    "noaccountsP2": "Chromeでコードを一度有効化すれば、あとは自動的に記憶され、同じChromeプロファイルにサインインしている限り、拡張機能をアンインストール・再インストールしても問題なく動作します。新しいパソコンに移したい、あるいは別の場所で使いたい場合は？ 古いデバイスが約1週間使われていなければ、コードは自動的に解放され、別の場所で再度有効化できます。サポートチケットも「本人確認」も、メールアドレスも一切不要です——そもそも最初からメールアドレスなど存在しないからです。",
+    "noaccountsTiny": "（1つのコード＝同時に有効なデバイスは1台のみ。そのため大勢で一度に共有することはできませんが、次の自分のパソコンへ移す場合は問題なく機能するよう設計されています。）",
+    "ctaH2": "聞く準備はできましたか？",
+    "ctaP": "Voqをインストールし、任意のページを開いて再生を押すだけ。開始にアカウントもクレジットカードも不要です。",
+    "ctaBtn": "Voqをインストール — 無料"
+  },
+  "nl": {
+    "title": "Prijzen — Voq",
+    "description": "Voq leest elke webpagina hardop voor met natuurlijke AI-stemmen, elke dag gratis. Verwijder de dagelijkse limiet voor $2/maand als founding member — leg het tarief vast voordat het naar $5/maand stijgt.",
+    "eyebrow": "maak van elke pagina iets dat je kunt beluisteren",
+    "h1_before": "Voq leest het web voor.",
+    "h1_break": "Elke dag gratis. ",
+    "h1_em": "Geen limiet",
+    "h1_after": " voor $2/maand.",
+    "sub": "Artikelen, documenten, die roman-lange e-mail — markeer het of open het paneel en Voq leest het hardop voor met een natuurlijke AI-stem. Dat is elke dag gratis, tot een dagelijks luisterbudget. Wil je helemaal geen dagelijkse limiet? Leg het founding-tarief vast voordat het stijgt.",
+    "freeTag": "altijd gratis",
+    "freeWho": "Natuurlijke AI-stem, elke dag, tot een dagelijkse limiet",
+    "foundingTag": "founding-tarief",
+    "foundingWho": "Nooit een dagelijkse limiet, zolang je geabonneerd blijft",
+    "lockin": "Het founding-tarief is alleen voor vroege gebruikers. Naarmate meer mensen zich aansluiten, stijgt de prijs voor nieuwe abonnees — op weg naar $5/maand. Wat je ook vastlegt, blijft voor altijd van jou, zelfs nadat de prijs verandert. Vroege vogels winnen. Wormen niet inbegrepen.",
+    "whatH2": "Oké, maar waar betaal ik nu eigenlijk voor?",
+    "cards": [
+      {
+        "title": "♾️ Geen \"je gratis minuten voor vandaag zijn op\" meer",
+        "desc": "De gratis laag bevat al natuurlijke AI-stem — met een limiet op een royaal dagbudget. Betaald verwijdert de limiet volledig, dus lange artikelen en marathon-luisterdagen zijn nooit een probleem."
+      },
+      {
+        "title": "🎧 Dezelfde geweldige stem, gewoon onbeperkt",
+        "desc": "Gratis of betaald, je hoort dezelfde natuurlijk klinkende AI-stem, geen robotachtige standaardstem van de browser. Betalen verbetert de stem niet — het verwijdert de riem."
+      },
+      {
+        "title": "📑 Spring direct naar wat je nodig hebt",
+        "desc": "Het voorleespaneel is gestructureerd, niet slechts één lange stroom — zo kun je direct naar het gewenste onderdeel springen in plaats van van begin tot eind te luisteren."
+      },
+      {
+        "title": "💸 Je financiert een klein, eerlijk project",
+        "desc": "Geen VC-geld, geen advertenties, geen deals met databrokers. Gewoon een klein hulpmiddel dat probeert zijn eigen serverkosten te dekken. Jouw $2/maand houdt de lichten aan en Voq eigenzinnig en onafhankelijk."
+      }
+    ],
+    "noaccountsH2": "Wacht, is er echt geen aanmelding nodig?",
+    "noaccountsP1": "Klopt. Geen e-mail, geen wachtwoord, geen \"maak een account aan om door te gaan\". Je betaalt via Stripe's checkout, krijgt een korte code terug, en plakt die in het Voq-paneel. Dat is het hele systeem.",
+    "noaccountsP2": "Zodra je een code in Chrome hebt geactiveerd, werkt het gewoon — het onthoudt zichzelf automatisch, zelfs als je de extensie verwijdert en opnieuw installeert, zolang je bent ingelogd op hetzelfde Chrome-profiel. Nieuwe computer, of wil je het ergens anders naartoe verplaatsen? Als je oude apparaat ongeveer een week inactief is geweest, komt de code automatisch vrij zodat je hem elders opnieuw kunt activeren. Geen supportticket, geen \"verifieer je identiteit\", geen e-mail nodig — want die was er nooit.",
+    "noaccountsTiny": "(Eén code = één actief apparaat tegelijk, dus kan niet door tientallen mensen tegelijk worden gedeeld — maar verplaatsen naar je volgende eigen laptop is ontworpen om gewoon te werken.)",
+    "ctaH2": "Klaar om te luisteren?",
+    "ctaP": "Installeer Voq, open een pagina en druk op afspelen. Geen account, geen creditcard nodig om te beginnen.",
+    "ctaBtn": "Installeer Voq — het is gratis"
+  },
+  "pl": {
+    "title": "Cennik — Voq",
+    "description": "Voq czyta na głos dowolną stronę internetową naturalnymi głosami AI, za darmo każdego dnia. Usuń dzienny limit za 2 USD/mies. jako członek założyciel — zablokuj stawkę, zanim wzrośnie do 5 USD/mies.",
+    "eyebrow": "zamień dowolną stronę w coś, czego możesz posłuchać",
+    "h1_before": "Voq czyta Ci sieć na głos.",
+    "h1_break": "Codziennie za darmo. ",
+    "h1_em": "Bez limitu",
+    "h1_after": " za 2 USD/mies.",
+    "sub": "Artykuły, dokumenty, ten e-mail długości powieści — zaznacz go lub otwórz panel, a Voq przeczyta go na głos naturalnym głosem AI. To darmowe, każdego dnia, do dziennego limitu słuchania. Chcesz zero dziennego limitu? Zablokuj stawkę założycielską, zanim wzrośnie.",
+    "freeTag": "zawsze za darmo",
+    "freeWho": "Naturalny głos AI, codziennie, do dziennego limitu",
+    "foundingTag": "stawka założycielska",
+    "foundingWho": "Brak dziennego limitu, dopóki jesteś subskrybentem",
+    "lockin": "Stawka założycielska jest tylko dla wczesnych użytkowników. W miarę dołączania kolejnych osób cena dla nowych subskrybentów rośnie — w kierunku 5 USD/mies. Cokolwiek zablokujesz, zostaje Twoje na zawsze, nawet po zmianie ceny. Kto pierwszy, ten lepszy. Robaki nie wliczone.",
+    "whatH2": "Dobrze, ale za co właściwie płacę?",
+    "cards": [
+      {
+        "title": "♾️ Koniec z „wykorzystałeś dzisiejsze darmowe minuty”",
+        "desc": "Darmowy poziom już zawiera naturalny głos AI — z limitem w postaci hojnego dziennego budżetu. Płatna wersja całkowicie usuwa limit, więc długie artykuły i maratony słuchania nigdy nie są problemem."
+      },
+      {
+        "title": "🎧 Ten sam świetny głos, tylko bez ograniczeń",
+        "desc": "Darmowo czy płatnie, słyszysz ten sam naturalnie brzmiący głos AI, a nie robotyczny domyślny głos przeglądarki. Płacenie nie ulepsza głosu — usuwa smycz."
+      },
+      {
+        "title": "📑 Przejdź od razu do tego, czego potrzebujesz",
+        "desc": "Panel czytania jest ustrukturyzowany, a nie tylko jednym długim strumieniem — dzięki temu możesz przejść od razu do potrzebnej sekcji zamiast słuchać od początku do końca."
+      },
+      {
+        "title": "💸 Finansujesz mały, uczciwy projekt",
+        "desc": "Bez pieniędzy VC, bez reklam, bez umów z brokerami danych. Po prostu małe narzędzie próbujące pokryć własne koszty serwera. Twoje 2 USD/mies. utrzymują światła włączone, a Voq niezależny i po swojemu."
+      }
+    ],
+    "noaccountsH2": "Chwila, naprawdę nie trzeba się rejestrować?",
+    "noaccountsP1": "Zgadza się. Bez e-maila, bez hasła, bez „załóż konto, aby kontynuować”. Płacisz przez płatność Stripe, otrzymujesz krótki kod, wklejasz go w panelu Voq. To cały system.",
+    "noaccountsP2": "Gdy aktywujesz kod w Chrome, po prostu działa — zapamiętuje się automatycznie, nawet jeśli odinstalujesz i ponownie zainstalujesz rozszerzenie, o ile jesteś zalogowany na tym samym profilu Chrome. Nowy komputer, albo chcesz przenieść go gdzie indziej? Jeśli Twoje stare urządzenie było nieaktywne przez około tydzień, kod zwalnia się automatycznie, dzięki czemu możesz aktywować go ponownie gdzie indziej. Bez zgłoszenia do pomocy technicznej, bez „zweryfikuj swoją tożsamość”, bez wymaganego e-maila — bo nigdy go nie było.",
+    "noaccountsTiny": "(Jeden kod = jedno aktywne urządzenie naraz, więc nie da się go współdzielić między kilkanaście osób jednocześnie — ale przeniesienie go na Twój kolejny laptop ma po prostu działać.)",
+    "ctaH2": "Gotowy posłuchać?",
+    "ctaP": "Zainstaluj Voq, otwórz dowolną stronę i naciśnij odtwórz. Bez konta, bez karty kredytowej na start.",
+    "ctaBtn": "Zainstaluj Voq — za darmo"
+  },
+  "pt": {
+    "title": "Preços — Voq",
+    "description": "O Voq lê em voz alta qualquer página da web com vozes de IA naturais, grátis todos os dias. Remova o limite diário por $2/mês como membro fundador — garanta o preço antes que suba para $5/mês.",
+    "eyebrow": "transforme qualquer página em algo que você pode ouvir",
+    "h1_before": "O Voq lê a web para você.",
+    "h1_break": "Grátis todos os dias. ",
+    "h1_em": "Sem limite",
+    "h1_after": " por $2/mês.",
+    "sub": "Artigos, documentos, aquele e-mail do tamanho de um romance — selecione ou abra o painel e o Voq lê em voz alta com uma voz de IA natural. Isso é grátis, todos os dias, até um orçamento diário de audição. Quer zero limite diário? Garanta a taxa fundadora antes que ela suba.",
+    "freeTag": "sempre grátis",
+    "freeWho": "Voz de IA natural, todos os dias, até um limite diário",
+    "foundingTag": "taxa fundadora",
+    "foundingWho": "Sem limite diário, enquanto você continuar assinante",
+    "lockin": "A taxa fundadora é apenas para os primeiros usuários. À medida que mais pessoas entram, o preço para novos assinantes sobe — a caminho de $5/mês. O que você garantir é seu para sempre, mesmo depois que o preço mudar. Quem chega primeiro, ganha. Minhocas não incluídas.",
+    "whatH2": "Ok, mas pelo que estou realmente pagando?",
+    "cards": [
+      {
+        "title": "♾️ Chega de \"você usou seus minutos grátis de hoje\"",
+        "desc": "O plano gratuito já inclui voz de IA natural — com um limite em um generoso orçamento diário. O plano pago remove o limite completamente, então artigos longos e dias de maratona de escuta nunca são um problema."
+      },
+      {
+        "title": "🎧 A mesma ótima voz, só que ilimitada",
+        "desc": "Grátis ou pago, você ouve a mesma voz de IA de som natural, não o padrão robótico do navegador. Pagar não melhora a voz — remove a coleira."
+      },
+      {
+        "title": "📑 Vá direto ao que você precisa",
+        "desc": "O painel de leitura é estruturado, não apenas um longo fluxo — assim você pode pular direto para a seção que quer, em vez de ouvir do início ao fim."
+      },
+      {
+        "title": "💸 Você está financiando um projeto pequeno e honesto",
+        "desc": "Sem dinheiro de venture capital, sem anúncios, sem acordos com corretores de dados. Apenas uma pequena ferramenta tentando cobrir suas próprias contas de servidor. Seus $2/mês mantêm as luzes acesas e o Voq excêntrico e independente."
+      }
+    ],
+    "noaccountsH2": "Espera, não precisa mesmo se cadastrar?",
+    "noaccountsP1": "Correto. Sem e-mail, sem senha, sem \"crie uma conta para continuar\". Você paga pelo checkout da Stripe, recebe um código curto de volta e cola no painel do Voq. É todo o sistema.",
+    "noaccountsP2": "Depois de ativar um código no Chrome, ele simplesmente funciona — se lembra automaticamente, mesmo se você desinstalar e reinstalar a extensão, desde que esteja conectado ao mesmo perfil do Chrome. Novo computador, ou quer mover para outro lugar? Se seu dispositivo antigo ficou inativo por cerca de uma semana, o código se libera automaticamente para você ativar em outro lugar. Nenhum chamado de suporte, nenhum \"verifique sua identidade\", nenhum e-mail necessário — porque nunca houve um.",
+    "noaccountsTiny": "(Um código = um dispositivo ativo por vez, então não pode ser compartilhado entre uma dezena de pessoas ao mesmo tempo — mas mover para o seu próximo laptop foi projetado para simplesmente funcionar.)",
+    "ctaH2": "Pronto para ouvir?",
+    "ctaP": "Instale o Voq, abra qualquer página e aperte play. Nenhuma conta, nenhum cartão de crédito necessário para começar.",
+    "ctaBtn": "Instalar Voq — é grátis"
+  },
+  "zh-CN": {
+    "title": "定价 — Voq",
+    "description": "Voq 使用自然的 AI 语音朗读任何网页，每天免费使用。作为创始会员，每月支付 2 美元即可取消每日限额——在价格涨到每月 5 美元之前锁定优惠价。",
+    "eyebrow": "把任何页面变成可以收听的内容",
+    "h1_before": "Voq 为你朗读网页。",
+    "h1_break": "每天免费。",
+    "h1_em": "无限量",
+    "h1_after": "仅需每月 2 美元。",
+    "sub": "文章、文档、长如小说的邮件——选中文本或打开面板，Voq 就会用自然的 AI 语音朗读出来。这项功能每天免费使用，直到达到每日收听额度。想要完全没有每日限额？在涨价前锁定创始价。",
+    "freeTag": "永久免费",
+    "freeWho": "自然 AI 语音，每天可用，直到达到每日限额",
+    "foundingTag": "创始价",
+    "foundingWho": "只要保持订阅，永无每日限额",
+    "lockin": "创始价仅面向早期用户。随着更多人加入，新订阅者的价格会上涨——最终涨到每月 5 美元。无论你锁定了什么价格，即使日后价格变动，它也将永远属于你。早鸟赢。虫子不包含在内。",
+    "whatH2": "好吧，但我到底在为什么付费？",
+    "cards": [
+      {
+        "title": "♾️ 再也不会看到「今日免费额度已用完」",
+        "desc": "免费版已经包含自然 AI 语音——只是每日额度有上限（但相当宽裕）。付费版则完全取消该上限，长文章和「刷剧式」收听再也不是问题。"
+      },
+      {
+        "title": "🎧 同样出色的声音，只是不再受限",
+        "desc": "无论免费还是付费，你听到的都是同一个自然音色的 AI 语音，而不是浏览器自带的机械音。付费并不会升级声音——只是解除了限制。"
+      },
+      {
+        "title": "📑 直接跳到你需要的部分",
+        "desc": "朗读面板是有结构的，而不只是一段长长的连续音频——所以你可以直接跳到想听的部分，而不必从头听到尾。"
+      },
+      {
+        "title": "💸 你在资助一个小而诚实的项目",
+        "desc": "没有风投资金，没有广告，没有数据经纪交易。只是一个努力覆盖自己服务器成本的小工具。你的每月 2 美元让 Voq 保持运转，也让它保持独立和特立独行。"
+      }
+    ],
+    "noaccountsH2": "等等，真的不需要注册吗？",
+    "noaccountsP1": "没错。不需要邮箱，不需要密码，没有「创建账号才能继续」。你通过 Stripe 结账付款，会收到一个短码，把它粘贴到 Voq 面板中即可。整个流程就是这样。",
+    "noaccountsP2": "在 Chrome 中激活一个码之后，它就会自动生效——即使你卸载并重新安装扩展程序，只要你登录的是同一个 Chrome 账户，它就会自动记住。换了新电脑，或者想把它转移到别处？如果你的旧设备大约一周没有使用，该码会自动释放，方便你在别处重新激活。不需要提交支持工单，不需要「验证身份」，也不需要邮箱——因为从一开始就没有邮箱这回事。",
+    "noaccountsTiny": "（一个码同一时间只能对应一台设备，因此无法被十几个人同时共用——但转移到你自己的下一台笔记本电脑时，设计上是可以顺畅衔接的。）",
+    "ctaH2": "准备好收听了吗？",
+    "ctaP": "安装 Voq，打开任意页面，点击播放即可。开始使用无需账号，也无需信用卡。",
+    "ctaBtn": "安装 Voq —— 免费"
+  },
+  "ar": {
+    "title": "الأسعار — Voq",
+    "description": "يقرأ Voq أي صفحة ويب بصوت عالٍ بأصوات ذكاء اصطناعي طبيعية، مجانًا كل يوم. تخلَّص من الحد اليومي مقابل دولارين شهريًا كعضو مؤسس — احصل على هذا السعر قبل أن يرتفع إلى 5 دولارات شهريًا.",
+    "eyebrow": "حوّل أي صفحة إلى شيء يمكنك الاستماع إليه",
+    "h1_before": "Voq يقرأ لك الويب.",
+    "h1_break": "مجانًا كل يوم. ",
+    "h1_em": "بلا حدود",
+    "h1_after": " مقابل 2 دولار شهريًا.",
+    "sub": "المقالات، المستندات، ذلك البريد الإلكتروني الطويل كالرواية — حدده أو افتح اللوحة وسيقرأه Voq بصوت عالٍ بصوت ذكاء اصطناعي طبيعي. هذا مجاني، كل يوم، حتى حد يومي معين من الاستماع. تريد عدم وجود حد يومي على الإطلاق؟ احصل على سعر التأسيس قبل أن يرتفع.",
+    "freeTag": "مجاني دائمًا",
+    "freeWho": "صوت ذكاء اصطناعي طبيعي، كل يوم، حتى حد يومي",
+    "foundingTag": "سعر التأسيس",
+    "foundingWho": "بلا حد يومي على الإطلاق، طالما بقي اشتراكك فعالًا",
+    "lockin": "سعر التأسيس مخصص للمستخدمين الأوائل فقط. مع انضمام المزيد من الأشخاص، يرتفع السعر للمشتركين الجدد — في طريقه إلى 5 دولارات شهريًا. أيًا كان السعر الذي تحصل عليه، يبقى لك إلى الأبد، حتى بعد تغيّر السعر. من يسبق يفز. الديدان غير مشمولة.",
+    "whatH2": "حسنًا، لكن علام أدفع فعليًا؟",
+    "cards": [
+      {
+        "title": "♾️ لا مزيد من \"لقد استخدمت دقائقك المجانية اليوم\"",
+        "desc": "تتضمن الخطة المجانية بالفعل صوت ذكاء اصطناعي طبيعي — بحد يومي سخي. تزيل الخطة المدفوعة الحد بالكامل، لذا لا تشكل المقالات الطويلة وأيام الاستماع المكثف أي مشكلة أبدًا."
+      },
+      {
+        "title": "🎧 نفس الصوت الرائع، لكن بلا حدود",
+        "desc": "سواء مجانًا أو مدفوعًا، تستمع إلى نفس الصوت الطبيعي المولّد بالذكاء الاصطناعي، وليس الصوت الآلي الافتراضي للمتصفح. الدفع لا يُحسّن الصوت — بل يزيل القيد."
+      },
+      {
+        "title": "📑 انتقل مباشرة إلى ما تحتاجه",
+        "desc": "لوحة القراءة مُهيكلة، وليست مجرد تدفق طويل واحد — لذا يمكنك الانتقال مباشرة إلى القسم الذي تريده بدلاً من الاستماع من البداية إلى النهاية."
+      },
+      {
+        "title": "💸 أنت تموّل مشروعًا صغيرًا وصادقًا",
+        "desc": "لا أموال من مستثمرين، لا إعلانات، لا صفقات مع سماسرة بيانات. مجرد أداة صغيرة تحاول تغطية تكاليف خوادمها الخاصة. دولاراك شهريًا يبقيان المشروع قائمًا ويحافظان على استقلالية Voq وطابعه المميز."
+      }
+    ],
+    "noaccountsH2": "مهلاً، حقًا لا يوجد تسجيل؟",
+    "noaccountsP1": "صحيح. لا بريد إلكتروني، لا كلمة مرور، لا \"أنشئ حسابًا للمتابعة\". تدفع عبر صفحة الدفع من Stripe، وتحصل على رمز قصير، وتلصقه في لوحة Voq. هذا هو النظام بأكمله.",
+    "noaccountsP2": "بمجرد تفعيل رمز في Chrome، يعمل كل شيء تلقائيًا — يتذكر نفسه تلقائيًا، حتى لو قمت بإلغاء تثبيت الإضافة وإعادة تثبيتها، طالما أنك مسجل الدخول إلى نفس ملف تعريف Chrome. حصلت على جهاز كمبيوتر جديد، أو تريد نقله إلى مكان آخر تمامًا؟ إذا ظل جهازك القديم غير نشط لمدة أسبوع تقريبًا، يتحرر الرمز تلقائيًا لتتمكن من تفعيله في مكان آخر. لا تذاكر دعم، لا \"يرجى التحقق من هويتك\"، ولا حاجة إلى بريد إلكتروني — لأنه لم يكن هناك بريد إلكتروني من الأساس.",
+    "noaccountsTiny": "(رمز واحد = جهاز واحد نشط في كل مرة، لذا لا يمكن مشاركته بين عشرات الأشخاص في وقت واحد — لكن نقله إلى جهاز الكمبيوتر المحمول التالي الخاص بك مصمم ليعمل بسلاسة.)",
+    "ctaH2": "مستعد للاستماع؟",
+    "ctaP": "ثبّت Voq، افتح أي صفحة، واضغط تشغيل. لا حاجة لحساب أو بطاقة ائتمان للبدء.",
+    "ctaBtn": "ثبّت Voq — إنه مجاني"
+  }
+}
