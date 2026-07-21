@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
+import ReadAloudPlatformPage from '../../components/ReadAloudPlatformPage.astro';
 
 export async function getStaticPaths() {
-  const platforms = await getCollection('platforms');
+  const platforms = await getCollection('platforms', ({ id }) => id.startsWith('en/'));
   return platforms.map((entry) => ({
     params: { platform: entry.data.slug },
     props: { entry },
@@ -11,33 +11,5 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { name, description, metaDescription, steps } = entry.data;
-
-const CHROME_STORE_URL = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
 ---
-
-<Base
-  title={`Text to Speech for ${name} — Voq`}
-  description={metaDescription}
->
-  <div class="container">
-    <div class="platform-page">
-      <h1>Text to Speech for {name}</h1>
-      <p class="intro">{description}</p>
-
-      <h2>How to use Voq on {name}</h2>
-      <ol class="how-to-steps">
-        {steps.map((step) => (
-          <li>{step}</li>
-        ))}
-      </ol>
-
-      <div class="cta-block">
-        <p>Voq is free — no account, no subscription required.</p>
-        <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">
-          Add Voq to Chrome — Free
-        </a>
-      </div>
-    </div>
-  </div>
-</Base>
+<ReadAloudPlatformPage lang="en" entry={entry} />
