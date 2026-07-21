@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import privacyData from '../i18n/pages/privacy.json';
+
+interface Props { lang?: string }
+const { lang = 'en' } = Astro.props;
+const t = privacyData[lang] ?? privacyData.en;
+---
+
+<Base title={t.title} description={t.description} lang={lang} path="/privacy">
+  <div class="container">
+    <article class="prose">
+      <h1>{t.h1}</h1>
+      <p class="meta">Last updated: {t.lastUpdated}</p>
+
+      <p>{t.intro}</p>
+
+      <h2>{t.summaryH2}</h2>
+      <ul>
+        {t.summaryItems.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>{t.howH2}</h2>
+      <p>{t.howP1}</p>
+      <p><strong>{t.standardLabel}</strong> <Fragment set:html={t.standardBody} /></p>
+      <p><strong>{t.naturalLabel}</strong> <Fragment set:html={t.naturalBody} /></p>
+
+      <h2>{t.dataH2}</h2>
+      <p>{t.dataP1}</p>
+      <ul>
+        {t.dataItems.map((item) => <li>{item}</li>)}
+      </ul>
+      <p>{t.dataP2}</p>
+      <p set:html={t.dataP3} />
+
+      <h2>{t.thirdH2}</h2>
+      <p set:html={t.thirdP} />
+
+      <h2>{t.permissionsH2}</h2>
+      <p>{t.permissionsP}</p>
+
+      <h2>{t.accountsH2}</h2>
+      <p>{t.accountsP}</p>
+
+      <h2>{t.childrenH2}</h2>
+      <p>{t.childrenP}</p>
+
+      <h2>{t.changesH2}</h2>
+      <p>{t.changesP}</p>
+
+      <h2>{t.contactH2}</h2>
+      <p>{t.contactP}</p>
+    </article>
+  </div>
+</Base>

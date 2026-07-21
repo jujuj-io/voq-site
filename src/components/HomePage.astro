@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import homeData from '../i18n/pages/home.json';
+
+interface Props { lang?: string }
+const { lang = 'en' } = Astro.props;
+const t = homeData[lang] ?? homeData.en;
+
+const CHROME_STORE_URL = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+
+const platforms = [
+  { name: 'ChatGPT', slug: 'chatgpt' },
+  { name: 'Claude', slug: 'claude' },
+  { name: 'Gemini', slug: 'gemini' },
+  { name: 'Perplexity', slug: 'perplexity' },
+  { name: 'Reddit', slug: 'reddit' },
+  { name: 'Hacker News', slug: 'hacker-news' },
+  { name: 'Stack Overflow', slug: 'stack-overflow' },
+];
+
+const prefix = lang === 'en' ? '' : `/${lang}`;
+---
+
+<Base title={t.title} description={t.description} lang={lang} path="">
+  <section class="hero">
+    <div class="container">
+      <h1 set:html={t.h1} />
+      <p class="tagline">{t.tagline}</p>
+      <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2>{t.featuresH2}</h2>
+      <div class="feature-grid">
+        {t.features.map((f) => (
+          <div class="feature-card">
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section-links">
+      <div class="link-card">
+        <h3>{t.platformsTitle}</h3>
+        <p>{t.platformsDesc}</p>
+        <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin-bottom: 0.75rem;">
+          {platforms.map((p) => (
+            <li>
+              <a href={`${prefix}/read-aloud/${p.slug}`}>{p.name}</a>
+            </li>
+          ))}
+        </ul>
+        <a href={`${prefix}/read-aloud`}>{t.platformsCta}</a>
+      </div>
+
+      <div class="link-card">
+        <h3>{t.blogTitle}</h3>
+        <p>{t.blogDesc}</p>
+        <a href={`${prefix}/blog`}>{t.blogCta}</a>
+      </div>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+
+interface Props { lang?: string; entry: any }
+const { lang = 'en', entry } = Astro.props;
+const { name, description, metaDescription, steps } = entry.data;
+
+const CHROME_STORE_URL = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+
+const UI = {
+  en: { titleTpl: (n) => `Text to Speech for ${n} — Voq`, h1Tpl: (n) => `Text to Speech for ${n}`, howH2Tpl: (n) => `How to use Voq on ${n}`, ctaP: 'Voq is free — no account, no subscription required.', ctaBtn: 'Add Voq to Chrome — Free' },
+  de: { titleTpl: (n) => `Text-to-Speech für ${n} — Voq`, h1Tpl: (n) => `Text-to-Speech für ${n}`, howH2Tpl: (n) => `So nutzen Sie Voq auf ${n}`, ctaP: 'Voq ist kostenlos — kein Konto, kein Abo nötig.', ctaBtn: 'Voq kostenlos zu Chrome hinzufügen' },
+  es: { titleTpl: (n) => `Texto a voz para ${n} — Voq`, h1Tpl: (n) => `Texto a voz para ${n}`, howH2Tpl: (n) => `Cómo usar Voq en ${n}`, ctaP: 'Voq es gratis — sin cuenta, sin suscripción necesaria.', ctaBtn: 'Añadir Voq a Chrome — Gratis' },
+  fr: { titleTpl: (n) => `Synthèse vocale pour ${n} — Voq`, h1Tpl: (n) => `Synthèse vocale pour ${n}`, howH2Tpl: (n) => `Comment utiliser Voq sur ${n}`, ctaP: "Voq est gratuit — aucun compte, aucun abonnement requis.", ctaBtn: 'Ajouter Voq à Chrome — Gratuit' },
+  it: { titleTpl: (n) => `Sintesi vocale per ${n} — Voq`, h1Tpl: (n) => `Sintesi vocale per ${n}`, howH2Tpl: (n) => `Come usare Voq su ${n}`, ctaP: 'Voq è gratis — nessun account, nessun abbonamento richiesto.', ctaBtn: 'Aggiungi Voq a Chrome — Gratis' },
+  ja: { titleTpl: (n) => `${n}のテキスト読み上げ — Voq`, h1Tpl: (n) => `${n}のテキスト読み上げ`, howH2Tpl: (n) => `${n}でVoqを使う方法`, ctaP: 'Voqは無料です——アカウントも購読も不要です。', ctaBtn: 'Voqを無料でChromeに追加' },
+  nl: { titleTpl: (n) => `Tekst-naar-spraak voor ${n} — Voq`, h1Tpl: (n) => `Tekst-naar-spraak voor ${n}`, howH2Tpl: (n) => `Hoe je Voq gebruikt op ${n}`, ctaP: 'Voq is gratis — geen account, geen abonnement nodig.', ctaBtn: 'Voq gratis toevoegen aan Chrome' },
+  pl: { titleTpl: (n) => `Zamiana tekstu na mowę dla ${n} — Voq`, h1Tpl: (n) => `Zamiana tekstu na mowę dla ${n}`, howH2Tpl: (n) => `Jak korzystać z Voq na ${n}`, ctaP: 'Voq jest darmowy — bez konta, bez subskrypcji.', ctaBtn: 'Dodaj Voq do Chrome — Za darmo' },
+  pt: { titleTpl: (n) => `Texto para fala para ${n} — Voq`, h1Tpl: (n) => `Texto para fala para ${n}`, howH2Tpl: (n) => `Como usar o Voq no ${n}`, ctaP: 'O Voq é grátis — sem conta, sem assinatura necessária.', ctaBtn: 'Adicionar Voq ao Chrome — Grátis' },
+  'zh-CN': { titleTpl: (n) => `${n} 文本转语音 — Voq`, h1Tpl: (n) => `${n} 文本转语音`, howH2Tpl: (n) => `如何在 ${n} 上使用 Voq`, ctaP: 'Voq 完全免费——无需账号，无需订阅。', ctaBtn: '将 Voq 免费添加到 Chrome' },
+  ar: { titleTpl: (n) => `تحويل النص إلى كلام لـ ${n} — Voq`, h1Tpl: (n) => `تحويل النص إلى كلام لـ ${n}`, howH2Tpl: (n) => `كيفية استخدام Voq على ${n}`, ctaP: 'Voq مجاني — لا حاجة لحساب أو اشتراك.', ctaBtn: 'أضف Voq إلى Chrome مجانًا' },
+};
+const t = UI[lang] ?? UI.en;
+---
+
+<Base title={t.titleTpl(name)} description={metaDescription} lang={lang} path={`/read-aloud/${entry.data.slug}`}>
+  <div class="container">
+    <div class="platform-page">
+      <h1>{t.h1Tpl(name)}</h1>
+      <p class="intro">{description}</p>
+
+      <h2>{t.howH2Tpl(name)}</h2>
+      <ol class="how-to-steps">
+        {steps.map((step) => (
+          <li>{step}</li>
+        ))}
+      </ol>
+
+      <div class="cta-block">
+        <p>{t.ctaP}</p>
+        <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">
+          {t.ctaBtn}
+        </a>
+      </div>
+    </div>
+  </div>
+</Base>

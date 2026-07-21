@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+interface Props { lang?: string }
+const { lang = 'en' } = Astro.props;
+
+const UI = {
+  en: { title: 'Text to Speech Platform Guides — Voq', desc: 'How to use Voq to read aloud content on ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News, and Stack Overflow.', h1: 'Platform Guides', intro: 'How to use Voq on your favourite websites.' },
+  de: { title: 'Text-to-Speech-Plattform-Anleitungen — Voq', desc: 'Wie Sie Voq nutzen, um Inhalte auf ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News und Stack Overflow vorlesen zu lassen.', h1: 'Plattform-Anleitungen', intro: 'Wie Sie Voq auf Ihren Lieblingsseiten nutzen.' },
+  es: { title: 'Guías de plataformas de texto a voz — Voq', desc: 'Cómo usar Voq para leer en voz alta contenido en ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News y Stack Overflow.', h1: 'Guías de plataformas', intro: 'Cómo usar Voq en tus sitios favoritos.' },
+  fr: { title: 'Guides de plateformes de synthèse vocale — Voq', desc: 'Comment utiliser Voq pour lire à voix haute du contenu sur ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News et Stack Overflow.', h1: 'Guides par plateforme', intro: 'Comment utiliser Voq sur vos sites préférés.' },
+  it: { title: 'Guide alle piattaforme di sintesi vocale — Voq', desc: "Come usare Voq per leggere ad alta voce contenuti su ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News e Stack Overflow.", h1: 'Guide per piattaforma', intro: 'Come usare Voq sui tuoi siti preferiti.' },
+  ja: { title: 'テキスト読み上げプラットフォームガイド — Voq', desc: 'ChatGPT、Claude、Gemini、Perplexity、Reddit、Hacker News、Stack OverflowでVoqを使って読み上げる方法。', h1: 'プラットフォームガイド', intro: 'お気に入りのサイトでVoqを使う方法。' },
+  nl: { title: 'Tekst-naar-spraak platformgidsen — Voq', desc: 'Hoe je Voq gebruikt om inhoud voor te lezen op ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News en Stack Overflow.', h1: 'Platformgidsen', intro: 'Hoe je Voq gebruikt op je favoriete sites.' },
+  pl: { title: 'Przewodniki po platformach zamiany tekstu na mowę — Voq', desc: 'Jak korzystać z Voq, aby odczytywać na głos treści na ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News i Stack Overflow.', h1: 'Przewodniki po platformach', intro: 'Jak korzystać z Voq na ulubionych stronach.' },
+  pt: { title: 'Guias de plataformas de texto para fala — Voq', desc: 'Como usar o Voq para ler em voz alta conteúdo no ChatGPT, Claude, Gemini, Perplexity, Reddit, Hacker News e Stack Overflow.', h1: 'Guias de plataformas', intro: 'Como usar o Voq nos seus sites favoritos.' },
+  'zh-CN': { title: '文本转语音平台指南 — Voq', desc: '如何使用 Voq 朗读 ChatGPT、Claude、Gemini、Perplexity、Reddit、Hacker News 和 Stack Overflow 上的内容。', h1: '平台指南', intro: '如何在你常用的网站上使用 Voq。' },
+  ar: { title: 'أدلة منصات تحويل النص إلى كلام — Voq', desc: 'كيفية استخدام Voq لقراءة المحتوى بصوت عالٍ على ChatGPT وClaude وGemini وPerplexity وReddit وHacker News وStack Overflow.', h1: 'أدلة المنصات', intro: 'كيفية استخدام Voq على مواقعك المفضلة.' },
+};
+const t = UI[lang] ?? UI.en;
+
+const platforms = await getCollection('platforms', ({ id }) => id.startsWith(`${lang}/`));
+const prefix = lang === 'en' ? '' : `/${lang}`;
+---
+
+<Base title={t.title} description={t.desc} lang={lang} path="/read-aloud">
+  <div class="container">
+    <div class="page-header">
+      <h1>{t.h1}</h1>
+      <p>{t.intro}</p>
+    </div>
+
+    <ul class="post-list">
+      {platforms.map((p) => (
+        <li>
+          <a href={`${prefix}/read-aloud/${p.data.slug}`}>{p.data.name}</a>
+          <p class="meta">{p.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

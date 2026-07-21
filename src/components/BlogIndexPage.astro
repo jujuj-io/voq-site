@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+interface Props { lang?: string }
+const { lang = 'en' } = Astro.props;
+
+const UI = {
+  en: { title: 'Blog — Voq', desc: 'Tips, updates, and ideas from the Voq team.', h1: 'Blog', intro: 'Tips, updates, and ideas for getting the most out of Voq.', dateLocale: 'en-US' },
+  de: { title: 'Blog — Voq', desc: 'Tipps, Neuigkeiten und Ideen vom Voq-Team.', h1: 'Blog', intro: 'Tipps, Neuigkeiten und Ideen, um das Beste aus Voq herauszuholen.', dateLocale: 'de-DE' },
+  es: { title: 'Blog — Voq', desc: 'Consejos, novedades e ideas del equipo de Voq.', h1: 'Blog', intro: 'Consejos, novedades e ideas para sacar el máximo partido a Voq.', dateLocale: 'es-ES' },
+  fr: { title: 'Blog — Voq', desc: "Astuces, actualités et idées de l'équipe Voq.", h1: 'Blog', intro: 'Astuces, actualités et idées pour tirer le meilleur de Voq.', dateLocale: 'fr-FR' },
+  it: { title: 'Blog — Voq', desc: 'Consigli, novità e idee dal team di Voq.', h1: 'Blog', intro: 'Consigli, novità e idee per sfruttare al meglio Voq.', dateLocale: 'it-IT' },
+  ja: { title: 'ブログ — Voq', desc: 'Voqチームからのヒント、最新情報、アイデア。', h1: 'ブログ', intro: 'Voqを最大限活用するためのヒント、最新情報、アイデア。', dateLocale: 'ja-JP' },
+  nl: { title: 'Blog — Voq', desc: 'Tips, updates en ideeën van het Voq-team.', h1: 'Blog', intro: 'Tips, updates en ideeën om het meeste uit Voq te halen.', dateLocale: 'nl-NL' },
+  pl: { title: 'Blog — Voq', desc: 'Wskazówki, aktualności i pomysły od zespołu Voq.', h1: 'Blog', intro: 'Wskazówki, aktualności i pomysły, jak najlepiej wykorzystać Voq.', dateLocale: 'pl-PL' },
+  pt: { title: 'Blog — Voq', desc: 'Dicas, novidades e ideias da equipe do Voq.', h1: 'Blog', intro: 'Dicas, novidades e ideias para aproveitar ao máximo o Voq.', dateLocale: 'pt-PT' },
+  'zh-CN': { title: '博客 — Voq', desc: '来自 Voq 团队的小技巧、更新和创意。', h1: '博客', intro: '充分利用 Voq 的小技巧、更新和创意。', dateLocale: 'zh-CN' },
+  ar: { title: 'المدونة — Voq', desc: 'نصائح وتحديثات وأفكار من فريق Voq.', h1: 'المدونة', intro: 'نصائح وتحديثات وأفكار للاستفادة القصوى من Voq.', dateLocale: 'ar' },
+};
+const t = UI[lang] ?? UI.en;
+
+const posts = (await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`))).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const prefix = lang === 'en' ? '' : `/${lang}`;
+---
+
+<Base title={t.title} description={t.desc} lang={lang} path="/blog">
+  <div class="container">
+    <div class="page-header">
+      <h1>{t.h1}</h1>
+      <p>{t.intro}</p>
+    </div>
+
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`${prefix}/blog/${post.slug.split('/').slice(1).join('/')}`}>{post.data.title}</a>
+          <p class="meta">
+            {post.data.pubDate.toLocaleDateString(t.dateLocale, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

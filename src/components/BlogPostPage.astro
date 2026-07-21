@@ -1,0 +1,24 @@
+---
+import BlogPost from '../layouts/BlogPost.astro';
+
+interface Props { lang?: string; post: any }
+const { lang = 'en', post } = Astro.props;
+const { Content } = await post.render();
+
+const DATE_LOCALES = {
+  en: 'en-US', de: 'de-DE', es: 'es-ES', fr: 'fr-FR', it: 'it-IT', ja: 'ja-JP',
+  nl: 'nl-NL', pl: 'pl-PL', pt: 'pt-PT', 'zh-CN': 'zh-CN', ar: 'ar',
+};
+const slug = post.slug.split('/').slice(1).join('/');
+---
+
+<BlogPost
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  lang={lang}
+  path={`/blog/${slug}`}
+  dateLocale={DATE_LOCALES[lang] ?? 'en-US'}
+>
+  <Content />
+</BlogPost>
