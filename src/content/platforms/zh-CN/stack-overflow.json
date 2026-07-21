@@ -1,0 +1,15 @@
+{
+  "name": "Stack Overflow",
+  "slug": "stack-overflow",
+  "description": "使用 Voq 免费的 Chrome 文本转语音扩展程序，解放双手收听Stack Overflow。",
+  "metaDescription": "使用 Voq 朗读Stack Overflow内容。免费的 Chrome 扩展程序，无需注册账号。适用于 stackoverflow.com。",
+  "steps": [
+    "从 Chrome 网上应用店安装 Voq——完全免费，无需账号。",
+    "打开 stackoverflow.com，找到你想收听的Stack Overflow内容。",
+    "选中你希望 Voq 朗读的文本。",
+    "点击 Chrome 工具栏中的 Voq 图标，或右键点击并选择“用 Voq 朗读”。",
+    "Voq 会打开朗读面板并开始朗读文本，朗读时会逐词高亮显示。",
+    "使用播放控件暂停、继续播放，或调整朗读速度。"
+  ],
+  "lang": "zh-CN"
+}
