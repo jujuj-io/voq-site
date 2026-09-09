@@ -37,7 +37,8 @@
     "platformsCta": "See all platforms →",
     "blogTitle": "Blog",
     "blogDesc": "Tips, updates, and ideas for getting the most out of Voq.",
-    "blogCta": "Read the blog →"
+    "blogCta": "Read the blog →",
+    "testimonialsHeading": "Loved by people who read the web out loud"
   },
   "de": {
     "title": "Voq — Kostenlose Text-to-Speech-Erweiterung für Chrome",
@@ -77,7 +78,8 @@
     "platformsCta": "Alle Plattformen ansehen →",
     "blogTitle": "Blog",
     "blogDesc": "Tipps, Neuigkeiten und Ideen, um das Beste aus Voq herauszuholen.",
-    "blogCta": "Blog lesen →"
+    "blogCta": "Blog lesen →",
+    "testimonialsHeading": "Geliebt von Menschen, die sich das Web vorlesen lassen"
   },
   "es": {
     "title": "Voq — Texto a voz gratis para Chrome",
@@ -117,7 +119,8 @@
     "platformsCta": "Ver todas las plataformas →",
     "blogTitle": "Blog",
     "blogDesc": "Consejos, novedades e ideas para sacar el máximo partido a Voq.",
-    "blogCta": "Leer el blog →"
+    "blogCta": "Leer el blog →",
+    "testimonialsHeading": "Adorado por quienes escuchan la web en voz alta"
   },
   "fr": {
     "title": "Voq — Synthèse vocale gratuite pour Chrome",
@@ -157,7 +160,8 @@
     "platformsCta": "Voir toutes les plateformes →",
     "blogTitle": "Blog",
     "blogDesc": "Astuces, actualités et idées pour tirer le meilleur de Voq.",
-    "blogCta": "Lire le blog →"
+    "blogCta": "Lire le blog →",
+    "testimonialsHeading": "Adoré par celles et ceux qui écoutent le web à voix haute"
   },
   "it": {
     "title": "Voq — Sintesi vocale gratuita per Chrome",
@@ -197,7 +201,8 @@
     "platformsCta": "Vedi tutte le piattaforme →",
     "blogTitle": "Blog",
     "blogDesc": "Consigli, novità e idee per sfruttare al meglio Voq.",
-    "blogCta": "Leggi il blog →"
+    "blogCta": "Leggi il blog →",
+    "testimonialsHeading": "Amato da chi si fa leggere il web ad alta voce"
   },
   "ja": {
     "title": "Voq — Chrome用無料テキスト読み上げ",
@@ -237,7 +242,8 @@
     "platformsCta": "すべてのプラットフォームを見る →",
     "blogTitle": "ブログ",
     "blogDesc": "Voqを最大限活用するためのヒント、最新情報、アイデア。",
-    "blogCta": "ブログを読む →"
+    "blogCta": "ブログを読む →",
+    "testimonialsHeading": "ウェブを声に出して読む人々に愛されています"
   },
   "nl": {
     "title": "Voq — Gratis tekst-naar-spraak voor Chrome",
@@ -277,7 +283,8 @@
     "platformsCta": "Bekijk alle platforms →",
     "blogTitle": "Blog",
     "blogDesc": "Tips, updates en ideeën om het meeste uit Voq te halen.",
-    "blogCta": "Lees de blog →"
+    "blogCta": "Lees de blog →",
+    "testimonialsHeading": "Geliefd bij mensen die het web hardop laten voorlezen"
   },
   "pl": {
     "title": "Voq — Darmowa zamiana tekstu na mowę dla Chrome",
@@ -317,7 +324,8 @@
     "platformsCta": "Zobacz wszystkie platformy →",
     "blogTitle": "Blog",
     "blogDesc": "Wskazówki, aktualności i pomysły, jak najlepiej wykorzystać Voq.",
-    "blogCta": "Czytaj bloga →"
+    "blogCta": "Czytaj bloga →",
+    "testimonialsHeading": "Uwielbiany przez osoby, które słuchają internetu na głos"
   },
   "pt": {
     "title": "Voq — Texto para fala grátis para Chrome",
@@ -357,7 +365,8 @@
     "platformsCta": "Ver todas as plataformas →",
     "blogTitle": "Blog",
     "blogDesc": "Dicas, novidades e ideias para aproveitar ao máximo o Voq.",
-    "blogCta": "Ler o blog →"
+    "blogCta": "Ler o blog →",
+    "testimonialsHeading": "Amado por quem ouve a web em voz alta"
   },
   "zh-CN": {
     "title": "Voq — Chrome 免费文本转语音",
@@ -397,7 +406,8 @@
     "platformsCta": "查看所有平台 →",
     "blogTitle": "博客",
     "blogDesc": "充分利用 Voq 的小技巧、更新和创意。",
-    "blogCta": "阅读博客 →"
+    "blogCta": "阅读博客 →",
+    "testimonialsHeading": "深受喜欢听网页朗读的用户喜爱"
   },
   "ar": {
     "title": "Voq — تحويل النص إلى كلام مجانًا لمتصفح Chrome",
@@ -437,6 +447,7 @@
     "platformsCta": "عرض جميع المنصات ←",
     "blogTitle": "المدونة",
     "blogDesc": "نصائح وتحديثات وأفكار للاستفادة القصوى من Voq.",
-    "blogCta": "قراءة المدونة ←"
+    "blogCta": "قراءة المدونة ←",
+    "testimonialsHeading": "محبوب من قبل الأشخاص الذين يستمعون إلى الويب بصوت عالٍ"
   }
 }

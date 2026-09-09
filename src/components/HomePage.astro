@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import homeData from '../i18n/pages/home.json';
+import Testimonials from './Testimonials.astro';
 
 interface Props { lang?: string }
 const { lang = 'en' } = Astro.props;
@@ -43,6 +44,8 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
       </div>
     </div>
   </section>
+
+  <Testimonials heading={t.testimonialsHeading} />
 
   <div class="container">
     <div class="section-links">

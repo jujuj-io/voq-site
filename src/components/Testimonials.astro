@@ -1,0 +1,42 @@
+---
+interface Props { heading?: string }
+const { heading = 'Loved by people who read the web out loud' } = Astro.props;
+
+const testimonials = [
+  {
+    quote: "So much better than the competition and way more affordable. Thank you so much for creating this 🙏",
+    name: 'Kourosh Ghaffari',
+  },
+  {
+    quote: 'The customizable voices and playback speed are exactly what I was looking for. Great accessibility tool.',
+    name: 'Bliss Elliot',
+  },
+  {
+    quote: 'Great text reader for different languages! I often go through webpages that are in French and English, and this helps me go through both languages at the same time :D',
+    name: 'Jules Canlas',
+  },
+  {
+    quote: 'The interface looks simple and professional.',
+    name: 'Matter Loveth',
+  },
+  {
+    quote: 'Smooth experience and easy navigation.',
+    name: 'Done Smart',
+  },
+];
+---
+
+<section class="testimonials">
+  <div class="container">
+    <h2>{heading}</h2>
+    <div class="testimonial-grid">
+      {testimonials.map((t) => (
+        <figure class="testimonial-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+          <figcaption>{t.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
