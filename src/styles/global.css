@@ -360,10 +360,11 @@ footer a {
 
 /* Hero rating badge */
 .hero-rating {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 1.75rem;
+  margin: 0 auto 1.25rem;
   font-size: 0.9rem;
   color: var(--color-muted);
 }
