@@ -357,3 +357,18 @@ footer a {
   color: var(--color-muted);
   font-weight: 600;
 }
+
+/* Hero rating badge */
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.hero-rating .stars {
+  color: #f5a623;
+  letter-spacing: 0.05em;
+}

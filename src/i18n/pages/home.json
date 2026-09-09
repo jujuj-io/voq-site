@@ -38,7 +38,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Tips, updates, and ideas for getting the most out of Voq.",
     "blogCta": "Read the blog →",
-    "testimonialsHeading": "Loved by people who read the web out loud"
+    "testimonialsHeading": "Loved by people who read the web out loud",
+    "heroRating": "4.9/5 from Chrome Web Store reviews"
   },
   "de": {
     "title": "Voq — Kostenlose Text-to-Speech-Erweiterung für Chrome",
@@ -79,7 +80,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Tipps, Neuigkeiten und Ideen, um das Beste aus Voq herauszuholen.",
     "blogCta": "Blog lesen →",
-    "testimonialsHeading": "Geliebt von Menschen, die sich das Web vorlesen lassen"
+    "testimonialsHeading": "Geliebt von Menschen, die sich das Web vorlesen lassen",
+    "heroRating": "4,9/5 aus Chrome-Web-Store-Bewertungen"
   },
   "es": {
     "title": "Voq — Texto a voz gratis para Chrome",
@@ -120,7 +122,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Consejos, novedades e ideas para sacar el máximo partido a Voq.",
     "blogCta": "Leer el blog →",
-    "testimonialsHeading": "Adorado por quienes escuchan la web en voz alta"
+    "testimonialsHeading": "Adorado por quienes escuchan la web en voz alta",
+    "heroRating": "4,9/5 según reseñas de Chrome Web Store"
   },
   "fr": {
     "title": "Voq — Synthèse vocale gratuite pour Chrome",
@@ -161,7 +164,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Astuces, actualités et idées pour tirer le meilleur de Voq.",
     "blogCta": "Lire le blog →",
-    "testimonialsHeading": "Adoré par celles et ceux qui écoutent le web à voix haute"
+    "testimonialsHeading": "Adoré par celles et ceux qui écoutent le web à voix haute",
+    "heroRating": "4,9/5 selon les avis du Chrome Web Store"
   },
   "it": {
     "title": "Voq — Sintesi vocale gratuita per Chrome",
@@ -202,7 +206,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Consigli, novità e idee per sfruttare al meglio Voq.",
     "blogCta": "Leggi il blog →",
-    "testimonialsHeading": "Amato da chi si fa leggere il web ad alta voce"
+    "testimonialsHeading": "Amato da chi si fa leggere il web ad alta voce",
+    "heroRating": "4,9/5 dalle recensioni sul Chrome Web Store"
   },
   "ja": {
     "title": "Voq — Chrome用無料テキスト読み上げ",
@@ -243,7 +248,8 @@
     "blogTitle": "ブログ",
     "blogDesc": "Voqを最大限活用するためのヒント、最新情報、アイデア。",
     "blogCta": "ブログを読む →",
-    "testimonialsHeading": "ウェブを声に出して読む人々に愛されています"
+    "testimonialsHeading": "ウェブを声に出して読む人々に愛されています",
+    "heroRating": "Chromeウェブストアのレビューで4.9/5"
   },
   "nl": {
     "title": "Voq — Gratis tekst-naar-spraak voor Chrome",
@@ -284,7 +290,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Tips, updates en ideeën om het meeste uit Voq te halen.",
     "blogCta": "Lees de blog →",
-    "testimonialsHeading": "Geliefd bij mensen die het web hardop laten voorlezen"
+    "testimonialsHeading": "Geliefd bij mensen die het web hardop laten voorlezen",
+    "heroRating": "4,9/5 op basis van Chrome Web Store-recensies"
   },
   "pl": {
     "title": "Voq — Darmowa zamiana tekstu na mowę dla Chrome",
@@ -325,7 +332,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Wskazówki, aktualności i pomysły, jak najlepiej wykorzystać Voq.",
     "blogCta": "Czytaj bloga →",
-    "testimonialsHeading": "Uwielbiany przez osoby, które słuchają internetu na głos"
+    "testimonialsHeading": "Uwielbiany przez osoby, które słuchają internetu na głos",
+    "heroRating": "4,9/5 na podstawie recenzji w Chrome Web Store"
   },
   "pt": {
     "title": "Voq — Texto para fala grátis para Chrome",
@@ -366,7 +374,8 @@
     "blogTitle": "Blog",
     "blogDesc": "Dicas, novidades e ideias para aproveitar ao máximo o Voq.",
     "blogCta": "Ler o blog →",
-    "testimonialsHeading": "Amado por quem ouve a web em voz alta"
+    "testimonialsHeading": "Amado por quem ouve a web em voz alta",
+    "heroRating": "4,9/5 nas avaliações da Chrome Web Store"
   },
   "zh-CN": {
     "title": "Voq — Chrome 免费文本转语音",
@@ -407,7 +416,8 @@
     "blogTitle": "博客",
     "blogDesc": "充分利用 Voq 的小技巧、更新和创意。",
     "blogCta": "阅读博客 →",
-    "testimonialsHeading": "深受喜欢听网页朗读的用户喜爱"
+    "testimonialsHeading": "深受喜欢听网页朗读的用户喜爱",
+    "heroRating": "Chrome 网上应用店评分 4.9/5"
   },
   "ar": {
     "title": "Voq — تحويل النص إلى كلام مجانًا لمتصفح Chrome",
@@ -448,6 +458,7 @@
     "blogTitle": "المدونة",
     "blogDesc": "نصائح وتحديثات وأفكار للاستفادة القصوى من Voq.",
     "blogCta": "قراءة المدونة ←",
-    "testimonialsHeading": "محبوب من قبل الأشخاص الذين يستمعون إلى الويب بصوت عالٍ"
+    "testimonialsHeading": "محبوب من قبل الأشخاص الذين يستمعون إلى الويب بصوت عالٍ",
+    "heroRating": "4.9/5 من تقييمات متجر Chrome الإلكتروني"
   }
 }

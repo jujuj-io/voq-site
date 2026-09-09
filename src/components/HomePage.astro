@@ -27,6 +27,10 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     <div class="container">
       <h1 set:html={t.h1} />
       <p class="tagline">{t.tagline}</p>
+      <div class="hero-rating" aria-label={t.heroRating}>
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>{t.heroRating}</span>
+      </div>
       <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
     </div>
   </section>
