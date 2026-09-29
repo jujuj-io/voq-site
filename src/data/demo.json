@@ -20,7 +20,9 @@
       "tap": "Tip: click any word to jump there",
       "cta": "Voq reads any page like this.",
       "ctaLink": "Add to Chrome →",
-      "error": "Couldn't load the audio. Please try again."
+      "error": "Couldn't load the audio. Please try again.",
+      "search": "Search languages",
+      "noMatch": "No match"
     },
     "fr": {
       "press": "Appuyez sur lecture pour écouter Voq",
@@ -29,7 +31,9 @@
       "tap": "Astuce : cliquez sur un mot pour y aller",
       "cta": "Voq lit n'importe quelle page comme ça.",
       "ctaLink": "Ajouter à Chrome →",
-      "error": "Impossible de charger l'audio. Réessayez."
+      "error": "Impossible de charger l'audio. Réessayez.",
+      "search": "Rechercher une langue",
+      "noMatch": "Aucun résultat"
     },
     "es": {
       "press": "Pulsa play para escuchar a Voq",
@@ -38,7 +42,9 @@
       "tap": "Consejo: haz clic en una palabra para saltar ahí",
       "cta": "Voq lee cualquier página así.",
       "ctaLink": "Añadir a Chrome →",
-      "error": "No se pudo cargar el audio. Inténtalo de nuevo."
+      "error": "No se pudo cargar el audio. Inténtalo de nuevo.",
+      "search": "Buscar idioma",
+      "noMatch": "Sin resultados"
     },
     "de": {
       "press": "Drück Play, um Voq zu hören",
@@ -47,7 +53,9 @@
       "tap": "Tipp: Klick auf ein Wort, um dorthin zu springen",
       "cta": "Voq liest jede Seite so vor.",
       "ctaLink": "Zu Chrome hinzufügen →",
-      "error": "Audio konnte nicht geladen werden. Bitte versuch es erneut."
+      "error": "Audio konnte nicht geladen werden. Bitte versuch es erneut.",
+      "search": "Sprache suchen",
+      "noMatch": "Keine Treffer"
     },
     "it": {
       "press": "Premi play per ascoltare Voq",
@@ -56,7 +64,9 @@
       "tap": "Suggerimento: clicca una parola per saltare lì",
       "cta": "Voq legge qualsiasi pagina così.",
       "ctaLink": "Aggiungi a Chrome →",
-      "error": "Impossibile caricare l'audio. Riprova."
+      "error": "Impossibile caricare l'audio. Riprova.",
+      "search": "Cerca lingua",
+      "noMatch": "Nessun risultato"
     },
     "nl": {
       "press": "Druk op play om Voq te horen",
@@ -65,7 +75,9 @@
       "tap": "Tip: klik op een woord om daarheen te springen",
       "cta": "Voq leest elke pagina zo voor.",
       "ctaLink": "Toevoegen aan Chrome →",
-      "error": "Audio kon niet worden geladen. Probeer het opnieuw."
+      "error": "Audio kon niet worden geladen. Probeer het opnieuw.",
+      "search": "Taal zoeken",
+      "noMatch": "Geen resultaten"
     },
     "pl": {
       "press": "Naciśnij play, aby posłuchać Voq",
@@ -74,7 +86,9 @@
       "tap": "Wskazówka: kliknij słowo, aby tam przejść",
       "cta": "Voq czyta każdą stronę w ten sposób.",
       "ctaLink": "Dodaj do Chrome →",
-      "error": "Nie udało się wczytać dźwięku. Spróbuj ponownie."
+      "error": "Nie udało się wczytać dźwięku. Spróbuj ponownie.",
+      "search": "Szukaj języka",
+      "noMatch": "Brak wyników"
     },
     "ja": {
       "press": "再生を押してVoqを聴く",
@@ -83,7 +97,9 @@
       "tap": "ヒント：単語をクリックするとそこから再生",
       "cta": "Voqはどんなページもこのように読み上げます。",
       "ctaLink": "Chromeに追加 →",
-      "error": "音声を読み込めませんでした。もう一度お試しください。"
+      "error": "音声を読み込めませんでした。もう一度お試しください。",
+      "search": "言語を検索",
+      "noMatch": "見つかりません"
     },
     "zh-CN": {
       "press": "点击播放，听听Voq",
@@ -92,7 +108,9 @@
       "tap": "提示：点击任意词语即可跳转",
       "cta": "Voq可以这样朗读任何网页。",
       "ctaLink": "添加到Chrome →",
-      "error": "音频加载失败，请重试。"
+      "error": "音频加载失败，请重试。",
+      "search": "搜索语言",
+      "noMatch": "无匹配结果"
     },
     "ar": {
       "press": "اضغط تشغيل لتسمع Voq",
@@ -101,7 +119,9 @@
       "tap": "نصيحة: انقر على أي كلمة للانتقال إليها",
       "cta": "يقرأ Voq أي صفحة بهذه الطريقة.",
       "ctaLink": "أضف إلى Chrome ←",
-      "error": "تعذّر تحميل الصوت. حاول مرة أخرى."
+      "error": "تعذّر تحميل الصوت. حاول مرة أخرى.",
+      "search": "ابحث عن لغة",
+      "noMatch": "لا توجد نتائج"
     },
     "pt": {
       "press": "Carregue em play para ouvir o Voq",
@@ -110,7 +130,9 @@
       "tap": "Dica: clique numa palavra para saltar para lá",
       "cta": "O Voq lê qualquer página assim.",
       "ctaLink": "Adicionar ao Chrome →",
-      "error": "Não foi possível carregar o áudio. Tente novamente."
+      "error": "Não foi possível carregar o áudio. Tente novamente.",
+      "search": "Pesquisar idioma",
+      "noMatch": "Sem resultados"
     }
   },
   "voices": {

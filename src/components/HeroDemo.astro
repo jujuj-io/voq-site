@@ -18,7 +18,6 @@ const voices = Object.fromEntries(
 const codes = Object.keys(voices);
 const preferred = (demo.siteLocaleVoice as Record<string, string>)[lang] ?? 'en';
 const initial = voices[preferred] ? preferred : voices.en ? 'en' : codes[0];
-const label = (v: Voice) => (v.native === v.english ? v.native : `${v.native} · ${v.english}`);
 const sorted = [...codes].sort((a, b) => allVoices[a].english.localeCompare(allVoices[b].english));
 const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].text, rtl: voices[c].rtl }]));
 ---
@@ -28,19 +27,34 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
   <div class="vd-win">
     <div class="vd-bar">
       <div class="vd-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-      <label class="vd-lang">
-        <span class="vd-sr">Language</span>
-        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 10h15M10 2.5c2.2 2.2 3.2 4.7 3.2 7.5s-1 5.3-3.2 7.5c-2.2-2.2-3.2-4.7-3.2-7.5s1-5.3 3.2-7.5z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        <select class="vd-select">
-          {sorted.map((c) => <option value={c} selected={c === initial}>{label(voices[c])}</option>)}
-        </select>
-        <svg class="vd-chev" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </label>
+      <div class="vd-lang">
+        <button type="button" class="vd-lang-btn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 10h15M10 2.5c2.2 2.2 3.2 4.7 3.2 7.5s-1 5.3-3.2 7.5c-2.2-2.2-3.2-4.7-3.2-7.5s1-5.3 3.2-7.5z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span class="vd-lang-cur">{voices[initial].native}</span>
+          <svg class="vd-chev" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="vd-pop" hidden>
+          <input class="vd-search" type="text" placeholder={`${ui.search} (${codes.length})`} aria-label={ui.search} autocomplete="off" spellcheck="false" />
+          <ul class="vd-list" role="listbox" aria-label={ui.search}>
+            {sorted.map((c) => (
+              <li role="option" data-code={c} data-q={`${voices[c].native} ${voices[c].english} ${c}`.toLowerCase()} aria-selected={c === initial ? 'true' : 'false'}>
+                <span class="n">{voices[c].native}</span>
+                {voices[c].native !== voices[c].english && <span class="e">{voices[c].english}</span>}
+              </li>
+            ))}
+          </ul>
+          <p class="vd-nomatch" hidden>{ui.noMatch}</p>
+        </div>
+      </div>
+      <div class="vd-size" role="group" aria-label="Text size">
+        <button type="button" data-size="-1" aria-label="Smaller text">A<span>−</span></button>
+        <button type="button" data-size="1" aria-label="Larger text" class="big">A<span>+</span></button>
+      </div>
     </div>
 
     <div class="vd-page">
       <div class="vd-paper">
-        <div class="vd-reader" lang={initial} dir={voices[initial].rtl ? 'rtl' : 'ltr'}>{voices[initial].text}</div>
+        <div class="vd-reader" data-size="1" lang={initial} dir={voices[initial].rtl ? 'rtl' : 'ltr'}><p>{voices[initial].text}</p></div>
       </div>
 
       <div class="vd-player">
@@ -65,11 +79,11 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
           </button>
           <button type="button" class="vd-speed" aria-label="Playback speed">1x</button>
         </div>
+        <p class="vd-tip">{ui.tap}</p>
       </div>
     </div>
   </div>
 
-  <p class="vd-tip">{ui.tap}</p>
   <p class="vd-status" role="status"></p>
   <div class="vd-cta" hidden>
     <span>{ui.cta}</span>
@@ -86,7 +100,13 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     const ui: Record<string, string> = JSON.parse(root.dataset.ui!);
     const $ = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
     const reader = $('.vd-reader');
-    const select = $<HTMLSelectElement>('.vd-select');
+    const langBtn = $<HTMLButtonElement>('.vd-lang-btn');
+    const langCur = $('.vd-lang-cur');
+    const pop = $('.vd-pop');
+    const search = $<HTMLInputElement>('.vd-search');
+    const noMatch = $('.vd-nomatch');
+    const items = [...root.querySelectorAll<HTMLLIElement>('.vd-list li')];
+    const SIZES = 3;
     const playBtn = $<HTMLButtonElement>('.vd-play');
     const speedBtn = $<HTMLButtonElement>('.vd-speed');
     const curEl = $('.vd-cur');
@@ -133,46 +153,59 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
       return text.split(/(\s+)/).filter(Boolean).map((t) => ({ seg: t, word: !/^\s+$/.test(t) }));
     }
 
-    // Build the clickable karaoke text. Timing is estimated from word length and punctuation pauses.
+    // Build the clickable karaoke text, split into short paragraphs.
+    // Timing is estimated from word length and punctuation pauses.
     function buildReader() {
       const v = voices[code];
       reader.textContent = '';
       reader.lang = code;
       reader.dir = v.rtl ? 'rtl' : 'ltr';
       words = []; sentences = []; marks = []; total = 0;
-      let sentEl: HTMLElement | null = null;
-      for (const { seg, word } of segments(v.text, code)) {
-        const isSpace = /^\s+$/.test(seg);
-        if (!sentEl && !isSpace) {
-          sentEl = document.createElement('span');
-          sentEl.className = 'sent';
-          reader.append(sentEl);
-          sentences.push({ el: sentEl, text: '' });
-        }
-        if (isSpace) {
-          (sentEl ?? reader).append(seg);
-          if (sentEl) sentences[sentences.length - 1].text += seg;
-          continue;
-        }
-        if (!sentEl) { reader.append(seg); continue; }
-        sentences[sentences.length - 1].text += seg;
-        if (word) {
-          const el = document.createElement('span');
-          el.className = 'word';
-          el.textContent = seg;
-          el.dataset.i = String(words.length);
-          sentEl.append(el);
-          words.push({ el, s: sentences.length - 1 });
-          marks.push(total);
-          total += [...seg].length * (CJK.test(seg) ? 2.2 : 1) + 1;
-        } else {
-          sentEl.append(seg);
-          if (SENT_END.test(seg)) total += 8;
-          else if (/[:;：；]/.test(seg)) total += 6;
-          else if (/[,،、，—–]/.test(seg)) total += 3;
-          if (SENT_END.test(seg)) sentEl = null;
-        }
+
+      // Pass 1: group segments into sentences.
+      const groups: { seg: string; word: boolean }[][] = [[]];
+      for (const x of segments(v.text, code)) {
+        const g = groups[groups.length - 1];
+        if (/^\s+$/.test(x.seg) && !g.length) continue;
+        g.push(x);
+        if (!x.word && SENT_END.test(x.seg)) groups.push([]);
       }
+      if (!groups[groups.length - 1].length) groups.pop();
+
+      // Paragraphs: intro | what it does | when to use it | call to action.
+      const n = groups.length;
+      const breaks = new Set(n >= 5 ? [2, 4, n - 1] : n >= 3 ? [2] : []);
+      let para = document.createElement('p');
+      reader.append(para);
+
+      groups.forEach((g, si) => {
+        if (breaks.has(si)) { para = document.createElement('p'); reader.append(para); }
+        else if (si > 0) para.append(' ');
+        const sentEl = document.createElement('span');
+        sentEl.className = 'sent';
+        para.append(sentEl);
+        sentences.push({ el: sentEl, text: '' });
+        // trim trailing whitespace inside the sentence
+        while (g.length && /^\s+$/.test(g[g.length - 1].seg)) g.pop();
+        for (const { seg, word } of g) {
+          sentences[si].text += seg;
+          if (word) {
+            const el = document.createElement('span');
+            el.className = 'word';
+            el.textContent = seg;
+            el.dataset.i = String(words.length);
+            sentEl.append(el);
+            words.push({ el, s: si });
+            marks.push(total);
+            total += [...seg].length * (CJK.test(seg) ? 2.2 : 1) + 1;
+          } else {
+            sentEl.append(seg);
+            if (SENT_END.test(seg)) total += 8;
+            else if (/[:;：；]/.test(seg)) total += 6;
+            else if (/[,،、，—–]/.test(seg)) total += 3;
+          }
+        }
+      });
       sentences.forEach((x) => (x.text = x.text.trim()));
       curWord = -1; curSent = -1;
       reader.scrollTop = 0;
@@ -191,7 +224,7 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
         nowEl.textContent = short(sentences[s].text);
       }
       const el = words[i].el;
-      const target = el.offsetTop - reader.clientHeight * 0.4;
+      const target = el.getBoundingClientRect().top - reader.getBoundingClientRect().top + reader.scrollTop - reader.clientHeight * 0.4;
       if (Math.abs(reader.scrollTop - target) > 24) reader.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
     }
 
@@ -289,7 +322,71 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
       speedBtn.textContent = `${SPEEDS[speedIdx]}x`;
     });
 
-    select.addEventListener('change', () => loadVoice(select.value));
+    // Language picker with type-to-filter
+    let active = -1;
+    const visible = () => items.filter((li) => !li.hidden);
+    function markActive(i: number) {
+      const vis = visible();
+      vis.forEach((li) => li.classList.remove('active'));
+      active = Math.max(0, Math.min(vis.length - 1, i));
+      vis[active]?.classList.add('active');
+      vis[active]?.scrollIntoView({ block: 'nearest' });
+    }
+    function openPop() {
+      pop.hidden = false;
+      langBtn.setAttribute('aria-expanded', 'true');
+      search.value = '';
+      filter();
+      const cur = visible().findIndex((li) => li.dataset.code === code);
+      markActive(cur);
+      search.focus();
+    }
+    function closePop(focusBtn = false) {
+      pop.hidden = true;
+      langBtn.setAttribute('aria-expanded', 'false');
+      if (focusBtn) langBtn.focus();
+    }
+    function filter() {
+      const q = search.value.trim().toLowerCase();
+      items.forEach((li) => (li.hidden = !!q && !li.dataset.q!.includes(q)));
+      noMatch.hidden = visible().length > 0;
+      markActive(0);
+    }
+    function choose(li?: HTMLElement) {
+      if (!li) return;
+      const next = li.dataset.code!;
+      items.forEach((x) => x.setAttribute('aria-selected', x === li ? 'true' : 'false'));
+      langCur.textContent = li.querySelector('.n')!.textContent;
+      closePop(true);
+      if (next !== code) loadVoice(next);
+    }
+    langBtn.addEventListener('click', () => (pop.hidden ? openPop() : closePop()));
+    search.addEventListener('input', filter);
+    search.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); markActive(active + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); markActive(active - 1); }
+      else if (e.key === 'Enter') { e.preventDefault(); choose(visible()[active]); }
+      else if (e.key === 'Escape') { e.preventDefault(); closePop(true); }
+    });
+    items.forEach((li) => {
+      li.addEventListener('click', () => choose(li));
+      li.addEventListener('mousemove', () => { const i = visible().indexOf(li); if (i !== active) markActive(i); });
+    });
+    document.addEventListener('pointerdown', (e) => {
+      if (!pop.hidden && !(e.target as HTMLElement).closest('.vd-lang')) closePop();
+    });
+
+    // Text size (0 = small, 1 = default, 2 = large)
+    root.querySelectorAll<HTMLButtonElement>('.vd-size button').forEach((b) =>
+      b.addEventListener('click', () => {
+        const next = Math.max(0, Math.min(SIZES - 1, Number(reader.dataset.size) + Number(b.dataset.size)));
+        reader.dataset.size = String(next);
+        const [minus, plus] = root.querySelectorAll<HTMLButtonElement>('.vd-size button');
+        minus.disabled = next === 0;
+        plus.disabled = next === SIZES - 1;
+        if (curWord >= 0) { const w = curWord; curWord = -1; highlight(w); }
+      })
+    );
 
     audio.addEventListener('loadedmetadata', () => {
       durEl.textContent = fmt(audio.duration);
@@ -329,7 +426,6 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     border-radius: 18px;
     border: 1px solid rgba(15, 23, 42, 0.08);
     box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 24px 60px -18px rgba(15, 23, 42, 0.28);
-    overflow: hidden;
   }
 
   .vd-bar {
@@ -337,50 +433,121 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    height: 50px;
-    padding: 0 0.7rem 0 0.9rem;
+    height: 46px;
+    padding: 0 0.6rem 0 0.9rem;
     border-bottom: 1px solid #eef0f3;
+    border-radius: 18px 18px 0 0;
+    background: #fff;
+    position: relative;
+    z-index: 5;
   }
   .vd-dots { display: flex; gap: 6px; flex: none; }
   .vd-dots i { width: 10px; height: 10px; border-radius: 50%; background: #e3e6ea; }
 
-  .vd-lang {
-    position: relative;
+  .vd-lang { position: relative; min-width: 0; }
+  .vd-lang-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    min-width: 0;
-    max-width: 72%;
-    padding: 0 0.7rem;
-    height: 34px;
-    border-radius: 999px;
-    background: #f4f5f7;
+    gap: 0.35rem;
+    max-width: 100%;
+    height: 28px;
+    padding: 0 0.55rem;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--ink);
     cursor: pointer;
     transition: background 0.15s;
   }
-  .vd-lang:hover { background: #eceef2; }
-  .vd-lang:focus-within { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); }
-  .vd-lang svg { flex: none; color: var(--soft); }
-  .vd-select {
-    appearance: none;
-    -webkit-appearance: none;
-    min-width: 0;
-    border: 0;
-    background: transparent;
+  .vd-lang-btn:hover, .vd-lang-btn[aria-expanded='true'] { background: #f2f4f7; }
+  .vd-lang-btn:focus-visible { outline: 2px solid rgba(37, 99, 235, 0.4); outline-offset: 1px; }
+  .vd-lang-btn svg { flex: none; color: var(--soft); }
+  .vd-lang-cur { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .vd-pop {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    margin-left: -125px;
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08), 0 18px 40px -12px rgba(15, 23, 42, 0.3);
+    padding: 6px;
+    z-index: 20;
+    animation: vd-fade 0.14s ease-out;
+  }
+  .vd-pop[hidden] { display: none; }
+  .vd-search {
+    width: 100%;
+    height: 34px;
+    padding: 0 0.65rem;
+    border: 1px solid #e6e8ec;
+    border-radius: 8px;
     font: inherit;
     font-size: 0.85rem;
-    font-weight: 600;
     color: var(--ink);
-    padding-inline-end: 0.9rem;
-    margin-inline-end: -0.9rem;
-    cursor: pointer;
-    text-overflow: ellipsis;
+    background: #fafbfc;
     outline: none;
   }
-  .vd-chev { pointer-events: none; }
+  .vd-search:focus { border-color: rgba(37, 99, 235, 0.5); background: #fff; }
+  .vd-list {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .vd-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 7px;
+    font-size: 0.85rem;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .vd-list li[hidden] { display: none; }
+  .vd-list li .n { white-space: nowrap; }
+  .vd-list li .e { min-width: 0; font-size: 0.72rem; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vd-list li.active { background: #f2f5fb; }
+  .vd-list li[aria-selected='true'] { color: var(--blue); font-weight: 600; }
+  .vd-nomatch { margin: 0.5rem 0.6rem; font-size: 0.8rem; color: var(--soft); }
+  .vd-nomatch[hidden] { display: none; }
 
-  .vd-page { background: #f3f4f6; padding: 1.1rem 1.1rem 0; display: flow-root; }
+  .vd-size {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    border-radius: 7px;
+    background: #f4f5f7;
+    padding: 2px;
+  }
+  .vd-size button {
+    width: 30px;
+    height: 24px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1;
+  }
+  .vd-size button.big { font-size: 0.9rem; }
+  .vd-size button span { font-size: 0.7rem; font-weight: 600; margin-inline-start: 1px; }
+  .vd-size button:hover:not(:disabled) { background: #fff; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
+  .vd-size button:disabled { color: #c3c7cd; cursor: default; }
+
+  .vd-page { background: #f3f4f6; padding: 1.1rem 1.1rem 0; display: flow-root; border-radius: 0 0 18px 18px; }
   .vd-paper {
     position: relative;
     background: #fff;
@@ -400,8 +567,8 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     height: 15.5rem;
     padding: 1.5rem 1.75rem 3.25rem;
     font-family: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-    font-size: 1.12rem;
-    line-height: 1.85;
+    font-size: 1rem;
+    line-height: 1.75;
     color: var(--ink);
     overflow-y: auto;
     scrollbar-width: none;
@@ -411,8 +578,11 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
   .vd-reader:lang(ar), .vd-reader:lang(he), .vd-reader:lang(hi), .vd-reader:lang(bn),
   .vd-reader:lang(gu), .vd-reader:lang(kn), .vd-reader:lang(ml), .vd-reader:lang(mr), .vd-reader:lang(ta) {
     font-family: var(--font-sans);
-    font-size: 1.05rem;
   }
+  .vd-reader[data-size='0'] { font-size: 0.88rem; }
+  .vd-reader[data-size='2'] { font-size: 1.15rem; }
+  .vd-reader :global(p) { margin: 0 0 0.85em; }
+  .vd-reader :global(p:last-child) { margin-bottom: 0; }
   .vd-reader::-webkit-scrollbar { display: none; }
   .vd-reader :global(.sent), .vd-reader :global(.word) {
     border-radius: 5px;
@@ -462,7 +632,7 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.35rem 0.8rem 0.75rem;
+    padding: 0.35rem 0.8rem 0.6rem;
     direction: ltr;
   }
   .vd-avatar {
@@ -544,7 +714,7 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     animation: vd-ping 2.2s ease-out infinite;
   }
 
-  .vd-tip { margin: 0.8rem 0 0; font-size: 0.8rem; color: #9aa0a8; text-align: center; }
+  .vd-tip { margin: -0.35rem 0 0; padding: 0 0.9rem 0.7rem; font-size: 0.7rem; color: #a3a9b1; text-align: center; }
   .vd-status { margin: 0.5rem 0 0; font-size: 0.88rem; color: #b45309; text-align: center; }
   .vd-status:empty { display: none; }
   .vd-cta {
@@ -568,6 +738,7 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
 
+  @keyframes vd-fade { from { opacity: 0; } to { opacity: 1; } }
   @keyframes vd-spin { to { transform: rotate(360deg); } }
   @keyframes vd-ping {
     0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
@@ -579,7 +750,7 @@ const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].t
   }
   @media (max-width: 520px) {
     .vd-page { padding: 0.7rem 0.7rem 0; }
-    .vd-reader { height: 14rem; padding: 1.2rem 1.2rem 3rem; font-size: 1.04rem; }
+    .vd-reader { height: 14rem; padding: 1.2rem 1.2rem 3rem; }
     .vd-cta { flex-direction: column; align-items: flex-start; }
   }
 </style>
