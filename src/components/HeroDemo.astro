@@ -1,0 +1,256 @@
+---
+interface Props { ctaUrl: string }
+const { ctaUrl } = Astro.props;
+
+const DEMO_ENDPOINT = 'https://voq-tts.julesignaciocanlas.workers.dev/demo';
+const MAX_CHARS = 500;
+// Must match DEMO_DEFAULT_TEXT in voq-worker/worker.js exactly (it's served from cache).
+const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can take a break. ChatGPT answers, Reddit threads, long articles: one click, and I'll read them to you in a natural voice. I speak many languages, I'm completely free, and there's no account to create. Listen while you cook, commute, or just rest. If reading feels like work, let me do it for you. Add Voq to Chrome and hear any page in seconds.";
+---
+
+<div class="demo" data-endpoint={DEMO_ENDPOINT} data-default={DEFAULT_TEXT} data-max={MAX_CHARS}>
+  <div class="demo-head">
+    <span class="demo-label">Try it — hear Voq's voice</span>
+    <button type="button" class="demo-reset" hidden>Reset text</button>
+  </div>
+  <label class="sr-only" for="demo-text">Text to read aloud</label>
+  <textarea id="demo-text" class="demo-text" rows="5" maxlength={MAX_CHARS} spellcheck="false">{DEFAULT_TEXT}</textarea>
+  <div class="demo-bar" aria-hidden="true"><span class="demo-bar-fill"></span></div>
+  <div class="demo-controls">
+    <button type="button" class="demo-play" aria-live="polite">
+      <span class="demo-icon" aria-hidden="true">▶</span>
+      <span class="demo-play-label">Play</span>
+    </button>
+    <span class="demo-count"><span class="demo-count-n">0</span> / {MAX_CHARS}</span>
+  </div>
+  <p class="demo-status" role="status"></p>
+  <a class="demo-cta" href={ctaUrl} target="_blank" rel="noopener" hidden>Hear this on any page → Add Voq to Chrome</a>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.demo').forEach((root) => {
+    const endpoint = root.dataset.endpoint!;
+    const defaultText = root.dataset.default!;
+    const max = Number(root.dataset.max);
+    const textarea = root.querySelector<HTMLTextAreaElement>('.demo-text')!;
+    const playBtn = root.querySelector<HTMLButtonElement>('.demo-play')!;
+    const icon = root.querySelector<HTMLElement>('.demo-icon')!;
+    const label = root.querySelector<HTMLElement>('.demo-play-label')!;
+    const countEl = root.querySelector<HTMLElement>('.demo-count')!;
+    const countN = root.querySelector<HTMLElement>('.demo-count-n')!;
+    const status = root.querySelector<HTMLElement>('.demo-status')!;
+    const cta = root.querySelector<HTMLAnchorElement>('.demo-cta')!;
+    const reset = root.querySelector<HTMLButtonElement>('.demo-reset')!;
+    const fill = root.querySelector<HTMLElement>('.demo-bar-fill')!;
+
+    const audio = new Audio();
+    const cache = new Map<string, string>(); // normalized text -> object URL
+    let state: 'idle' | 'loading' | 'playing' = 'idle';
+
+    const normalize = (s: string) => s.replace(/\s+/g, ' ').trim();
+
+    function setState(next: typeof state) {
+      state = next;
+      root.dataset.state = next;
+      playBtn.disabled = next === 'loading';
+      icon.textContent = next === 'playing' ? '■' : '▶';
+      label.textContent = next === 'loading' ? 'Loading…' : next === 'playing' ? 'Stop' : 'Play';
+    }
+
+    function updateCount() {
+      const n = textarea.value.length;
+      countN.textContent = String(n);
+      countEl.classList.toggle('near', n > max * 0.9);
+      reset.hidden = normalize(textarea.value) === normalize(defaultText);
+    }
+
+    function stop() {
+      audio.pause();
+      audio.currentTime = 0;
+      fill.style.width = '0%';
+      setState('idle');
+    }
+
+    async function getAudioUrl(text: string): Promise<string> {
+      const cached = cache.get(text);
+      if (cached) return cached;
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.audioContent) {
+        const err = new Error(data.error || 'error');
+        throw err;
+      }
+      const bytes = Uint8Array.from(atob(data.audioContent), (c) => c.charCodeAt(0));
+      const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+      cache.set(text, url);
+      return url;
+    }
+
+    playBtn.addEventListener('click', async () => {
+      if (state === 'playing') return stop();
+      const text = normalize(textarea.value);
+      status.textContent = '';
+      if (!text) { status.textContent = 'Type something for Voq to read.'; return; }
+      setState('loading');
+      try {
+        audio.src = await getAudioUrl(text);
+        await audio.play();
+        setState('playing');
+      } catch (e) {
+        setState('idle');
+        const code = (e as Error).message;
+        if (code === 'limit') {
+          
+          status.textContent = 'Demo limit reached — install Voq for unlimited listening.';
+          cta.hidden = false;
+        } else if (code === 'too_long') {
+          status.textContent = `Keep it under ${max} characters for the demo.`;
+        } else {
+          status.textContent = "Couldn't play the demo right now. Please try again.";
+        }
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+    });
+    audio.addEventListener('ended', () => {
+      fill.style.width = '100%';
+      setState('idle');
+      cta.hidden = false;
+    });
+
+    textarea.addEventListener('input', () => {
+      if (state === 'playing') stop();
+      updateCount();
+    });
+    reset.addEventListener('click', () => {
+      textarea.value = defaultText;
+      if (state === 'playing') stop();
+      updateCount();
+      textarea.focus();
+    });
+
+    updateCount();
+    setState('idle');
+  });
+</script>
+
+<style>
+  .demo {
+    max-width: 620px;
+    margin: 2.5rem auto 0;
+    text-align: left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1rem 0.9rem;
+  }
+  .demo-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+  .demo-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .demo-reset {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    cursor: pointer;
+  }
+  .demo-text {
+    display: block;
+    width: 100%;
+    resize: vertical;
+    min-height: 7.5rem;
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.75rem 0.85rem;
+  }
+  .demo-text:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -1px;
+    border-color: transparent;
+  }
+  .demo-bar {
+    height: 3px;
+    margin: 0.75rem 0 0.75rem;
+    background: var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .demo-bar-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--color-accent);
+    transition: width 0.25s linear;
+  }
+  .demo-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .demo-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 7rem;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    font: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-text);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .demo-play:hover { opacity: 0.85; }
+  .demo-play:disabled { opacity: 0.6; cursor: progress; }
+  .demo-icon { font-size: 0.8rem; }
+  .demo-count {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .demo-count.near { color: #b45309; }
+  .demo-status:empty { display: none; }
+  .demo-status {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+  .demo-cta {
+    display: block;
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .demo-cta[hidden] { display: none; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+</style>

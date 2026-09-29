@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import homeData from '../i18n/pages/home.json';
 import Testimonials from './Testimonials.astro';
+import HeroDemo from './HeroDemo.astro';
 
 interface Props { lang?: string }
 const { lang = 'en' } = Astro.props;
@@ -32,6 +33,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
         <span>{t.heroRating}</span>
       </div>
       <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
+      {lang === 'en' && <HeroDemo ctaUrl={CHROME_STORE_URL} />}
     </div>
   </section>
 
