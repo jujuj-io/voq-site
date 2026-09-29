@@ -1,0 +1,398 @@
+{
+  "siteLocaleVoice": {
+    "en": "en",
+    "ar": "ar",
+    "de": "de",
+    "es": "es",
+    "fr": "fr",
+    "it": "it",
+    "ja": "ja",
+    "nl": "nl",
+    "pl": "pl",
+    "pt": "pt-PT",
+    "zh-CN": "zh-CN"
+  },
+  "ui": {
+    "en": {
+      "press": "Press play to hear Voq",
+      "loading": "Loading…",
+      "again": "Play again",
+      "tap": "Tip: click any word to jump there",
+      "cta": "Voq reads any page like this.",
+      "ctaLink": "Add to Chrome →",
+      "error": "Couldn't load the audio. Please try again."
+    },
+    "fr": {
+      "press": "Appuyez sur lecture pour écouter Voq",
+      "loading": "Chargement…",
+      "again": "Réécouter",
+      "tap": "Astuce : cliquez sur un mot pour y aller",
+      "cta": "Voq lit n'importe quelle page comme ça.",
+      "ctaLink": "Ajouter à Chrome →",
+      "error": "Impossible de charger l'audio. Réessayez."
+    },
+    "es": {
+      "press": "Pulsa play para escuchar a Voq",
+      "loading": "Cargando…",
+      "again": "Escuchar de nuevo",
+      "tap": "Consejo: haz clic en una palabra para saltar ahí",
+      "cta": "Voq lee cualquier página así.",
+      "ctaLink": "Añadir a Chrome →",
+      "error": "No se pudo cargar el audio. Inténtalo de nuevo."
+    },
+    "de": {
+      "press": "Drück Play, um Voq zu hören",
+      "loading": "Lädt…",
+      "again": "Nochmal anhören",
+      "tap": "Tipp: Klick auf ein Wort, um dorthin zu springen",
+      "cta": "Voq liest jede Seite so vor.",
+      "ctaLink": "Zu Chrome hinzufügen →",
+      "error": "Audio konnte nicht geladen werden. Bitte versuch es erneut."
+    },
+    "it": {
+      "press": "Premi play per ascoltare Voq",
+      "loading": "Caricamento…",
+      "again": "Ascolta di nuovo",
+      "tap": "Suggerimento: clicca una parola per saltare lì",
+      "cta": "Voq legge qualsiasi pagina così.",
+      "ctaLink": "Aggiungi a Chrome →",
+      "error": "Impossibile caricare l'audio. Riprova."
+    },
+    "nl": {
+      "press": "Druk op play om Voq te horen",
+      "loading": "Laden…",
+      "again": "Opnieuw afspelen",
+      "tap": "Tip: klik op een woord om daarheen te springen",
+      "cta": "Voq leest elke pagina zo voor.",
+      "ctaLink": "Toevoegen aan Chrome →",
+      "error": "Audio kon niet worden geladen. Probeer het opnieuw."
+    },
+    "pl": {
+      "press": "Naciśnij play, aby posłuchać Voq",
+      "loading": "Ładowanie…",
+      "again": "Odtwórz ponownie",
+      "tap": "Wskazówka: kliknij słowo, aby tam przejść",
+      "cta": "Voq czyta każdą stronę w ten sposób.",
+      "ctaLink": "Dodaj do Chrome →",
+      "error": "Nie udało się wczytać dźwięku. Spróbuj ponownie."
+    },
+    "ja": {
+      "press": "再生を押してVoqを聴く",
+      "loading": "読み込み中…",
+      "again": "もう一度聴く",
+      "tap": "ヒント：単語をクリックするとそこから再生",
+      "cta": "Voqはどんなページもこのように読み上げます。",
+      "ctaLink": "Chromeに追加 →",
+      "error": "音声を読み込めませんでした。もう一度お試しください。"
+    },
+    "zh-CN": {
+      "press": "点击播放，听听Voq",
+      "loading": "加载中…",
+      "again": "再听一遍",
+      "tap": "提示：点击任意词语即可跳转",
+      "cta": "Voq可以这样朗读任何网页。",
+      "ctaLink": "添加到Chrome →",
+      "error": "音频加载失败，请重试。"
+    },
+    "ar": {
+      "press": "اضغط تشغيل لتسمع Voq",
+      "loading": "جارٍ التحميل…",
+      "again": "استمع مجددًا",
+      "tap": "نصيحة: انقر على أي كلمة للانتقال إليها",
+      "cta": "يقرأ Voq أي صفحة بهذه الطريقة.",
+      "ctaLink": "أضف إلى Chrome ←",
+      "error": "تعذّر تحميل الصوت. حاول مرة أخرى."
+    },
+    "pt": {
+      "press": "Carregue em play para ouvir o Voq",
+      "loading": "A carregar…",
+      "again": "Ouvir de novo",
+      "tap": "Dica: clique numa palavra para saltar para lá",
+      "cta": "O Voq lê qualquer página assim.",
+      "ctaLink": "Adicionar ao Chrome →",
+      "error": "Não foi possível carregar o áudio. Tente novamente."
+    }
+  },
+  "voices": {
+    "ar": {
+      "english": "Arabic",
+      "native": "العربية",
+      "googleLang": "ar-XA",
+      "googleVoice": "ar-XA-Wavenet-A",
+      "rtl": true,
+      "text": "مرحبًا، أنا Voq. أقرأ لك محتوى الويب بصوت عالٍ لتريح عينيك. إجابات ChatGPT، ونقاشات Reddit، والمقالات الطويلة: بنقرة واحدة أقرؤها لك بصوت طبيعي. أتحدث لغات كثيرة، وأنا مجاني تمامًا، ولا حاجة لإنشاء حساب. استمع أثناء الطهي أو التنقل أو الاسترخاء. إذا كانت القراءة مرهقة، فدعني أقوم بها عنك. أضف Voq إلى Chrome واستمع إلى أي صفحة في ثوانٍ."
+    },
+    "bn": {
+      "english": "Bengali",
+      "native": "বাংলা",
+      "googleLang": "bn-IN",
+      "googleVoice": "bn-IN-Wavenet-A",
+      "rtl": false,
+      "text": "হ্যালো, আমি Voq। আমি ওয়েব জোরে পড়ে শোনাই, যাতে আপনার চোখ একটু বিশ্রাম পায়। ChatGPT-এর উত্তর, Reddit-এর থ্রেড, লম্বা আর্টিকেল: এক ক্লিকেই আমি স্বাভাবিক কণ্ঠে পড়ে শোনাব। আমি অনেক ভাষায় কথা বলি, সম্পূর্ণ বিনামূল্যে, আর কোনো অ্যাকাউন্ট খুলতে হয় না। রান্না করতে করতে, যাতায়াতের পথে বা বিশ্রামের সময় শুনুন। পড়া যদি কষ্টের মনে হয়, কাজটা আমাকে দিন। Chrome-এ Voq যোগ করুন আর যেকোনো পেজ কয়েক সেকেন্ডে শুনুন।"
+    },
+    "zh-CN": {
+      "english": "Chinese",
+      "native": "中文",
+      "googleLang": "cmn-CN",
+      "googleVoice": "cmn-CN-Wavenet-A",
+      "rtl": false,
+      "text": "你好，我是Voq。我会把网页朗读出来，让你的眼睛休息一下。ChatGPT的回答、Reddit的帖子、长篇文章，只需一键，我就用自然的声音读给你听。我会说多种语言，完全免费，也不需要注册账号。做饭、通勤或休息时都可以听。如果阅读让你觉得累，就交给我吧。把Voq添加到Chrome，几秒钟就能听任何网页。"
+    },
+    "cs": {
+      "english": "Czech",
+      "native": "Čeština",
+      "googleLang": "cs-CZ",
+      "googleVoice": "cs-CZ-Wavenet-A",
+      "rtl": false,
+      "text": "Ahoj, jsem Voq. Čtu web nahlas, aby si tvoje oči mohly odpočinout. Odpovědi z ChatGPT, vlákna na Redditu, dlouhé články: jedno kliknutí a přečtu ti je přirozeným hlasem. Mluvím mnoha jazyky, jsem úplně zdarma a nemusíš si zakládat účet. Poslouchej při vaření, cestou do práce nebo jen při odpočinku. Pokud tě čtení unavuje, nech to na mně. Přidej si Voq do Chromu a poslechni si jakoukoli stránku během pár sekund."
+    },
+    "da": {
+      "english": "Danish",
+      "native": "Dansk",
+      "googleLang": "da-DK",
+      "googleVoice": "da-DK-Wavenet-A",
+      "rtl": false,
+      "text": "Hej, jeg er Voq. Jeg læser nettet højt, så dine øjne kan få en pause. Svar fra ChatGPT, tråde på Reddit, lange artikler: ét klik, og jeg læser dem op for dig med en naturlig stemme. Jeg taler mange sprog, er helt gratis, og du behøver ikke oprette en konto. Lyt, mens du laver mad, pendler eller bare slapper af. Hvis læsning føles som arbejde, så lad mig klare det. Føj Voq til Chrome, og hør enhver side på få sekunder."
+    },
+    "nl": {
+      "english": "Dutch",
+      "native": "Nederlands",
+      "googleLang": "nl-NL",
+      "googleVoice": "nl-NL-Wavenet-A",
+      "rtl": false,
+      "text": "Hoi, ik ben Voq. Ik lees het web hardop voor, zodat je ogen even rust krijgen. Antwoorden van ChatGPT, Reddit-threads, lange artikelen: één klik en ik lees ze voor met een natuurlijke stem. Ik spreek veel talen, ben helemaal gratis en je hebt geen account nodig. Luister terwijl je kookt, reist of gewoon ontspant. Voelt lezen als werk? Laat het aan mij over. Voeg Voq toe aan Chrome en beluister elke pagina in een paar seconden."
+    },
+    "en": {
+      "english": "English",
+      "native": "English",
+      "googleLang": "en-US",
+      "googleVoice": "en-US-Wavenet-F",
+      "rtl": false,
+      "text": "Hi, I'm Voq. I read the web out loud, so your eyes can take a break. ChatGPT answers, Reddit threads, long articles: one click, and I'll read them to you in a natural voice. I speak many languages, I'm completely free, and there's no account to create. Listen while you cook, commute, or just rest. If reading feels like work, let me do it for you. Add Voq to Chrome and hear any page in seconds."
+    },
+    "fil": {
+      "english": "Filipino",
+      "native": "Filipino",
+      "googleLang": "fil-PH",
+      "googleVoice": "fil-PH-Wavenet-A",
+      "rtl": false,
+      "text": "Kumusta, ako si Voq. Binabasa ko nang malakas ang web para makapagpahinga ang mga mata mo. Mga sagot ng ChatGPT, mga thread sa Reddit, mahahabang artikulo: isang click lang, at babasahin ko ang mga ito sa natural na boses. Marami akong wikang alam, libre ako, at hindi mo kailangang gumawa ng account. Makinig habang nagluluto, bumibiyahe, o nagpapahinga. Kung nakakapagod magbasa, ako na ang bahala. Idagdag ang Voq sa Chrome at pakinggan ang kahit anong page sa loob ng ilang segundo."
+    },
+    "fi": {
+      "english": "Finnish",
+      "native": "Suomi",
+      "googleLang": "fi-FI",
+      "googleVoice": "fi-FI-Wavenet-A",
+      "rtl": false,
+      "text": "Hei, olen Voq. Luen verkkoa ääneen, jotta silmäsi saavat levätä. ChatGPT:n vastaukset, Reddit-keskustelut, pitkät artikkelit: yksi klikkaus, ja luen ne sinulle luonnollisella äänellä. Puhun monia kieliä, olen täysin ilmainen, eikä tiliä tarvitse luoda. Kuuntele kokatessa, työmatkalla tai vain levätessä. Jos lukeminen tuntuu työltä, anna minun hoitaa se. Lisää Voq Chromeen ja kuuntele mikä tahansa sivu sekunneissa."
+    },
+    "fr": {
+      "english": "French",
+      "native": "Français",
+      "googleLang": "fr-FR",
+      "googleVoice": "fr-FR-Wavenet-A",
+      "rtl": false,
+      "text": "Bonjour, je suis Voq. Je lis le web à voix haute pour reposer vos yeux. Réponses de ChatGPT, fils Reddit, longs articles : un clic, et je vous les lis avec une voix naturelle. Je parle de nombreuses langues, je suis entièrement gratuit, et aucun compte n'est nécessaire. Écoutez en cuisinant, dans les transports, ou simplement pour souffler. Si lire vous fatigue, laissez-moi faire. Ajoutez Voq à Chrome et écoutez n'importe quelle page en quelques secondes."
+    },
+    "de": {
+      "english": "German",
+      "native": "Deutsch",
+      "googleLang": "de-DE",
+      "googleVoice": "de-DE-Wavenet-A",
+      "rtl": false,
+      "text": "Hallo, ich bin Voq. Ich lese dir das Web vor, damit deine Augen eine Pause bekommen. ChatGPT-Antworten, Reddit-Threads, lange Artikel: ein Klick, und ich lese sie dir mit natürlicher Stimme vor. Ich spreche viele Sprachen, bin komplett kostenlos und du brauchst kein Konto. Hör zu beim Kochen, unterwegs oder einfach zum Entspannen. Wenn Lesen anstrengend ist, übernehme ich das. Füge Voq zu Chrome hinzu und hör dir jede Seite in Sekunden an."
+    },
+    "el": {
+      "english": "Greek",
+      "native": "Ελληνικά",
+      "googleLang": "el-GR",
+      "googleVoice": "el-GR-Wavenet-A",
+      "rtl": false,
+      "text": "Γεια σου, είμαι το Voq. Διαβάζω τον ιστό δυνατά, για να ξεκουραστούν τα μάτια σου. Απαντήσεις του ChatGPT, συζητήσεις στο Reddit, μεγάλα άρθρα: ένα κλικ, και σου τα διαβάζω με φυσική φωνή. Μιλάω πολλές γλώσσες, είμαι εντελώς δωρεάν και δεν χρειάζεται λογαριασμός. Άκουσε ενώ μαγειρεύεις, μετακινείσαι ή απλώς ξεκουράζεσαι. Αν το διάβασμα σε κουράζει, άφησέ το σε μένα. Πρόσθεσε το Voq στο Chrome και άκου οποιαδήποτε σελίδα σε δευτερόλεπτα."
+    },
+    "gu": {
+      "english": "Gujarati",
+      "native": "ગુજરાતી",
+      "googleLang": "gu-IN",
+      "googleVoice": "gu-IN-Wavenet-A",
+      "rtl": false,
+      "text": "નમસ્તે, હું Voq છું. હું વેબને મોટેથી વાંચું છું, જેથી તમારી આંખોને આરામ મળે. ChatGPTના જવાબો, Redditના થ્રેડ, લાંબા લેખો: એક ક્લિકમાં હું તેને કુદરતી અવાજમાં વાંચી સંભળાવીશ. હું ઘણી ભાષાઓ બોલું છું, સંપૂર્ણપણે મફત છું, અને કોઈ એકાઉન્ટ બનાવવાની જરૂર નથી. રસોઈ કરતાં, મુસાફરી કરતાં કે આરામ કરતાં સાંભળો. જો વાંચવું થકવી દે, તો એ કામ મને સોંપી દો. Chromeમાં Voq ઉમેરો અને કોઈપણ પેજ સેકન્ડોમાં સાંભળો."
+    },
+    "he": {
+      "english": "Hebrew",
+      "native": "עברית",
+      "googleLang": "he-IL",
+      "googleVoice": "he-IL-Wavenet-A",
+      "rtl": true,
+      "text": "שלום, אני Voq. אני מקריא את הרשת בקול, כדי שהעיניים שלכם ינוחו. תשובות של ChatGPT, שרשורים ב-Reddit, כתבות ארוכות: קליק אחד, ואני מקריא לכם אותם בקול טבעי. אני מדבר שפות רבות, חינמי לגמרי, ואין צורך לפתוח חשבון. אפשר להאזין תוך כדי בישול, נסיעה או מנוחה. אם קריאה מרגישה כמו עבודה, תנו לי לעשות את זה בשבילכם. הוסיפו את Voq ל-Chrome והאזינו לכל דף תוך שניות."
+    },
+    "hi": {
+      "english": "Hindi",
+      "native": "हिन्दी",
+      "googleLang": "hi-IN",
+      "googleVoice": "hi-IN-Wavenet-A",
+      "rtl": false,
+      "text": "नमस्ते, मैं Voq हूँ। मैं वेब को ज़ोर से पढ़कर सुनाता हूँ, ताकि आपकी आँखों को आराम मिले। ChatGPT के जवाब, Reddit के थ्रेड, लंबे लेख: बस एक क्लिक, और मैं उन्हें प्राकृतिक आवाज़ में पढ़कर सुनाऊँगा। मैं कई भाषाएँ बोलता हूँ, पूरी तरह मुफ़्त हूँ, और कोई अकाउंट बनाने की ज़रूरत नहीं। खाना बनाते, सफ़र करते या आराम करते हुए सुनिए। अगर पढ़ना थकाऊ लगे, तो यह काम मुझ पर छोड़ दीजिए। Chrome में Voq जोड़िए और कोई भी पेज कुछ ही सेकंड में सुनिए।"
+    },
+    "hu": {
+      "english": "Hungarian",
+      "native": "Magyar",
+      "googleLang": "hu-HU",
+      "googleVoice": "hu-HU-Wavenet-A",
+      "rtl": false,
+      "text": "Szia, Voq vagyok. Felolvasom neked a webet, hogy a szemed pihenhessen. ChatGPT-válaszok, Reddit-szálak, hosszú cikkek: egy kattintás, és természetes hangon felolvasom őket. Sok nyelven beszélek, teljesen ingyenes vagyok, és nem kell fiókot létrehoznod. Hallgass főzés, ingázás vagy pihenés közben. Ha az olvasás munkának tűnik, bízd rám. Add hozzá a Voqot a Chrome-hoz, és hallgass meg bármilyen oldalt másodpercek alatt."
+    },
+    "id": {
+      "english": "Indonesian",
+      "native": "Bahasa Indonesia",
+      "googleLang": "id-ID",
+      "googleVoice": "id-ID-Wavenet-A",
+      "rtl": false,
+      "text": "Halo, aku Voq. Aku membacakan web dengan suara keras, supaya matamu bisa istirahat. Jawaban ChatGPT, utas Reddit, artikel panjang: satu klik, dan aku akan membacakannya dengan suara alami. Aku bisa banyak bahasa, sepenuhnya gratis, dan tidak perlu membuat akun. Dengarkan sambil memasak, di perjalanan, atau saat bersantai. Kalau membaca terasa melelahkan, serahkan saja padaku. Tambahkan Voq ke Chrome dan dengarkan halaman apa pun dalam hitungan detik."
+    },
+    "it": {
+      "english": "Italian",
+      "native": "Italiano",
+      "googleLang": "it-IT",
+      "googleVoice": "it-IT-Wavenet-A",
+      "rtl": false,
+      "text": "Ciao, sono Voq. Leggo il web ad alta voce, così i tuoi occhi possono riposare. Risposte di ChatGPT, thread di Reddit, articoli lunghi: un clic e te li leggo con una voce naturale. Parlo tante lingue, sono completamente gratuito e non serve creare un account. Ascolta mentre cucini, viaggi o ti rilassi. Se leggere ti stanca, lascia fare a me. Aggiungi Voq a Chrome e ascolta qualsiasi pagina in pochi secondi."
+    },
+    "ja": {
+      "english": "Japanese",
+      "native": "日本語",
+      "googleLang": "ja-JP",
+      "googleVoice": "ja-JP-Wavenet-A",
+      "rtl": false,
+      "text": "こんにちは、Voqです。ウェブを読み上げて、あなたの目を休ませます。ChatGPTの回答、Redditのスレッド、長い記事も、ワンクリックで自然な声で読み上げます。多くの言語に対応し、完全無料で、アカウント登録も不要です。料理中も、通勤中も、ひと休みしながらでも聴けます。読むのが大変なら、私にお任せください。VoqをChromeに追加して、どんなページもすぐに聴いてみましょう。"
+    },
+    "kn": {
+      "english": "Kannada",
+      "native": "ಕನ್ನಡ",
+      "googleLang": "kn-IN",
+      "googleVoice": "kn-IN-Wavenet-A",
+      "rtl": false,
+      "text": "ನಮಸ್ಕಾರ, ನಾನು Voq. ನಿಮ್ಮ ಕಣ್ಣುಗಳಿಗೆ ವಿಶ್ರಾಂತಿ ಸಿಗಲೆಂದು ನಾನು ವೆಬ್ ಅನ್ನು ಗಟ್ಟಿಯಾಗಿ ಓದುತ್ತೇನೆ. ChatGPT ಉತ್ತರಗಳು, Reddit ಥ್ರೆಡ್‌ಗಳು, ದೀರ್ಘ ಲೇಖನಗಳು: ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸಹಜ ಧ್ವನಿಯಲ್ಲಿ ಓದಿ ಹೇಳುತ್ತೇನೆ. ನಾನು ಹಲವು ಭಾಷೆಗಳನ್ನು ಮಾತನಾಡುತ್ತೇನೆ, ಸಂಪೂರ್ಣ ಉಚಿತ, ಮತ್ತು ಖಾತೆ ತೆರೆಯುವ ಅಗತ್ಯವಿಲ್ಲ. ಅಡುಗೆ ಮಾಡುವಾಗ, ಪ್ರಯಾಣಿಸುವಾಗ ಅಥವಾ ವಿಶ್ರಾಂತಿ ಪಡೆಯುವಾಗ ಕೇಳಿ. ಓದುವುದು ಆಯಾಸವೆನಿಸಿದರೆ, ಆ ಕೆಲಸವನ್ನು ನನಗೆ ಬಿಡಿ. Chrome ಗೆ Voq ಸೇರಿಸಿ, ಯಾವುದೇ ಪುಟವನ್ನು ಕೆಲವೇ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಕೇಳಿ."
+    },
+    "ko": {
+      "english": "Korean",
+      "native": "한국어",
+      "googleLang": "ko-KR",
+      "googleVoice": "ko-KR-Wavenet-A",
+      "rtl": false,
+      "text": "안녕하세요, 저는 Voq예요. 웹을 소리 내어 읽어 드려서 눈이 쉴 수 있게 해 드려요. ChatGPT 답변, Reddit 스레드, 긴 기사도 클릭 한 번이면 자연스러운 목소리로 읽어 드려요. 여러 언어를 지원하고, 완전히 무료이며, 계정을 만들 필요도 없어요. 요리하면서, 출퇴근길에, 혹은 쉬면서 들어 보세요. 읽는 게 힘들다면 저에게 맡겨 주세요. Chrome에 Voq를 추가하고 어떤 페이지든 몇 초 만에 들어 보세요."
+    },
+    "ml": {
+      "english": "Malayalam",
+      "native": "മലയാളം",
+      "googleLang": "ml-IN",
+      "googleVoice": "ml-IN-Wavenet-A",
+      "rtl": false,
+      "text": "നമസ്കാരം, ഞാൻ Voq ആണ്. നിങ്ങളുടെ കണ്ണുകൾക്ക് വിശ്രമം ലഭിക്കാൻ ഞാൻ വെബ് ഉറക്കെ വായിച്ചുതരും. ChatGPT ഉത്തരങ്ങൾ, Reddit ത്രെഡുകൾ, നീണ്ട ലേഖനങ്ങൾ: ഒരു ക്ലിക്കിൽ സ്വാഭാവിക ശബ്ദത്തിൽ ഞാൻ വായിച്ചുതരും. ഞാൻ പല ഭാഷകളും സംസാരിക്കും, പൂർണ്ണമായും സൗജന്യമാണ്, അക്കൗണ്ട് ഉണ്ടാക്കേണ്ട ആവശ്യവുമില്ല. പാചകം ചെയ്യുമ്പോഴോ യാത്ര ചെയ്യുമ്പോഴോ വിശ്രമിക്കുമ്പോഴോ കേൾക്കൂ. വായന മടുപ്പായി തോന്നുന്നുവെങ്കിൽ, അത് എനിക്ക് വിട്ടുതരൂ. Chrome-ൽ Voq ചേർക്കൂ, ഏത് പേജും നിമിഷങ്ങൾക്കുള്ളിൽ കേൾക്കൂ."
+    },
+    "mr": {
+      "english": "Marathi",
+      "native": "मराठी",
+      "googleLang": "mr-IN",
+      "googleVoice": "mr-IN-Wavenet-A",
+      "rtl": false,
+      "text": "नमस्कार, मी Voq आहे. तुमच्या डोळ्यांना विश्रांती मिळावी म्हणून मी वेब मोठ्याने वाचून दाखवतो. ChatGPT ची उत्तरे, Reddit वरील थ्रेड, मोठे लेख: फक्त एक क्लिक, आणि मी ते नैसर्गिक आवाजात वाचून दाखवेन. मी अनेक भाषा बोलतो, पूर्णपणे मोफत आहे, आणि खाते तयार करण्याची गरज नाही. स्वयंपाक करताना, प्रवासात किंवा आराम करताना ऐका. वाचन थकवणारे वाटत असेल, तर ते काम माझ्यावर सोडा. Chrome मध्ये Voq जोडा आणि कोणतेही पेज काही सेकंदांत ऐका."
+    },
+    "nb": {
+      "english": "Norwegian",
+      "native": "Norsk",
+      "googleLang": "nb-NO",
+      "googleVoice": "nb-NO-Wavenet-A",
+      "rtl": false,
+      "text": "Hei, jeg er Voq. Jeg leser nettet høyt, så øynene dine kan ta en pause. Svar fra ChatGPT, tråder på Reddit, lange artikler: ett klikk, og jeg leser dem for deg med en naturlig stemme. Jeg snakker mange språk, er helt gratis, og du trenger ingen konto. Lytt mens du lager mat, pendler eller bare slapper av. Hvis lesing føles som arbeid, la meg gjøre det for deg. Legg til Voq i Chrome og hør hvilken som helst side på sekunder."
+    },
+    "pl": {
+      "english": "Polish",
+      "native": "Polski",
+      "googleLang": "pl-PL",
+      "googleVoice": "pl-PL-Wavenet-A",
+      "rtl": false,
+      "text": "Cześć, jestem Voq. Czytam internet na głos, żeby twoje oczy mogły odpocząć. Odpowiedzi ChatGPT, wątki na Reddicie, długie artykuły: jedno kliknięcie i przeczytam je naturalnym głosem. Mówię w wielu językach, jestem całkowicie darmowy i nie musisz zakładać konta. Słuchaj podczas gotowania, w drodze albo po prostu odpoczywając. Jeśli czytanie cię męczy, zostaw to mnie. Dodaj Voq do Chrome i słuchaj dowolnej strony w kilka sekund."
+    },
+    "pt-BR": {
+      "english": "Portuguese (Brazil)",
+      "native": "Português (Brasil)",
+      "googleLang": "pt-BR",
+      "googleVoice": "pt-BR-Wavenet-A",
+      "rtl": false,
+      "text": "Oi, eu sou o Voq. Leio a web em voz alta para os seus olhos descansarem. Respostas do ChatGPT, threads do Reddit, artigos longos: um clique e eu leio para você com uma voz natural. Falo vários idiomas, sou totalmente gratuito e você não precisa criar uma conta. Ouça enquanto cozinha, vai para o trabalho ou simplesmente descansa. Se ler parece trabalho, deixa comigo. Adicione o Voq ao Chrome e ouça qualquer página em segundos."
+    },
+    "pt-PT": {
+      "english": "Portuguese (Portugal)",
+      "native": "Português (Portugal)",
+      "googleLang": "pt-PT",
+      "googleVoice": "pt-PT-Wavenet-A",
+      "rtl": false,
+      "text": "Olá, eu sou o Voq. Leio a web em voz alta para que os seus olhos possam descansar. Respostas do ChatGPT, tópicos do Reddit, artigos longos: basta um clique e leio-os para si com uma voz natural. Falo muitas línguas, sou totalmente gratuito e não precisa de criar conta. Ouça enquanto cozinha, viaja ou simplesmente descansa. Se ler lhe custa, deixe isso comigo. Adicione o Voq ao Chrome e ouça qualquer página em segundos."
+    },
+    "ro": {
+      "english": "Romanian",
+      "native": "Română",
+      "googleLang": "ro-RO",
+      "googleVoice": "ro-RO-Wavenet-A",
+      "rtl": false,
+      "text": "Salut, sunt Voq. Citesc webul cu voce tare, ca ochii tăi să se poată odihni. Răspunsuri ChatGPT, discuții de pe Reddit, articole lungi: un clic și ți le citesc cu o voce naturală. Vorbesc multe limbi, sunt complet gratuit și nu trebuie să îți faci cont. Ascultă în timp ce gătești, faci naveta sau pur și simplu te relaxezi. Dacă cititul ți se pare muncă, lasă-mă pe mine. Adaugă Voq în Chrome și ascultă orice pagină în câteva secunde."
+    },
+    "ru": {
+      "english": "Russian",
+      "native": "Русский",
+      "googleLang": "ru-RU",
+      "googleVoice": "ru-RU-Wavenet-A",
+      "rtl": false,
+      "text": "Привет, я Voq. Я читаю веб вслух, чтобы твои глаза могли отдохнуть. Ответы ChatGPT, треды на Reddit, длинные статьи: один клик, и я прочитаю их естественным голосом. Я говорю на многих языках, полностью бесплатен, и регистрироваться не нужно. Слушай, пока готовишь, едешь на работу или просто отдыхаешь. Если чтение утомляет, доверь его мне. Добавь Voq в Chrome и слушай любую страницу за секунды."
+    },
+    "es": {
+      "english": "Spanish",
+      "native": "Español",
+      "googleLang": "es-ES",
+      "googleVoice": "es-ES-Wavenet-B",
+      "rtl": false,
+      "text": "Hola, soy Voq. Leo la web en voz alta para que tus ojos descansen. Respuestas de ChatGPT, hilos de Reddit, artículos largos: un clic y te los leo con una voz natural. Hablo muchos idiomas, soy totalmente gratis y no necesitas crear una cuenta. Escucha mientras cocinas, viajas o simplemente descansas. Si leer te cansa, déjamelo a mí. Añade Voq a Chrome y escucha cualquier página en segundos."
+    },
+    "sv": {
+      "english": "Swedish",
+      "native": "Svenska",
+      "googleLang": "sv-SE",
+      "googleVoice": "sv-SE-Wavenet-A",
+      "rtl": false,
+      "text": "Hej, jag är Voq. Jag läser webben högt så att dina ögon kan vila. Svar från ChatGPT, trådar på Reddit, långa artiklar: ett klick, så läser jag dem för dig med en naturlig röst. Jag talar många språk, är helt gratis och du behöver inget konto. Lyssna medan du lagar mat, pendlar eller bara vilar. Om läsning känns som jobb, låt mig göra det åt dig. Lägg till Voq i Chrome och lyssna på vilken sida som helst på några sekunder."
+    },
+    "ta": {
+      "english": "Tamil",
+      "native": "தமிழ்",
+      "googleLang": "ta-IN",
+      "googleVoice": "ta-IN-Wavenet-A",
+      "rtl": false,
+      "text": "வணக்கம், நான் Voq. உங்கள் கண்களுக்கு ஓய்வு கிடைக்க, நான் இணையத்தை சத்தமாக வாசித்துக் காட்டுவேன். ChatGPT பதில்கள், Reddit த்ரெட்கள், நீண்ட கட்டுரைகள்: ஒரே கிளிக்கில் இயல்பான குரலில் வாசித்துக் காட்டுவேன். நான் பல மொழிகள் பேசுவேன், முழுவதும் இலவசம், கணக்கு உருவாக்கத் தேவையில்லை. சமைக்கும்போதும், பயணிக்கும்போதும், ஓய்வெடுக்கும்போதும் கேளுங்கள். வாசிப்பது சோர்வாக இருந்தால், அதை என்னிடம் விடுங்கள். Chrome-இல் Voq-ஐச் சேர்த்து, எந்தப் பக்கத்தையும் சில நொடிகளில் கேளுங்கள்."
+    },
+    "tr": {
+      "english": "Turkish",
+      "native": "Türkçe",
+      "googleLang": "tr-TR",
+      "googleVoice": "tr-TR-Wavenet-A",
+      "rtl": false,
+      "text": "Merhaba, ben Voq. Gözlerin dinlenebilsin diye interneti sesli okurum. ChatGPT yanıtları, Reddit başlıkları, uzun makaleler: tek tıkla hepsini doğal bir sesle sana okurum. Birçok dil konuşurum, tamamen ücretsizim ve hesap açman gerekmez. Yemek yaparken, yoldayken ya da dinlenirken dinle. Okumak yorucu geliyorsa, bu işi bana bırak. Voq'u Chrome'a ekle ve herhangi bir sayfayı saniyeler içinde dinle."
+    },
+    "uk": {
+      "english": "Ukrainian",
+      "native": "Українська",
+      "googleLang": "uk-UA",
+      "googleVoice": "uk-UA-Wavenet-A",
+      "rtl": false,
+      "text": "Привіт, я Voq. Я читаю інтернет уголос, щоб твої очі могли відпочити. Відповіді ChatGPT, треди на Reddit, довгі статті: один клік, і я прочитаю їх природним голосом. Я розмовляю багатьма мовами, повністю безкоштовний, і реєструватися не потрібно. Слухай, коли готуєш, їдеш на роботу чи просто відпочиваєш. Якщо читання втомлює, довір його мені. Додай Voq у Chrome і слухай будь-яку сторінку за секунди."
+    },
+    "vi": {
+      "english": "Vietnamese",
+      "native": "Tiếng Việt",
+      "googleLang": "vi-VN",
+      "googleVoice": "vi-VN-Wavenet-A",
+      "rtl": false,
+      "text": "Xin chào, mình là Voq. Mình đọc to nội dung web để đôi mắt bạn được nghỉ ngơi. Câu trả lời của ChatGPT, chủ đề trên Reddit, bài viết dài: chỉ một cú nhấp, mình sẽ đọc cho bạn nghe bằng giọng tự nhiên. Mình nói được nhiều ngôn ngữ, hoàn toàn miễn phí và không cần tạo tài khoản. Hãy nghe khi nấu ăn, trên đường đi làm hoặc lúc nghỉ ngơi. Nếu đọc khiến bạn mệt, cứ để mình lo. Thêm Voq vào Chrome và nghe bất kỳ trang nào chỉ trong vài giây."
+    }
+  }
+}

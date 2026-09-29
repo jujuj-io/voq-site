@@ -386,7 +386,7 @@ nav .container {
 
 .hero--split {
   padding: 4.5rem 0 5rem;
-  text-align: left;
+  text-align: start;
   overflow: hidden;
 }
 

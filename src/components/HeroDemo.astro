@@ -1,39 +1,54 @@
 ---
-interface Props { ctaUrl: string }
-const { ctaUrl } = Astro.props;
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import demo from '../data/demo.json';
 
-const DEMO_ENDPOINT = 'https://voq-tts.julesignaciocanlas.workers.dev/demo';
-const MAX_CHARS = 500;
-// Must match DEMO_DEFAULT_TEXT in voq-worker/worker.js exactly (it's served from cache).
-const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can take a break. ChatGPT answers, Reddit threads, long articles: one click, and I'll read them to you in a natural voice. I speak many languages, I'm completely free, and there's no account to create. Listen while you cook, commute, or just rest. If reading feels like work, let me do it for you. Add Voq to Chrome and hear any page in seconds.";
+interface Props { ctaUrl: string; lang?: string }
+const { ctaUrl, lang = 'en' } = Astro.props;
+
+type Voice = { english: string; native: string; rtl: boolean; text: string };
+const allVoices = demo.voices as Record<string, Voice>;
+const ui = (demo.ui as Record<string, Record<string, string>>)[lang] ?? demo.ui.en;
+
+// Only offer languages whose audio has been exported (node scripts/build-demo-audio.mjs).
+const audioDir = path.join(process.cwd(), 'public/demo');
+const voices = Object.fromEntries(
+  Object.entries(allVoices).filter(([code]) => existsSync(path.join(audioDir, `${code}.mp3`)))
+);
+const codes = Object.keys(voices);
+const preferred = (demo.siteLocaleVoice as Record<string, string>)[lang] ?? 'en';
+const initial = voices[preferred] ? preferred : voices.en ? 'en' : codes[0];
+const label = (v: Voice) => (v.native === v.english ? v.native : `${v.native} · ${v.english}`);
+const sorted = [...codes].sort((a, b) => allVoices[a].english.localeCompare(allVoices[b].english));
+const clientVoices = Object.fromEntries(codes.map((c) => [c, { text: voices[c].text, rtl: voices[c].rtl }]));
 ---
 
-<div class="vd" data-endpoint={DEMO_ENDPOINT} data-default={DEFAULT_TEXT} data-max={MAX_CHARS} data-state="idle">
+{initial && (
+<div class="vd" data-state="idle" data-initial={initial} data-voices={JSON.stringify(clientVoices)} data-ui={JSON.stringify(ui)}>
   <div class="vd-win">
     <div class="vd-bar">
       <div class="vd-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="vd-title">Hi, I'm Voq.txt</div>
-      <button type="button" class="vd-reset" hidden>Reset</button>
-      <span class="vd-edit">
-        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M11.1 1.9a1.5 1.5 0 0 1 2.1 0l.9.9a1.5 1.5 0 0 1 0 2.1L6 13l-3.5.9L3.4 10.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        Editable
-      </span>
+      <label class="vd-lang">
+        <span class="vd-sr">Language</span>
+        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 10h15M10 2.5c2.2 2.2 3.2 4.7 3.2 7.5s-1 5.3-3.2 7.5c-2.2-2.2-3.2-4.7-3.2-7.5s1-5.3 3.2-7.5z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <select class="vd-select">
+          {sorted.map((c) => <option value={c} selected={c === initial}>{label(voices[c])}</option>)}
+        </select>
+        <svg class="vd-chev" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
     </div>
 
     <div class="vd-page">
       <div class="vd-paper">
-        <label class="vd-sr" for="vd-text">Text for Voq to read aloud — edit it to try your own</label>
-        <textarea id="vd-text" class="vd-text" maxlength={MAX_CHARS} spellcheck="false">{DEFAULT_TEXT}</textarea>
-        <div class="vd-reader" aria-hidden="true"></div>
-        <div class="vd-count"><span class="vd-count-n">0</span> / {MAX_CHARS}</div>
+        <div class="vd-reader" lang={initial} dir={voices[initial].rtl ? 'rtl' : 'ltr'}>{voices[initial].text}</div>
       </div>
 
       <div class="vd-player">
         <div class="vd-progress"><span></span></div>
         <div class="vd-info">
           <span class="vd-cur">0:00</span>
-          <span class="vd-now">Press play to hear Voq</span>
-          <span class="vd-dur">0:30</span>
+          <span class="vd-now">{ui.press}</span>
+          <span class="vd-dur">0:00</span>
         </div>
         <div class="vd-controls">
           <span class="vd-avatar" aria-hidden="true">v</span>
@@ -54,40 +69,39 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     </div>
   </div>
 
+  <p class="vd-tip">{ui.tap}</p>
   <p class="vd-status" role="status"></p>
   <div class="vd-cta" hidden>
-    <span>Like how that sounds? Voq reads any page like this.</span>
-    <a href={ctaUrl} target="_blank" rel="noopener">Add to Chrome →</a>
+    <span>{ui.cta}</span>
+    <a href={ctaUrl} target="_blank" rel="noopener">{ui.ctaLink}</a>
   </div>
 </div>
+)}
 
 <script>
+  type ClientVoice = { text: string; rtl: boolean };
+
   document.querySelectorAll<HTMLElement>('.vd').forEach((root) => {
-    const endpoint = root.dataset.endpoint!;
-    const defaultText = root.dataset.default!;
-    const max = Number(root.dataset.max);
+    const voices: Record<string, ClientVoice> = JSON.parse(root.dataset.voices!);
+    const ui: Record<string, string> = JSON.parse(root.dataset.ui!);
     const $ = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
-    const textarea = $<HTMLTextAreaElement>('.vd-text');
     const reader = $('.vd-reader');
+    const select = $<HTMLSelectElement>('.vd-select');
     const playBtn = $<HTMLButtonElement>('.vd-play');
     const speedBtn = $<HTMLButtonElement>('.vd-speed');
     const curEl = $('.vd-cur');
     const durEl = $('.vd-dur');
     const nowEl = $('.vd-now');
     const fill = $('.vd-progress span');
-    const countEl = $('.vd-count');
-    const countN = $('.vd-count-n');
     const status = $('.vd-status');
     const cta = $('.vd-cta');
-    const reset = $<HTMLButtonElement>('.vd-reset');
-    const editTag = $('.vd-edit');
 
     const SPEEDS = [1, 1.25, 1.5, 2];
+    const SENT_END = /[.!?。！？।؟]/;
+    const CJK = /[぀-ヿ㐀-鿿가-힯]/;
     let speedIdx = 0;
-    const audio = new Audio();
-    const cache = new Map<string, string>();
+    let code = root.dataset.initial!;
     let state: 'idle' | 'loading' | 'playing' | 'paused' = 'idle';
-    let loadedText = '';
     let words: { el: HTMLElement; s: number }[] = [];
     let sentences: { el: HTMLElement; text: string }[] = [];
     let marks: number[] = [];
@@ -95,10 +109,14 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     let curWord = -1;
     let curSent = -1;
     let raf = 0;
+    let pendingSeek: number | null = null;
 
-    const normalize = (s: string) => s.replace(/\s+/g, ' ').trim();
+    // Static, pre-generated audio: one file per language, no API calls.
+    const audio = new Audio();
+    audio.preload = 'metadata';
+
     const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
-    const short = (s: string) => (s.length > 34 ? s.slice(0, 32).trimEnd() + '…' : s);
+    const short = (s: string) => ([...s].length > 34 ? [...s].slice(0, 32).join('').trimEnd() + '…' : s);
 
     function setState(next: typeof state) {
       state = next;
@@ -107,134 +125,139 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
       playBtn.setAttribute('aria-label', next === 'playing' ? 'Pause' : 'Play');
     }
 
-    function updateCount() {
-      const n = textarea.value.length;
-      countN.textContent = String(n);
-      countEl.classList.toggle('near', n > max * 0.9);
-      const edited = normalize(textarea.value) !== normalize(defaultText);
-      reset.hidden = !edited;
-      editTag.hidden = edited;
+    function segments(text: string, locale: string): { seg: string; word: boolean }[] {
+      const Seg = (Intl as any).Segmenter;
+      if (Seg) {
+        return [...new Seg(locale, { granularity: 'word' }).segment(text)].map((x: any) => ({ seg: x.segment, word: !!x.isWordLike }));
+      }
+      return text.split(/(\s+)/).filter(Boolean).map((t) => ({ seg: t, word: !/^\s+$/.test(t) }));
     }
 
-    // Karaoke view. Timing is estimated from word length plus pauses at punctuation.
-    function buildReader(text: string) {
+    // Build the clickable karaoke text. Timing is estimated from word length and punctuation pauses.
+    function buildReader() {
+      const v = voices[code];
       reader.textContent = '';
+      reader.lang = code;
+      reader.dir = v.rtl ? 'rtl' : 'ltr';
       words = []; sentences = []; marks = []; total = 0;
       let sentEl: HTMLElement | null = null;
-      const tokens = text.split(/(\s+)/).filter(Boolean);
-      for (const token of tokens) {
-        if (/^\s+$/.test(token)) { (sentEl ?? reader).append(token); continue; }
-        if (!sentEl) {
+      for (const { seg, word } of segments(v.text, code)) {
+        const isSpace = /^\s+$/.test(seg);
+        if (!sentEl && !isSpace) {
           sentEl = document.createElement('span');
           sentEl.className = 'sent';
           reader.append(sentEl);
           sentences.push({ el: sentEl, text: '' });
         }
-        const sent = sentences[sentences.length - 1];
-        const el = document.createElement('span');
-        el.className = 'word';
-        el.textContent = token;
-        sentEl.append(el);
-        words.push({ el, s: sentences.length - 1 });
-        sent.text += (sent.text ? ' ' : '') + token;
-        marks.push(total);
-        const endSentence = /[.!?]["')\]]?$/.test(token);
-        total += token.length + 1 + (endSentence ? 8 : /[:;]$/.test(token) ? 6 : /[,—–-]$/.test(token) ? 3 : 0);
-        if (endSentence) {
-          // move trailing whitespace outside the sentence span
-          sentEl = null;
+        if (isSpace) {
+          (sentEl ?? reader).append(seg);
+          if (sentEl) sentences[sentences.length - 1].text += seg;
+          continue;
+        }
+        if (!sentEl) { reader.append(seg); continue; }
+        sentences[sentences.length - 1].text += seg;
+        if (word) {
+          const el = document.createElement('span');
+          el.className = 'word';
+          el.textContent = seg;
+          el.dataset.i = String(words.length);
+          sentEl.append(el);
+          words.push({ el, s: sentences.length - 1 });
+          marks.push(total);
+          total += [...seg].length * (CJK.test(seg) ? 2.2 : 1) + 1;
+        } else {
+          sentEl.append(seg);
+          if (SENT_END.test(seg)) total += 8;
+          else if (/[:;：；]/.test(seg)) total += 6;
+          else if (/[,،、，—–]/.test(seg)) total += 3;
+          if (SENT_END.test(seg)) sentEl = null;
         }
       }
+      sentences.forEach((x) => (x.text = x.text.trim()));
       curWord = -1; curSent = -1;
+      reader.scrollTop = 0;
+    }
+
+    function highlight(i: number) {
+      if (i === curWord || !words[i]) return;
+      words[curWord]?.el.classList.remove('w-on');
+      words[i].el.classList.add('w-on');
+      curWord = i;
+      const s = words[i].s;
+      if (s !== curSent) {
+        sentences[curSent]?.el.classList.remove('s-on');
+        sentences[s].el.classList.add('s-on');
+        curSent = s;
+        nowEl.textContent = short(sentences[s].text);
+      }
+      const el = words[i].el;
+      const target = el.offsetTop - reader.clientHeight * 0.4;
+      if (Math.abs(reader.scrollTop - target) > 24) reader.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+    }
+
+    function sync() {
+      if (!audio.duration) return;
+      const w = Math.min(1, (audio.currentTime + 0.12) / audio.duration) * total;
+      let i = 0;
+      while (i + 1 < marks.length && marks[i + 1] <= w) i++;
+      highlight(i);
+      curEl.textContent = fmt(audio.currentTime);
+      fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+    }
+
+    function loop() {
+      sync();
+      if (state === 'playing') raf = requestAnimationFrame(loop);
     }
 
     function clearMarks() {
-      words.forEach((w) => w.el.classList.remove('w-on'));
-      sentences.forEach((x) => x.el.classList.remove('s-on'));
+      words[curWord]?.el.classList.remove('w-on');
+      sentences[curSent]?.el.classList.remove('s-on');
       curWord = -1; curSent = -1;
     }
 
-    function tick() {
-      if (audio.duration) {
-        const p = Math.min(1, (audio.currentTime + 0.12) / audio.duration);
-        const w = p * total;
-        let i = 0;
-        while (i + 1 < marks.length && marks[i + 1] <= w) i++;
-        if (i !== curWord) {
-          words[curWord]?.el.classList.remove('w-on');
-          words[i].el.classList.add('w-on');
-          curWord = i;
-          const s = words[i].s;
-          if (s !== curSent) {
-            sentences[curSent]?.el.classList.remove('s-on');
-            sentences[s].el.classList.add('s-on');
-            curSent = s;
-            nowEl.textContent = short(sentences[s].text);
-          }
-          const el = words[i].el;
-          const target = el.offsetTop - reader.clientHeight * 0.4;
-          if (Math.abs(reader.scrollTop - target) > 24) reader.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
-        }
-        curEl.textContent = fmt(audio.currentTime);
-        fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
-      }
-      if (state === 'playing') raf = requestAnimationFrame(tick);
-    }
-
-    function resetPlayer() {
+    function loadVoice(next: string) {
       cancelAnimationFrame(raf);
       audio.pause();
-      clearMarks();
+      code = next;
+      audio.src = `/demo/${code}.mp3`;
+      audio.playbackRate = SPEEDS[speedIdx];
+      buildReader();
       fill.style.width = '0%';
       curEl.textContent = '0:00';
-      nowEl.textContent = 'Press play to hear Voq';
-      loadedText = '';
+      durEl.textContent = '0:00';
+      nowEl.textContent = ui.press;
+      status.textContent = '';
       setState('idle');
     }
 
-    async function getAudioUrl(text: string) {
-      const hit = cache.get(text);
-      if (hit) return hit;
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.audioContent) throw new Error(data.error || 'error');
-      const bytes = Uint8Array.from(atob(data.audioContent), (c) => c.charCodeAt(0));
-      const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
-      cache.set(text, url);
-      return url;
+    async function start() {
+      status.textContent = '';
+      if (audio.readyState < 1) { setState('loading'); nowEl.textContent = ui.loading; }
+      try {
+        await audio.play();
+        audio.playbackRate = SPEEDS[speedIdx];
+        setState('playing');
+        raf = requestAnimationFrame(loop);
+      } catch {
+        setState('idle');
+        nowEl.textContent = ui.press;
+        status.textContent = ui.error;
+      }
     }
 
-    async function play() {
-      const text = normalize(textarea.value);
-      status.textContent = '';
-      if (!text) { status.textContent = 'Type something for Voq to read.'; return; }
-      if (state === 'paused' && text === loadedText) {
-        await audio.play();
-        setState('playing');
-        raf = requestAnimationFrame(tick);
-        return;
+    function timeForWord(i: number) {
+      return Math.max(0, (marks[i] / total) * audio.duration - 0.08);
+    }
+
+    function seekToWord(i: number) {
+      if (audio.duration) {
+        audio.currentTime = timeForWord(i);
+        sync();
+      } else {
+        pendingSeek = i;
       }
-      setState('loading');
-      nowEl.textContent = 'Warming up the voice…';
-      try {
-        audio.src = await getAudioUrl(text);
-        audio.playbackRate = SPEEDS[speedIdx];
-        loadedText = text;
-        buildReader(text);
-        await audio.play();
-        setState('playing');
-        raf = requestAnimationFrame(tick);
-      } catch (e) {
-        resetPlayer();
-        const code = (e as Error).message;
-        if (code === 'limit') { status.textContent = "You've reached the demo limit — install Voq for unlimited listening."; cta.hidden = false; }
-        else if (code === 'too_long') status.textContent = `Keep it under ${max} characters for the demo.`;
-        else status.textContent = "Couldn't reach the voice right now. Please try again.";
-      }
+      if (state !== 'playing') start();
     }
 
     playBtn.addEventListener('click', () => {
@@ -242,14 +265,21 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
         audio.pause();
         cancelAnimationFrame(raf);
         setState('paused');
-      } else play();
+      } else {
+        start();
+      }
+    });
+
+    reader.addEventListener('click', (e) => {
+      const el = (e.target as HTMLElement).closest<HTMLElement>('.word');
+      if (el) seekToWord(Number(el.dataset.i));
     });
 
     root.querySelectorAll<HTMLButtonElement>('.vd-skip').forEach((b) =>
       b.addEventListener('click', () => {
-        if (!audio.duration || state === 'idle') return;
+        if (!audio.duration) return;
         audio.currentTime = Math.max(0, Math.min(audio.duration - 0.05, audio.currentTime + Number(b.dataset.skip)));
-        if (state === 'paused') tick();
+        sync();
       })
     );
 
@@ -259,31 +289,28 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
       speedBtn.textContent = `${SPEEDS[speedIdx]}x`;
     });
 
-    audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+    select.addEventListener('change', () => loadVoice(select.value));
+
+    audio.addEventListener('loadedmetadata', () => {
+      durEl.textContent = fmt(audio.duration);
+      if (pendingSeek !== null) { audio.currentTime = timeForWord(pendingSeek); pendingSeek = null; }
+    });
     audio.addEventListener('ended', () => {
       cancelAnimationFrame(raf);
       clearMarks();
       fill.style.width = '100%';
       curEl.textContent = fmt(audio.duration);
-      nowEl.textContent = 'Play again';
-      loadedText = '';
+      nowEl.textContent = ui.again;
       setState('idle');
       cta.hidden = false;
     });
-
-    textarea.addEventListener('input', () => { if (state !== 'idle') resetPlayer(); updateCount(); });
-    textarea.addEventListener('focus', () => { if (state === 'paused') resetPlayer(); });
-    reader.addEventListener('click', () => {
-      if (state === 'playing' || state === 'paused') { resetPlayer(); textarea.focus(); }
-    });
-    reset.addEventListener('click', () => {
-      textarea.value = defaultText;
-      if (state !== 'idle') resetPlayer();
-      status.textContent = '';
-      updateCount();
+    audio.addEventListener('error', () => {
+      if (!audio.src) return;
+      setState('idle');
+      status.textContent = ui.error;
     });
 
-    updateCount();
+    loadVoice(code);
   });
 </script>
 
@@ -295,63 +322,65 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     width: 100%;
     max-width: 540px;
     margin: 0 auto;
-    text-align: left;
+    text-align: start;
   }
   .vd-win {
     background: #fff;
     border-radius: 18px;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow:
-      0 2px 4px rgba(15, 23, 42, 0.04),
-      0 24px 60px -18px rgba(15, 23, 42, 0.28);
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 24px 60px -18px rgba(15, 23, 42, 0.28);
     overflow: hidden;
   }
 
-  /* Window bar */
   .vd-bar {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 46px;
-    padding: 0 0.9rem;
+    gap: 0.75rem;
+    height: 50px;
+    padding: 0 0.7rem 0 0.9rem;
     border-bottom: 1px solid #eef0f3;
-    background: #fff;
   }
-  .vd-dots { display: flex; gap: 6px; }
+  .vd-dots { display: flex; gap: 6px; flex: none; }
   .vd-dots i { width: 10px; height: 10px; border-radius: 50%; background: #e3e6ea; }
-  .vd-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--ink);
-    white-space: nowrap;
-  }
-  .vd-edit, .vd-reset {
+
+  .vd-lang {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    font: inherit;
-    font-size: 0.74rem;
-    font-weight: 600;
-    color: var(--soft);
-    background: #f4f5f7;
-    border: 0;
+    gap: 0.4rem;
+    min-width: 0;
+    max-width: 72%;
+    padding: 0 0.7rem;
+    height: 34px;
     border-radius: 999px;
-    padding: 0.28rem 0.6rem;
+    background: #f4f5f7;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s;
   }
-  .vd-edit[hidden], .vd-reset[hidden] { display: none; }
-  .vd-reset { color: var(--blue); background: #edf2ff; cursor: pointer; }
+  .vd-lang:hover { background: #eceef2; }
+  .vd-lang:focus-within { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); }
+  .vd-lang svg { flex: none; color: var(--soft); }
+  .vd-select {
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    padding-inline-end: 0.9rem;
+    margin-inline-end: -0.9rem;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    outline: none;
+  }
+  .vd-chev { pointer-events: none; }
 
-  /* Page + paper */
-  .vd-page {
-    position: relative;
-    background: #f3f4f6;
-    padding: 1.1rem 1.1rem 0;
-    display: flow-root;
-  }
+  .vd-page { background: #f3f4f6; padding: 1.1rem 1.1rem 0; display: flow-root; }
   .vd-paper {
     position: relative;
     background: #fff;
@@ -362,50 +391,29 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
   .vd-paper::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: auto 0 0 0;
     height: 3.5rem;
     background: linear-gradient(rgba(255, 255, 255, 0), #fff 75%);
     pointer-events: none;
-    z-index: 1;
   }
-  .vd-text, .vd-reader {
-    display: block;
-    width: 100%;
+  .vd-reader {
     height: 15.5rem;
     padding: 1.5rem 1.75rem 3.25rem;
     font-family: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
     font-size: 1.12rem;
     line-height: 1.85;
     color: var(--ink);
-    white-space: pre-wrap;
-    word-wrap: break-word;
     overflow-y: auto;
     scrollbar-width: none;
+    user-select: none;
   }
-  .vd-text::-webkit-scrollbar, .vd-reader::-webkit-scrollbar { display: none; }
-  .vd-text {
-    border: 0;
-    outline: none;
-    resize: none;
-    background: transparent;
-    cursor: text;
-    border-radius: 10px;
+  .vd-reader:lang(ja), .vd-reader:lang(zh-CN), .vd-reader:lang(ko),
+  .vd-reader:lang(ar), .vd-reader:lang(he), .vd-reader:lang(hi), .vd-reader:lang(bn),
+  .vd-reader:lang(gu), .vd-reader:lang(kn), .vd-reader:lang(ml), .vd-reader:lang(mr), .vd-reader:lang(ta) {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
   }
-  .vd-text:focus { box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.22); }
-  .vd-reader {
-    position: absolute;
-    inset: 0;
-    display: none;
-    background: #fff;
-    border-radius: 10px;
-    cursor: text;
-  }
-  .vd[data-state='playing'] .vd-reader,
-  .vd[data-state='paused'] .vd-reader { display: block; }
-  .vd[data-state='playing'] .vd-text,
-  .vd[data-state='paused'] .vd-text { visibility: hidden; }
+  .vd-reader::-webkit-scrollbar { display: none; }
   .vd-reader :global(.sent), .vd-reader :global(.word) {
     border-radius: 5px;
     padding: 0.12em 0;
@@ -413,30 +421,18 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     box-decoration-break: clone;
     transition: background-color 0.18s, box-shadow 0.18s;
   }
+  .vd-reader :global(.word) { cursor: pointer; }
+  .vd-reader :global(.word:hover) { background: #f1f4fb; box-shadow: 0 0 0 2px #f1f4fb; }
   .vd-reader :global(.sent.s-on) { background: #eaf0ff; box-shadow: 0 0 0 3px #eaf0ff; }
   .vd-reader :global(.word.w-on) { background: #c7d5ff; box-shadow: 0 0 0 3px #c7d5ff; }
 
-  .vd-count {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.8rem;
-    font-size: 0.72rem;
-    color: #b3b8bf;
-    font-variant-numeric: tabular-nums;
-  }
-  .vd-count.near { color: #b45309; }
-  .vd[data-state='playing'] .vd-count, .vd[data-state='paused'] .vd-count { display: none; }
-
-  /* Floating player */
   .vd-player {
     position: relative;
     margin: -2.4rem auto 1.1rem;
     width: min(360px, calc(100% - 1.5rem));
     background: #fff;
     border-radius: 16px;
-    box-shadow:
-      0 0 0 1px rgba(15, 23, 42, 0.06),
-      0 16px 36px -12px rgba(15, 23, 42, 0.3);
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06), 0 16px 36px -12px rgba(15, 23, 42, 0.3);
     overflow: hidden;
     z-index: 2;
   }
@@ -467,6 +463,7 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     align-items: center;
     justify-content: space-between;
     padding: 0.35rem 0.8rem 0.75rem;
+    direction: ltr;
   }
   .vd-avatar {
     display: grid;
@@ -547,14 +544,15 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
     animation: vd-ping 2.2s ease-out infinite;
   }
 
-  .vd-status { margin: 0.9rem 0 0; font-size: 0.88rem; color: #b45309; text-align: center; }
+  .vd-tip { margin: 0.8rem 0 0; font-size: 0.8rem; color: #9aa0a8; text-align: center; }
+  .vd-status { margin: 0.5rem 0 0; font-size: 0.88rem; color: #b45309; text-align: center; }
   .vd-status:empty { display: none; }
   .vd-cta {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-top: 0.9rem;
+    margin-top: 0.8rem;
     padding: 0.8rem 1.1rem;
     border-radius: 12px;
     background: #edf2ff;
@@ -581,8 +579,7 @@ const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can tak
   }
   @media (max-width: 520px) {
     .vd-page { padding: 0.7rem 0.7rem 0; }
-    .vd-text, .vd-reader { height: 14rem; padding: 1.2rem 1.2rem 3rem; font-size: 1.04rem; }
-    .vd-title { display: none; }
+    .vd-reader { height: 14rem; padding: 1.2rem 1.2rem 3rem; font-size: 1.04rem; }
     .vd-cta { flex-direction: column; align-items: flex-start; }
   }
 </style>
