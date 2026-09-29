@@ -378,3 +378,78 @@ footer a {
   color: #f5a623;
   letter-spacing: 0.05em;
 }
+
+/* Split hero with live demo (English homepage) */
+nav .container {
+  max-width: 1120px;
+}
+
+.hero--split {
+  padding: 4.5rem 0 5rem;
+  text-align: left;
+  overflow: hidden;
+}
+
+.hero-wide {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero--split h1 {
+  font-size: clamp(2.3rem, 4vw, 3.15rem);
+  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.hero--split .tagline {
+  margin: 0 0 2rem;
+  max-width: 30rem;
+  font-size: 1.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hero--split .hero-rating {
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.btn-lg {
+  padding: 0.95rem 1.75rem;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px -10px rgba(37, 99, 235, 0.7);
+}
+
+@media (max-width: 900px) {
+  .hero--split {
+    padding: 3rem 0 3.5rem;
+    text-align: center;
+  }
+  .hero-wide {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+  .hero--split .tagline {
+    margin: 0 auto 1.75rem;
+  }
+  .hero-actions {
+    align-items: center;
+  }
+  .hero--split .hero-rating {
+    display: block;
+    text-align: center;
+  }
+}

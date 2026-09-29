@@ -24,18 +24,37 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <Base title={t.title} description={t.description} lang={lang} path="">
-  <section class="hero">
-    <div class="container">
-      <h1 set:html={t.h1} />
-      <p class="tagline">{t.tagline}</p>
-      <div class="hero-rating" aria-label={t.heroRating}>
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span>{t.heroRating}</span>
+  {lang === 'en' ? (
+    <section class="hero hero--split">
+      <div class="hero-wide">
+        <div class="hero-copy">
+          <h1 set:html={t.h1} />
+          <p class="tagline">{t.tagline}</p>
+          <div class="hero-actions">
+            <a class="btn btn-lg" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
+            <div class="hero-rating" aria-label={t.heroRating}>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span>{t.heroRating}</span>
+            </div>
+          </div>
+        </div>
+        <HeroDemo ctaUrl={CHROME_STORE_URL} />
       </div>
-      <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
-      {lang === 'en' && <HeroDemo ctaUrl={CHROME_STORE_URL} />}
-    </div>
-  </section>
+    </section>
+  ) : (
+    <section class="hero">
+      <div class="container">
+        <h1 set:html={t.h1} />
+        <p class="tagline">{t.tagline}</p>
+        <div class="hero-rating" aria-label={t.heroRating}>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span>{t.heroRating}</span>
+        </div>
+        <a class="btn" href={CHROME_STORE_URL} target="_blank" rel="noopener">{t.ctaBtn}</a>
+        {lang === 'en' && <HeroDemo ctaUrl={CHROME_STORE_URL} />}
+      </div>
+    </section>
+  )}
 
   <section class="features">
     <div class="container">

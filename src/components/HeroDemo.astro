@@ -8,249 +8,581 @@ const MAX_CHARS = 500;
 const DEFAULT_TEXT = "Hi, I'm Voq. I read the web out loud, so your eyes can take a break. ChatGPT answers, Reddit threads, long articles: one click, and I'll read them to you in a natural voice. I speak many languages, I'm completely free, and there's no account to create. Listen while you cook, commute, or just rest. If reading feels like work, let me do it for you. Add Voq to Chrome and hear any page in seconds.";
 ---
 
-<div class="demo" data-endpoint={DEMO_ENDPOINT} data-default={DEFAULT_TEXT} data-max={MAX_CHARS}>
-  <div class="demo-head">
-    <span class="demo-label">Try it — hear Voq's voice</span>
-    <button type="button" class="demo-reset" hidden>Reset text</button>
+<div class="vd" data-endpoint={DEMO_ENDPOINT} data-default={DEFAULT_TEXT} data-max={MAX_CHARS} data-state="idle">
+  <div class="vd-win">
+    <div class="vd-bar">
+      <div class="vd-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="vd-title">Hi, I'm Voq.txt</div>
+      <button type="button" class="vd-reset" hidden>Reset</button>
+      <span class="vd-edit">
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M11.1 1.9a1.5 1.5 0 0 1 2.1 0l.9.9a1.5 1.5 0 0 1 0 2.1L6 13l-3.5.9L3.4 10.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Editable
+      </span>
+    </div>
+
+    <div class="vd-page">
+      <div class="vd-paper">
+        <label class="vd-sr" for="vd-text">Text for Voq to read aloud — edit it to try your own</label>
+        <textarea id="vd-text" class="vd-text" maxlength={MAX_CHARS} spellcheck="false">{DEFAULT_TEXT}</textarea>
+        <div class="vd-reader" aria-hidden="true"></div>
+        <div class="vd-count"><span class="vd-count-n">0</span> / {MAX_CHARS}</div>
+      </div>
+
+      <div class="vd-player">
+        <div class="vd-progress"><span></span></div>
+        <div class="vd-info">
+          <span class="vd-cur">0:00</span>
+          <span class="vd-now">Press play to hear Voq</span>
+          <span class="vd-dur">0:30</span>
+        </div>
+        <div class="vd-controls">
+          <span class="vd-avatar" aria-hidden="true">v</span>
+          <button type="button" class="vd-skip" data-skip="-5" aria-label="Back 5 seconds">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7.2v9.6a.8.8 0 0 1-1.25.66L3.6 12.66a.8.8 0 0 1 0-1.32l6.15-4.8A.8.8 0 0 1 11 7.2zm9 0v9.6a.8.8 0 0 1-1.25.66l-6.15-4.8a.8.8 0 0 1 0-1.32l6.15-4.8A.8.8 0 0 1 20 7.2z"/></svg>
+          </button>
+          <button type="button" class="vd-play" aria-label="Play">
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.5"/><rect x="13.5" y="5" width="4" height="14" rx="1.5"/></svg>
+            <span class="i-spin" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="vd-skip" data-skip="5" aria-label="Forward 5 seconds">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 7.2v9.6a.8.8 0 0 0 1.25.66l6.15-4.8a.8.8 0 0 0 0-1.32l-6.15-4.8A.8.8 0 0 0 13 7.2zm-9 0v9.6a.8.8 0 0 0 1.25.66l6.15-4.8a.8.8 0 0 0 0-1.32L5.25 6.54A.8.8 0 0 0 4 7.2z"/></svg>
+          </button>
+          <button type="button" class="vd-speed" aria-label="Playback speed">1x</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <label class="sr-only" for="demo-text">Text to read aloud</label>
-  <textarea id="demo-text" class="demo-text" rows="5" maxlength={MAX_CHARS} spellcheck="false">{DEFAULT_TEXT}</textarea>
-  <div class="demo-bar" aria-hidden="true"><span class="demo-bar-fill"></span></div>
-  <div class="demo-controls">
-    <button type="button" class="demo-play" aria-live="polite">
-      <span class="demo-icon" aria-hidden="true">▶</span>
-      <span class="demo-play-label">Play</span>
-    </button>
-    <span class="demo-count"><span class="demo-count-n">0</span> / {MAX_CHARS}</span>
+
+  <p class="vd-status" role="status"></p>
+  <div class="vd-cta" hidden>
+    <span>Like how that sounds? Voq reads any page like this.</span>
+    <a href={ctaUrl} target="_blank" rel="noopener">Add to Chrome →</a>
   </div>
-  <p class="demo-status" role="status"></p>
-  <a class="demo-cta" href={ctaUrl} target="_blank" rel="noopener" hidden>Hear this on any page → Add Voq to Chrome</a>
 </div>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.demo').forEach((root) => {
+  document.querySelectorAll<HTMLElement>('.vd').forEach((root) => {
     const endpoint = root.dataset.endpoint!;
     const defaultText = root.dataset.default!;
     const max = Number(root.dataset.max);
-    const textarea = root.querySelector<HTMLTextAreaElement>('.demo-text')!;
-    const playBtn = root.querySelector<HTMLButtonElement>('.demo-play')!;
-    const icon = root.querySelector<HTMLElement>('.demo-icon')!;
-    const label = root.querySelector<HTMLElement>('.demo-play-label')!;
-    const countEl = root.querySelector<HTMLElement>('.demo-count')!;
-    const countN = root.querySelector<HTMLElement>('.demo-count-n')!;
-    const status = root.querySelector<HTMLElement>('.demo-status')!;
-    const cta = root.querySelector<HTMLAnchorElement>('.demo-cta')!;
-    const reset = root.querySelector<HTMLButtonElement>('.demo-reset')!;
-    const fill = root.querySelector<HTMLElement>('.demo-bar-fill')!;
+    const $ = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+    const textarea = $<HTMLTextAreaElement>('.vd-text');
+    const reader = $('.vd-reader');
+    const playBtn = $<HTMLButtonElement>('.vd-play');
+    const speedBtn = $<HTMLButtonElement>('.vd-speed');
+    const curEl = $('.vd-cur');
+    const durEl = $('.vd-dur');
+    const nowEl = $('.vd-now');
+    const fill = $('.vd-progress span');
+    const countEl = $('.vd-count');
+    const countN = $('.vd-count-n');
+    const status = $('.vd-status');
+    const cta = $('.vd-cta');
+    const reset = $<HTMLButtonElement>('.vd-reset');
+    const editTag = $('.vd-edit');
 
+    const SPEEDS = [1, 1.25, 1.5, 2];
+    let speedIdx = 0;
     const audio = new Audio();
-    const cache = new Map<string, string>(); // normalized text -> object URL
-    let state: 'idle' | 'loading' | 'playing' = 'idle';
+    const cache = new Map<string, string>();
+    let state: 'idle' | 'loading' | 'playing' | 'paused' = 'idle';
+    let loadedText = '';
+    let words: { el: HTMLElement; s: number }[] = [];
+    let sentences: { el: HTMLElement; text: string }[] = [];
+    let marks: number[] = [];
+    let total = 1;
+    let curWord = -1;
+    let curSent = -1;
+    let raf = 0;
 
     const normalize = (s: string) => s.replace(/\s+/g, ' ').trim();
+    const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+    const short = (s: string) => (s.length > 34 ? s.slice(0, 32).trimEnd() + '…' : s);
 
     function setState(next: typeof state) {
       state = next;
       root.dataset.state = next;
       playBtn.disabled = next === 'loading';
-      icon.textContent = next === 'playing' ? '■' : '▶';
-      label.textContent = next === 'loading' ? 'Loading…' : next === 'playing' ? 'Stop' : 'Play';
+      playBtn.setAttribute('aria-label', next === 'playing' ? 'Pause' : 'Play');
     }
 
     function updateCount() {
       const n = textarea.value.length;
       countN.textContent = String(n);
       countEl.classList.toggle('near', n > max * 0.9);
-      reset.hidden = normalize(textarea.value) === normalize(defaultText);
+      const edited = normalize(textarea.value) !== normalize(defaultText);
+      reset.hidden = !edited;
+      editTag.hidden = edited;
     }
 
-    function stop() {
+    // Karaoke view. Timing is estimated from word length plus pauses at punctuation.
+    function buildReader(text: string) {
+      reader.textContent = '';
+      words = []; sentences = []; marks = []; total = 0;
+      let sentEl: HTMLElement | null = null;
+      const tokens = text.split(/(\s+)/).filter(Boolean);
+      for (const token of tokens) {
+        if (/^\s+$/.test(token)) { (sentEl ?? reader).append(token); continue; }
+        if (!sentEl) {
+          sentEl = document.createElement('span');
+          sentEl.className = 'sent';
+          reader.append(sentEl);
+          sentences.push({ el: sentEl, text: '' });
+        }
+        const sent = sentences[sentences.length - 1];
+        const el = document.createElement('span');
+        el.className = 'word';
+        el.textContent = token;
+        sentEl.append(el);
+        words.push({ el, s: sentences.length - 1 });
+        sent.text += (sent.text ? ' ' : '') + token;
+        marks.push(total);
+        const endSentence = /[.!?]["')\]]?$/.test(token);
+        total += token.length + 1 + (endSentence ? 8 : /[:;]$/.test(token) ? 6 : /[,—–-]$/.test(token) ? 3 : 0);
+        if (endSentence) {
+          // move trailing whitespace outside the sentence span
+          sentEl = null;
+        }
+      }
+      curWord = -1; curSent = -1;
+    }
+
+    function clearMarks() {
+      words.forEach((w) => w.el.classList.remove('w-on'));
+      sentences.forEach((x) => x.el.classList.remove('s-on'));
+      curWord = -1; curSent = -1;
+    }
+
+    function tick() {
+      if (audio.duration) {
+        const p = Math.min(1, (audio.currentTime + 0.12) / audio.duration);
+        const w = p * total;
+        let i = 0;
+        while (i + 1 < marks.length && marks[i + 1] <= w) i++;
+        if (i !== curWord) {
+          words[curWord]?.el.classList.remove('w-on');
+          words[i].el.classList.add('w-on');
+          curWord = i;
+          const s = words[i].s;
+          if (s !== curSent) {
+            sentences[curSent]?.el.classList.remove('s-on');
+            sentences[s].el.classList.add('s-on');
+            curSent = s;
+            nowEl.textContent = short(sentences[s].text);
+          }
+          const el = words[i].el;
+          const target = el.offsetTop - reader.clientHeight * 0.4;
+          if (Math.abs(reader.scrollTop - target) > 24) reader.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
+        curEl.textContent = fmt(audio.currentTime);
+        fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+      }
+      if (state === 'playing') raf = requestAnimationFrame(tick);
+    }
+
+    function resetPlayer() {
+      cancelAnimationFrame(raf);
       audio.pause();
-      audio.currentTime = 0;
+      clearMarks();
       fill.style.width = '0%';
+      curEl.textContent = '0:00';
+      nowEl.textContent = 'Press play to hear Voq';
+      loadedText = '';
       setState('idle');
     }
 
-    async function getAudioUrl(text: string): Promise<string> {
-      const cached = cache.get(text);
-      if (cached) return cached;
+    async function getAudioUrl(text: string) {
+      const hit = cache.get(text);
+      if (hit) return hit;
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.audioContent) {
-        const err = new Error(data.error || 'error');
-        throw err;
-      }
+      if (!res.ok || !data.audioContent) throw new Error(data.error || 'error');
       const bytes = Uint8Array.from(atob(data.audioContent), (c) => c.charCodeAt(0));
       const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
       cache.set(text, url);
       return url;
     }
 
-    playBtn.addEventListener('click', async () => {
-      if (state === 'playing') return stop();
+    async function play() {
       const text = normalize(textarea.value);
       status.textContent = '';
       if (!text) { status.textContent = 'Type something for Voq to read.'; return; }
-      setState('loading');
-      try {
-        audio.src = await getAudioUrl(text);
+      if (state === 'paused' && text === loadedText) {
         await audio.play();
         setState('playing');
-      } catch (e) {
-        setState('idle');
-        const code = (e as Error).message;
-        if (code === 'limit') {
-          
-          status.textContent = 'Demo limit reached — install Voq for unlimited listening.';
-          cta.hidden = false;
-        } else if (code === 'too_long') {
-          status.textContent = `Keep it under ${max} characters for the demo.`;
-        } else {
-          status.textContent = "Couldn't play the demo right now. Please try again.";
-        }
+        raf = requestAnimationFrame(tick);
+        return;
       }
+      setState('loading');
+      nowEl.textContent = 'Warming up the voice…';
+      try {
+        audio.src = await getAudioUrl(text);
+        audio.playbackRate = SPEEDS[speedIdx];
+        loadedText = text;
+        buildReader(text);
+        await audio.play();
+        setState('playing');
+        raf = requestAnimationFrame(tick);
+      } catch (e) {
+        resetPlayer();
+        const code = (e as Error).message;
+        if (code === 'limit') { status.textContent = "You've reached the demo limit — install Voq for unlimited listening."; cta.hidden = false; }
+        else if (code === 'too_long') status.textContent = `Keep it under ${max} characters for the demo.`;
+        else status.textContent = "Couldn't reach the voice right now. Please try again.";
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (state === 'playing') {
+        audio.pause();
+        cancelAnimationFrame(raf);
+        setState('paused');
+      } else play();
     });
 
-    audio.addEventListener('timeupdate', () => {
-      if (audio.duration) fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+    root.querySelectorAll<HTMLButtonElement>('.vd-skip').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (!audio.duration || state === 'idle') return;
+        audio.currentTime = Math.max(0, Math.min(audio.duration - 0.05, audio.currentTime + Number(b.dataset.skip)));
+        if (state === 'paused') tick();
+      })
+    );
+
+    speedBtn.addEventListener('click', () => {
+      speedIdx = (speedIdx + 1) % SPEEDS.length;
+      audio.playbackRate = SPEEDS[speedIdx];
+      speedBtn.textContent = `${SPEEDS[speedIdx]}x`;
     });
+
+    audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
     audio.addEventListener('ended', () => {
+      cancelAnimationFrame(raf);
+      clearMarks();
       fill.style.width = '100%';
+      curEl.textContent = fmt(audio.duration);
+      nowEl.textContent = 'Play again';
+      loadedText = '';
       setState('idle');
       cta.hidden = false;
     });
 
-    textarea.addEventListener('input', () => {
-      if (state === 'playing') stop();
-      updateCount();
+    textarea.addEventListener('input', () => { if (state !== 'idle') resetPlayer(); updateCount(); });
+    textarea.addEventListener('focus', () => { if (state === 'paused') resetPlayer(); });
+    reader.addEventListener('click', () => {
+      if (state === 'playing' || state === 'paused') { resetPlayer(); textarea.focus(); }
     });
     reset.addEventListener('click', () => {
       textarea.value = defaultText;
-      if (state === 'playing') stop();
+      if (state !== 'idle') resetPlayer();
+      status.textContent = '';
       updateCount();
-      textarea.focus();
     });
 
     updateCount();
-    setState('idle');
   });
 </script>
 
 <style>
-  .demo {
-    max-width: 620px;
-    margin: 2.5rem auto 0;
-    text-align: left;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 1rem 1rem 0.9rem;
-  }
-  .demo-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.6rem;
-  }
-  .demo-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-  }
-  .demo-reset {
-    background: none;
-    border: 0;
-    padding: 0;
-    font: inherit;
-    font-size: 0.85rem;
-    color: var(--color-accent);
-    cursor: pointer;
-  }
-  .demo-text {
-    display: block;
+  .vd {
+    --blue: var(--color-accent);
+    --ink: #1c1f24;
+    --soft: #8b919a;
     width: 100%;
-    resize: vertical;
-    min-height: 7.5rem;
-    font: inherit;
-    font-size: 1rem;
-    line-height: 1.55;
-    color: var(--color-text);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 0.75rem 0.85rem;
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: left;
   }
-  .demo-text:focus {
-    outline: 2px solid var(--color-accent);
-    outline-offset: -1px;
-    border-color: transparent;
-  }
-  .demo-bar {
-    height: 3px;
-    margin: 0.75rem 0 0.75rem;
-    background: var(--color-border);
-    border-radius: 2px;
+  .vd-win {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.04),
+      0 24px 60px -18px rgba(15, 23, 42, 0.28);
     overflow: hidden;
   }
-  .demo-bar-fill {
-    display: block;
-    height: 100%;
-    width: 0%;
-    background: var(--color-accent);
-    transition: width 0.25s linear;
-  }
-  .demo-controls {
+
+  /* Window bar */
+  .vd-bar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    height: 46px;
+    padding: 0 0.9rem;
+    border-bottom: 1px solid #eef0f3;
+    background: #fff;
   }
-  .demo-play {
+  .vd-dots { display: flex; gap: 6px; }
+  .vd-dots i { width: 10px; height: 10px; border-radius: 50%; background: #e3e6ea; }
+  .vd-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .vd-edit, .vd-reset {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    min-width: 7rem;
-    justify-content: center;
-    padding: 0.6rem 1.2rem;
+    gap: 0.3rem;
     font: inherit;
+    font-size: 0.74rem;
     font-weight: 600;
-    color: #fff;
-    background: var(--color-text);
+    color: var(--soft);
+    background: #f4f5f7;
     border: 0;
     border-radius: 999px;
-    cursor: pointer;
-    transition: opacity 0.15s;
+    padding: 0.28rem 0.6rem;
   }
-  .demo-play:hover { opacity: 0.85; }
-  .demo-play:disabled { opacity: 0.6; cursor: progress; }
-  .demo-icon { font-size: 0.8rem; }
-  .demo-count {
-    font-size: 0.85rem;
-    color: var(--color-muted);
+  .vd-edit[hidden], .vd-reset[hidden] { display: none; }
+  .vd-reset { color: var(--blue); background: #edf2ff; cursor: pointer; }
+
+  /* Page + paper */
+  .vd-page {
+    position: relative;
+    background: #f3f4f6;
+    padding: 1.1rem 1.1rem 0;
+    display: flow-root;
+  }
+  .vd-paper {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+  }
+  .vd-paper::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3.5rem;
+    background: linear-gradient(rgba(255, 255, 255, 0), #fff 75%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .vd-text, .vd-reader {
+    display: block;
+    width: 100%;
+    height: 15.5rem;
+    padding: 1.5rem 1.75rem 3.25rem;
+    font-family: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .vd-text::-webkit-scrollbar, .vd-reader::-webkit-scrollbar { display: none; }
+  .vd-text {
+    border: 0;
+    outline: none;
+    resize: none;
+    background: transparent;
+    cursor: text;
+    border-radius: 10px;
+  }
+  .vd-text:focus { box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.22); }
+  .vd-reader {
+    position: absolute;
+    inset: 0;
+    display: none;
+    background: #fff;
+    border-radius: 10px;
+    cursor: text;
+  }
+  .vd[data-state='playing'] .vd-reader,
+  .vd[data-state='paused'] .vd-reader { display: block; }
+  .vd[data-state='playing'] .vd-text,
+  .vd[data-state='paused'] .vd-text { visibility: hidden; }
+  .vd-reader :global(.sent), .vd-reader :global(.word) {
+    border-radius: 5px;
+    padding: 0.12em 0;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-color 0.18s, box-shadow 0.18s;
+  }
+  .vd-reader :global(.sent.s-on) { background: #eaf0ff; box-shadow: 0 0 0 3px #eaf0ff; }
+  .vd-reader :global(.word.w-on) { background: #c7d5ff; box-shadow: 0 0 0 3px #c7d5ff; }
+
+  .vd-count {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.8rem;
+    font-size: 0.72rem;
+    color: #b3b8bf;
     font-variant-numeric: tabular-nums;
   }
-  .demo-count.near { color: #b45309; }
-  .demo-status:empty { display: none; }
-  .demo-status {
-    margin: 0.75rem 0 0;
-    font-size: 0.9rem;
-    color: var(--color-muted);
+  .vd-count.near { color: #b45309; }
+  .vd[data-state='playing'] .vd-count, .vd[data-state='paused'] .vd-count { display: none; }
+
+  /* Floating player */
+  .vd-player {
+    position: relative;
+    margin: -2.4rem auto 1.1rem;
+    width: min(360px, calc(100% - 1.5rem));
+    background: #fff;
+    border-radius: 16px;
+    box-shadow:
+      0 0 0 1px rgba(15, 23, 42, 0.06),
+      0 16px 36px -12px rgba(15, 23, 42, 0.3);
+    overflow: hidden;
+    z-index: 2;
   }
-  .demo-cta {
+  .vd-progress { height: 3px; background: #eceef2; }
+  .vd-progress span { display: block; height: 100%; width: 0; background: var(--blue); }
+  .vd-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.95rem 0;
+    font-size: 0.72rem;
+    color: #a0a6ae;
+    font-variant-numeric: tabular-nums;
+  }
+  .vd-now {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    color: var(--soft);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .vd-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.35rem 0.8rem 0.75rem;
+  }
+  .vd-avatar {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding-bottom: 2px;
+  }
+  .vd-skip, .vd-speed {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .vd-skip svg { width: 20px; height: 20px; fill: currentColor; }
+  .vd-skip:hover, .vd-speed:hover { background: #f2f4f7; }
+  .vd-speed {
+    width: auto;
+    min-width: 44px;
+    height: 34px;
+    padding: 0 0.55rem;
+    border-radius: 999px;
+    background: #f4f5f7;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .vd-play {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 10px 22px -8px rgba(37, 99, 235, 0.75);
+    transition: transform 0.15s, background 0.15s;
+  }
+  .vd-play:hover { background: var(--color-accent-hover); transform: scale(1.04); }
+  .vd-play:active { transform: scale(0.96); }
+  .vd-play:focus-visible { outline: 3px solid rgba(37, 99, 235, 0.35); outline-offset: 3px; }
+  .vd-play svg { grid-area: 1 / 1; width: 24px; height: 24px; fill: currentColor; }
+  .vd-play .i-play { margin-left: 3px; }
+  .vd-play .i-pause, .vd-play .i-spin { display: none; }
+  .vd[data-state='playing'] .i-play { display: none; }
+  .vd[data-state='playing'] .i-pause { display: block; }
+  .vd[data-state='loading'] .vd-play { cursor: progress; }
+  .vd[data-state='loading'] .i-play { display: none; }
+  .vd[data-state='loading'] .i-spin {
     display: block;
-    margin-top: 0.75rem;
-    font-weight: 600;
-    font-size: 0.95rem;
+    grid-area: 1 / 1;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    animation: vd-spin 0.7s linear infinite;
   }
-  .demo-cta[hidden] { display: none; }
-  .sr-only {
+  .vd[data-state='idle'] .vd-play::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: vd-ping 2.2s ease-out infinite;
+  }
+
+  .vd-status { margin: 0.9rem 0 0; font-size: 0.88rem; color: #b45309; text-align: center; }
+  .vd-status:empty { display: none; }
+  .vd-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+    background: #edf2ff;
+    color: #1e3a8a;
+    font-size: 0.9rem;
+    animation: vd-in 0.35s ease-out;
+  }
+  .vd-cta[hidden] { display: none; }
+  .vd-cta a { font-weight: 700; white-space: nowrap; }
+
+  .vd-sr {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  @keyframes vd-spin { to { transform: rotate(360deg); } }
+  @keyframes vd-ping {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+    70%, 100% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+  }
+  @keyframes vd-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .vd *, .vd *::after { animation: none !important; transition: none !important; }
+  }
+  @media (max-width: 520px) {
+    .vd-page { padding: 0.7rem 0.7rem 0; }
+    .vd-text, .vd-reader { height: 14rem; padding: 1.2rem 1.2rem 3rem; font-size: 1.04rem; }
+    .vd-title { display: none; }
+    .vd-cta { flex-direction: column; align-items: flex-start; }
   }
 </style>
