@@ -76,11 +76,22 @@ const isRTL = lang === 'ar';
   <meta property="og:title" content={resolvedOgTitle} />
   <meta property="og:description" content={resolvedOgDesc} />
   <meta property="og:site_name" content="Voq" />
+  <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={resolvedOgTitle} />
   <meta name="twitter:description" content={resolvedOgDesc} />
+  <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#111111" />
 
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="generator" content={Astro.generator} />
@@ -114,7 +125,7 @@ const isRTL = lang === 'ar';
 <body>
   <nav>
     <div class="container">
-      <a class="logo" href={localeHome(lang)}>Voq</a>
+      <a class="logo" href={localeHome(lang)} aria-label="Voq home"><img src="/logo/voq-wordmark.svg" alt="Voq" width="52" height="24" /></a>
       <ul class="nav-links">
         <li><a href={localeLink('pricing')}>{t.pricing}</a></li>
         <li><a class="install-btn" href="https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde" target="_blank" rel="noopener">{t.install}</a></li>
