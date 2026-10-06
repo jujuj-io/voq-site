@@ -453,3 +453,16 @@ nav .container {
     text-align: center;
   }
 }
+
+.how-to-screenshot {
+  margin: -1rem 0 2.5rem;
+}
+
+.how-to-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}

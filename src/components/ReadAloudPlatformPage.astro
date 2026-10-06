@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
 
 interface Props { lang?: string; entry: any }
 const { lang = 'en', entry } = Astro.props;
@@ -21,6 +23,10 @@ const UI = {
   ar: { titleTpl: (n) => `تحويل النص إلى كلام لـ ${n} — Voq`, h1Tpl: (n) => `تحويل النص إلى كلام لـ ${n}`, howH2Tpl: (n) => `كيفية استخدام Voq على ${n}`, ctaP: 'Voq مجاني — لا حاجة لحساب أو اشتراك.', ctaBtn: 'أضف Voq إلى Chrome مجانًا' },
 };
 const t = UI[lang] ?? UI.en;
+
+// One screenshot per platform, shared by every language version.
+const screenshotPath = `/screenshots/read-aloud/${entry.data.slug}.webp`;
+const hasScreenshot = fs.existsSync(path.join(process.cwd(), 'public', screenshotPath));
 ---
 
 <Base title={t.titleTpl(name)} description={metaDescription} lang={lang} path={`/read-aloud/${entry.data.slug}`}>
@@ -35,6 +41,12 @@ const t = UI[lang] ?? UI.en;
           <li>{step}</li>
         ))}
       </ol>
+
+      {hasScreenshot && (
+        <figure class="how-to-screenshot">
+          <img src={screenshotPath} alt={`Voq reading text aloud on ${name}, with the reading panel highlighting the sentence being spoken`} loading="lazy" decoding="async" />
+        </figure>
+      )}
 
       <div class="cta-block">
         <p>{t.ctaP}</p>
