@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Add a competitor to LIVE once its /alternative/<slug> page is published.
+const LIVE = new Set<string>(['speechify']);
+
+const TOOLS = [
+  { slug: 'speechify', name: 'Speechify', desc: 'Natural voices for free, without the $139/year plan or a trial that auto-charges.' },
+  { slug: 'elevenlabs', name: 'ElevenLabs', desc: 'A simple free reader for webpages, instead of a voice studio priced per character.' },
+  { slug: 'naturalreader', name: 'NaturalReader', desc: 'Free natural voices in Chrome, no account needed.' },
+  { slug: 'murf-ai', name: 'Murf AI', desc: 'Listen to what you read, rather than paying for voiceover tools.' },
+  { slug: 'play-ht', name: 'Play.ht', desc: 'A free reading extension instead of a paid voice-generation platform.' },
+];
+const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+---
+
+<Base
+  title="Text to Speech Alternatives Compared — Voq"
+  description="How Voq compares with Speechify, ElevenLabs, NaturalReader and other text to speech tools. Honest side-by-side comparisons of price, voices and limits."
+  path="/alternative"
+  localized={false}
+>
+  <div class="container alt-index">
+    <div class="page-header">
+      <h1>Voq vs other text to speech tools</h1>
+      <p>Honest side-by-side comparisons — what each tool does well, what it costs, and where Voq fits.</p>
+    </div>
+
+    <ul class="tools">
+      {TOOLS.map((t) => LIVE.has(t.slug) ? (
+        <li><a class="tool" href={`/alternative/${t.slug}`}>
+          <span class="name">{t.name} alternative <span aria-hidden="true">→</span></span>
+          <span class="desc">{t.desc}</span>
+        </a></li>
+      ) : (
+        <li><div class="tool soon">
+          <span class="name">{t.name} alternative <span class="badge">Coming soon</span></span>
+          <span class="desc">{t.desc}</span>
+        </div></li>
+      ))}
+    </ul>
+
+    <div class="cta-block">
+      <p>Natural voices on any webpage. Free, no account, 34 languages.</p>
+      <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .alt-index { padding-top: 1rem; padding-bottom: 3rem; }
+  .tools { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 2rem 0; }
+  .tool { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.1rem 1.25rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); }
+  a.tool:hover { border-color: var(--color-accent); text-decoration: none; }
+  .name { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; }
+  .desc { color: var(--color-muted); font-size: 0.95rem; }
+  .tool.soon { background: #fff; border-style: dashed; }
+  .tool.soon .name { color: #4b5563; }
+  .badge { flex: none; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #4b5563; background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 999px; }
+</style>

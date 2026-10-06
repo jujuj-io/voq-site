@@ -33,17 +33,17 @@ const resolvedOgDesc = ogDescription ?? description;
 const LOCALES = ['en', 'ar', 'de', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'zh-CN'];
 
 const NAV = {
-  en: { blog: 'Blog', platforms: 'Platforms', pricing: 'Pricing', install: 'Install Free', privacy: 'Privacy Policy', useCases: "Use cases", lang: 'Language' },
-  ar: { blog: 'المدونة', platforms: 'المنصات', pricing: 'الأسعار', install: 'تثبيت مجاني', privacy: 'سياسة الخصوصية', useCases: "حالات الاستخدام", lang: 'اللغة' },
-  de: { blog: 'Blog', platforms: 'Plattformen', pricing: 'Preise', install: 'Kostenlos installieren', privacy: 'Datenschutz', useCases: "Anwendungsfälle", lang: 'Sprache' },
-  es: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Precios', install: 'Instalar gratis', privacy: 'Privacidad', useCases: "Casos de uso", lang: 'Idioma' },
-  fr: { blog: 'Blog', platforms: 'Plateformes', pricing: 'Tarifs', install: 'Installer gratuitement', privacy: 'Confidentialité', useCases: "Cas d'usage", lang: 'Langue' },
-  it: { blog: 'Blog', platforms: 'Piattaforme', pricing: 'Prezzi', install: 'Installa gratis', privacy: 'Privacy', useCases: "Casi d'uso", lang: 'Lingua' },
-  ja: { blog: 'ブログ', platforms: 'プラットフォーム', pricing: '料金', install: '無料でインストール', privacy: 'プライバシーポリシー', useCases: "活用例", lang: '言語' },
-  nl: { blog: 'Blog', platforms: 'Platforms', pricing: 'Prijzen', install: 'Gratis installeren', privacy: 'Privacybeleid', useCases: "Toepassingen", lang: 'Taal' },
-  pl: { blog: 'Blog', platforms: 'Platformy', pricing: 'Cennik', install: 'Zainstaluj za darmo', privacy: 'Polityka prywatności', useCases: "Zastosowania", lang: 'Język' },
-  pt: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Preços', install: 'Instalar grátis', privacy: 'Privacidade', useCases: "Casos de uso", lang: 'Idioma' },
-  'zh-CN': { blog: '博客', platforms: '平台', pricing: '定价', install: '免费安装', privacy: '隐私政策', useCases: "使用场景", lang: '语言' },
+  en: { blog: 'Blog', platforms: 'Platforms', pricing: 'Pricing', install: 'Install Free', privacy: 'Privacy Policy', useCases: "Use cases", compare: "Compare", lang: 'Language' },
+  ar: { blog: 'المدونة', platforms: 'المنصات', pricing: 'الأسعار', install: 'تثبيت مجاني', privacy: 'سياسة الخصوصية', useCases: "حالات الاستخدام", compare: "مقارنات", lang: 'اللغة' },
+  de: { blog: 'Blog', platforms: 'Plattformen', pricing: 'Preise', install: 'Kostenlos installieren', privacy: 'Datenschutz', useCases: "Anwendungsfälle", compare: "Vergleiche", lang: 'Sprache' },
+  es: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Precios', install: 'Instalar gratis', privacy: 'Privacidad', useCases: "Casos de uso", compare: "Comparativas", lang: 'Idioma' },
+  fr: { blog: 'Blog', platforms: 'Plateformes', pricing: 'Tarifs', install: 'Installer gratuitement', privacy: 'Confidentialité', useCases: "Cas d'usage", compare: "Comparatifs", lang: 'Langue' },
+  it: { blog: 'Blog', platforms: 'Piattaforme', pricing: 'Prezzi', install: 'Installa gratis', privacy: 'Privacy', useCases: "Casi d'uso", compare: "Confronti", lang: 'Lingua' },
+  ja: { blog: 'ブログ', platforms: 'プラットフォーム', pricing: '料金', install: '無料でインストール', privacy: 'プライバシーポリシー', useCases: "活用例", compare: "比較", lang: '言語' },
+  nl: { blog: 'Blog', platforms: 'Platforms', pricing: 'Prijzen', install: 'Gratis installeren', privacy: 'Privacybeleid', useCases: "Toepassingen", compare: "Vergelijken", lang: 'Taal' },
+  pl: { blog: 'Blog', platforms: 'Platformy', pricing: 'Cennik', install: 'Zainstaluj za darmo', privacy: 'Polityka prywatności', useCases: "Zastosowania", compare: "Porównania", lang: 'Język' },
+  pt: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Preços', install: 'Instalar grátis', privacy: 'Privacidade', useCases: "Casos de uso", compare: "Comparações", lang: 'Idioma' },
+  'zh-CN': { blog: '博客', platforms: '平台', pricing: '定价', install: '免费安装', privacy: '隐私政策', useCases: "使用场景", compare: "对比", lang: '语言' },
 };
 
 const LANG_NAMES = {
@@ -149,6 +149,7 @@ const isRTL = lang === 'ar';
         <a href={localeLink('blog')}>{t.blog}</a>
         <a href={localeLink('read-aloud')}>{t.platforms}</a>
         <a href="/use-cases">{t.useCases}</a>
+        <a href="/alternative">{t.compare}</a>
         <a href={localeLink('pricing')}>{t.pricing}</a>
         <a href={localeLink('privacy')}>{t.privacy}</a>
       </div>

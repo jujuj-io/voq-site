@@ -17,7 +17,7 @@ const check = (on: boolean) => on ? 'tick' : 'cross';
 <Base title={p.title} description={p.description} path="/alternative/speechify" localized={false}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <div class="alt">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / {p.competitor} alternative</nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/alternative">Compare</a> / {p.competitor}</nav>
 
     <header class="alt-hero">
       <p class="eyebrow">{p.competitor} alternative</p>
@@ -131,7 +131,7 @@ const check = (on: boolean) => on ? 'tick' : 'cross';
       <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
     </section>
 
-    <p class="more">More: <a href="/use-cases">Use cases</a> · <a href="/read-aloud">Platform guides</a> · <a href="/pricing">Pricing</a></p>
+    <p class="more">More: <a href="/alternative">All comparisons</a> · <a href="/use-cases">Use cases</a> · <a href="/read-aloud">Platform guides</a> · <a href="/pricing">Pricing</a></p>
   </div>
 </Base>
 
