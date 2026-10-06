@@ -9,6 +9,8 @@ interface Props {
   canonical?: string;
   lang?: string;
   path?: string; // locale-less path, e.g. '', '/pricing', '/read-aloud/chatgpt'
+  noindex?: boolean;
+  localized?: boolean; // false = English-only page (no hreflang alternates, no locale redirect)
 }
 
 const {
@@ -19,6 +21,8 @@ const {
   canonical,
   lang = 'en',
   path = '',
+  noindex = false,
+  localized = true,
 } = Astro.props;
 
 const siteUrl = 'https://getvoq.com';
@@ -29,17 +33,17 @@ const resolvedOgDesc = ogDescription ?? description;
 const LOCALES = ['en', 'ar', 'de', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'zh-CN'];
 
 const NAV = {
-  en: { blog: 'Blog', platforms: 'Platforms', pricing: 'Pricing', install: 'Install Free', privacy: 'Privacy Policy', lang: 'Language' },
-  ar: { blog: 'المدونة', platforms: 'المنصات', pricing: 'الأسعار', install: 'تثبيت مجاني', privacy: 'سياسة الخصوصية', lang: 'اللغة' },
-  de: { blog: 'Blog', platforms: 'Plattformen', pricing: 'Preise', install: 'Kostenlos installieren', privacy: 'Datenschutz', lang: 'Sprache' },
-  es: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Precios', install: 'Instalar gratis', privacy: 'Privacidad', lang: 'Idioma' },
-  fr: { blog: 'Blog', platforms: 'Plateformes', pricing: 'Tarifs', install: 'Installer gratuitement', privacy: 'Confidentialité', lang: 'Langue' },
-  it: { blog: 'Blog', platforms: 'Piattaforme', pricing: 'Prezzi', install: 'Installa gratis', privacy: 'Privacy', lang: 'Lingua' },
-  ja: { blog: 'ブログ', platforms: 'プラットフォーム', pricing: '料金', install: '無料でインストール', privacy: 'プライバシーポリシー', lang: '言語' },
-  nl: { blog: 'Blog', platforms: 'Platforms', pricing: 'Prijzen', install: 'Gratis installeren', privacy: 'Privacybeleid', lang: 'Taal' },
-  pl: { blog: 'Blog', platforms: 'Platformy', pricing: 'Cennik', install: 'Zainstaluj za darmo', privacy: 'Polityka prywatności', lang: 'Język' },
-  pt: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Preços', install: 'Instalar grátis', privacy: 'Privacidade', lang: 'Idioma' },
-  'zh-CN': { blog: '博客', platforms: '平台', pricing: '定价', install: '免费安装', privacy: '隐私政策', lang: '语言' },
+  en: { blog: 'Blog', platforms: 'Platforms', pricing: 'Pricing', install: 'Install Free', privacy: 'Privacy Policy', useCases: "Use cases", lang: 'Language' },
+  ar: { blog: 'المدونة', platforms: 'المنصات', pricing: 'الأسعار', install: 'تثبيت مجاني', privacy: 'سياسة الخصوصية', useCases: "حالات الاستخدام", lang: 'اللغة' },
+  de: { blog: 'Blog', platforms: 'Plattformen', pricing: 'Preise', install: 'Kostenlos installieren', privacy: 'Datenschutz', useCases: "Anwendungsfälle", lang: 'Sprache' },
+  es: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Precios', install: 'Instalar gratis', privacy: 'Privacidad', useCases: "Casos de uso", lang: 'Idioma' },
+  fr: { blog: 'Blog', platforms: 'Plateformes', pricing: 'Tarifs', install: 'Installer gratuitement', privacy: 'Confidentialité', useCases: "Cas d'usage", lang: 'Langue' },
+  it: { blog: 'Blog', platforms: 'Piattaforme', pricing: 'Prezzi', install: 'Installa gratis', privacy: 'Privacy', useCases: "Casi d'uso", lang: 'Lingua' },
+  ja: { blog: 'ブログ', platforms: 'プラットフォーム', pricing: '料金', install: '無料でインストール', privacy: 'プライバシーポリシー', useCases: "活用例", lang: '言語' },
+  nl: { blog: 'Blog', platforms: 'Platforms', pricing: 'Prijzen', install: 'Gratis installeren', privacy: 'Privacybeleid', useCases: "Toepassingen", lang: 'Taal' },
+  pl: { blog: 'Blog', platforms: 'Platformy', pricing: 'Cennik', install: 'Zainstaluj za darmo', privacy: 'Polityka prywatności', useCases: "Zastosowania", lang: 'Język' },
+  pt: { blog: 'Blog', platforms: 'Plataformas', pricing: 'Preços', install: 'Instalar grátis', privacy: 'Privacidade', useCases: "Casos de uso", lang: 'Idioma' },
+  'zh-CN': { blog: '博客', platforms: '平台', pricing: '定价', install: '免费安装', privacy: '隐私政策', useCases: "使用场景", lang: '语言' },
 };
 
 const LANG_NAMES = {
@@ -62,13 +66,14 @@ const isRTL = lang === 'ar';
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={pageUrl} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   <meta name="google-site-verification" content="MoQoJG_AiLC8iMQS468Yrs1x-81A6ewRgJAea-bQEiQ" />
 
   <!-- hreflang alternates -->
-  {LOCALES.map((l) => (
+  {localized && LOCALES.map((l) => (
     <link rel="alternate" hreflang={l === 'zh-CN' ? 'zh-CN' : l} href={`${siteUrl}${localePath(l)}`} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${localePath('en')}`} />
+  {localized && <link rel="alternate" hreflang="x-default" href={`${siteUrl}${localePath('en')}`} />}
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -96,9 +101,10 @@ const isRTL = lang === 'ar';
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="generator" content={Astro.generator} />
 
-  <script define:vars={{ lang, path, LOCALES }} is:inline>
+  <script define:vars={{ lang, path, LOCALES, localized }} is:inline>
     (function () {
       try {
+        if (!localized) return; // English-only page: no translated version to redirect to
         if (lang !== 'en') return; // only redirect from the default-locale pages
         if (document.cookie.indexOf('voq_lang_pref=') !== -1) return;
         var supported = LOCALES.filter(function (l) { return l !== 'en'; });
@@ -142,6 +148,7 @@ const isRTL = lang === 'ar';
       <div class="footer-links">
         <a href={localeLink('blog')}>{t.blog}</a>
         <a href={localeLink('read-aloud')}>{t.platforms}</a>
+        <a href="/use-cases">{t.useCases}</a>
         <a href={localeLink('pricing')}>{t.pricing}</a>
         <a href={localeLink('privacy')}>{t.privacy}</a>
       </div>
@@ -151,7 +158,7 @@ const isRTL = lang === 'ar';
           <label for="lang-select" class="sr-only">{t.lang}</label>
           <select id="lang-select" onchange="if(this.value) window.location.href=this.value;">
             {LOCALES.map((l) => (
-              <option value={`${siteUrl}${localePath(l)}`} selected={l === lang}>{LANG_NAMES[l]}</option>
+              <option value={`${siteUrl}${localized ? localePath(l) : localeHome(l)}`} selected={l === lang}>{LANG_NAMES[l]}</option>
             ))}
           </select>
         </div>

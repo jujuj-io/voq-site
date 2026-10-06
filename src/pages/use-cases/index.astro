@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import demo from '../../data/demo.json';
+
+// Add a page's URL here once it's published; it then becomes a clickable link.
+// While this is empty the hub stays noindex'd (see Base `noindex`) and out of the sitemap.
+const LIVE = new Set<string>([]);
+
+const FEATURED = 3; // cards per section; the rest go in a compact list
+
+type Item = { name: string; url: string; desc?: string };
+const GROUPS: { id: string; title: string; blurb: string; items: Item[] }[] = [
+  { id: 'web', title: 'Reading on the web', blurb: 'Articles, wikis and threads, read aloud.', items: [
+    { name: 'Articles & News', url: '/articles/', desc: 'Listen to news sites, blogs and long-form articles.' },
+    { name: 'Forums & Discussions', url: '/forums/', desc: 'Listen through Reddit threads, Quora answers and forums.' },
+    { name: 'Wikipedia & Reference', url: '/reference/', desc: 'Hear Wikipedia entries and encyclopedia pages.' },
+    { name: 'Social Media', url: '/social-media/' },
+    { name: 'Recipes', url: '/recipes/' },
+  ]},
+  { id: 'documents', title: 'Documents & files', blurb: 'PDFs, docs and books, without the eye strain.', items: [
+    { name: 'PDFs', url: '/pdf/', desc: 'Read any PDF aloud, from reports to handouts.' },
+    { name: 'Documents & Reports', url: '/documents/', desc: 'Listen to Google Docs, Word files and reports.' },
+    { name: 'Books & Ebooks', url: '/books/', desc: 'Turn Kindle books and ebooks into listening time.' },
+    { name: 'Research Papers', url: '/research/' },
+  ]},
+  { id: 'study-work', title: 'Study & work', blurb: 'Get through more reading in less time.', items: [
+    { name: 'Chatbots & AI Chats', url: '/chatbots/', desc: 'Listen to ChatGPT, Claude and Gemini replies hands-free.' },
+    { name: 'Writing & Editing', url: '/writing/', desc: 'Hear your own writing read back to catch mistakes.' },
+    { name: 'Email', url: '/email/', desc: 'Have emails and newsletters read aloud.' },
+    { name: 'Study Materials', url: '/study/' },
+    { name: 'Productivity', url: '/productivity/' },
+  ]},
+  { id: 'languages-pronunciation', title: 'Languages & pronunciation', blurb: 'Hear how words are really said.', items: [
+    { name: 'Language Learning', url: '/language-learning/', desc: 'Practise listening and pronunciation in a new language.' },
+    { name: 'Medical Information', url: '/medical/', desc: 'Hear medical articles read aloud, terminology included.' },
+  ]},
+];
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const voices = Object.values((demo as any).voices) as { english: string }[];
+const LANGS = voices
+  .filter((v) => v.english !== 'English')
+  .map((v) => ({ name: v.english, url: `/text-to-speech/${slug(v.english)}/` }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const isLive = (url: string) => LIVE.has(url);
+const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+---
+
+<Base
+  title="Text to Speech Use Cases — Voq"
+  description="See how Voq reads articles, PDFs, documents, AI chats, emails and more aloud in natural voices. Free text to speech for Chrome in 34 languages."
+  path="/use-cases"
+  localized={false}
+  noindex={LIVE.size === 0}
+>
+  <div class="container uc">
+    <header class="uc-hero">
+      <h1>Text to speech for everything you read</h1>
+      <p>Voq reads any webpage aloud in natural voices. Pick what you read most and see how Voq fits in. Free, multilingual and no account needed.</p>
+      <div class="uc-ctas">
+        <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
+        <a class="uc-btn-secondary" href="/read-aloud">Browse platform guides</a>
+      </div>
+    </header>
+
+    <nav class="uc-jump" aria-label="Jump to section">
+      {GROUPS.map((g) => <a href={`#${g.id}`}>{g.title} <span>{g.items.length}</span></a>)}
+      <a href="#languages">Languages <span>{LANGS.length}</span></a>
+    </nav>
+
+    {GROUPS.map((g) => {
+      const featured = g.items.slice(0, FEATURED);
+      const more = g.items.slice(FEATURED);
+      return (
+        <section id={g.id} class="uc-section">
+          <div class="uc-section-head">
+            <h2>{g.title}</h2>
+            <p>{g.blurb}</p>
+          </div>
+          <div class="uc-grid">
+            {featured.map((it) => isLive(it.url) ? (
+              <a class="uc-card" href={it.url}>
+                <span class="uc-card-title">{it.name} <span aria-hidden="true">→</span></span>
+                {it.desc && <span class="uc-card-desc">{it.desc}</span>}
+              </a>
+            ) : (
+              <div class="uc-card is-soon">
+                <span class="uc-card-title">{it.name} <span class="uc-badge">Coming soon</span></span>
+                {it.desc && <span class="uc-card-desc">{it.desc}</span>}
+              </div>
+            ))}
+          </div>
+          {more.length > 0 && (
+            <ul class="uc-more">
+              {more.map((m) => (
+                <li>{isLive(m.url) ? <a href={m.url}>{m.name}</a> : <span class="is-soon">{m.name} <small>· soon</small></span>}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      );
+    })}
+
+    <section id="languages" class="uc-section">
+      <div class="uc-section-head">
+        <h2>Text to speech in your language</h2>
+        <p>Voq speaks {LANGS.length} languages and detects the page language automatically.</p>
+      </div>
+      <ul class="uc-langs">
+        {LANGS.map((l) => (
+          <li>{isLive(l.url) ? <a href={l.url}>{l.name}</a> : <span class="is-soon">{l.name}</span>}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="cta-block uc-final">
+      <h2>Start listening in one click</h2>
+      <p>★★★★★ 4.9/5 from Chrome Web Store reviews</p>
+      <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .uc { padding-top: 3rem; padding-bottom: 4rem; }
+  .uc-hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.02em; }
+  .uc-hero p { margin-top: 1rem; font-size: 1.125rem; color: var(--color-muted); max-width: 40rem; }
+  .uc-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .uc-btn-secondary { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid var(--color-border); border-radius: 6px; font-weight: 600; color: var(--color-text); }
+  .uc-btn-secondary:hover { background: var(--color-surface); text-decoration: none; }
+
+  .uc-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2.5rem 0 1rem; }
+  .uc-jump a { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0 0.9rem; border: 1px solid var(--color-border); border-radius: 999px; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
+  .uc-jump a:hover { background: var(--color-surface); text-decoration: none; }
+  .uc-jump a span { color: var(--color-muted); font-weight: 500; }
+
+  .uc-section { padding: 2.5rem 0; border-top: 1px solid var(--color-border); scroll-margin-top: 1rem; }
+  .uc-section-head { margin-bottom: 1.25rem; }
+  .uc-section-head h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+  .uc-section-head p { color: var(--color-muted); margin-top: 0.25rem; }
+
+  .uc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 0.75rem; }
+  .uc-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.1rem 1.2rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); }
+  a.uc-card:hover { border-color: var(--color-accent); text-decoration: none; }
+  .uc-card-title { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; font-weight: 600; }
+  .uc-card-desc { font-size: 0.92rem; color: var(--color-muted); line-height: 1.5; }
+  .uc-card.is-soon { background: #fff; border-style: dashed; }
+  .uc-card.is-soon .uc-card-title { color: #4b5563; }
+  .uc-badge { flex: none; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #4b5563; background: #f3f4f6; padding: 0.2rem 0.5rem; border-radius: 999px; white-space: nowrap; }
+
+  .uc-more { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 0.25rem 1.25rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--color-border); }
+  .uc-more li { min-height: 36px; display: flex; align-items: center; }
+  .is-soon { color: #6b7280; }
+  .is-soon small { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .uc-langs { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); gap: 0.5rem; }
+  .uc-langs li > * { display: flex; align-items: center; min-height: 40px; padding: 0 0.8rem; border-radius: 6px; font-size: 0.92rem; }
+  .uc-langs a { border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text); }
+  .uc-langs .is-soon { border: 1px dashed var(--color-border); }
+
+  .uc-final { margin-top: 2.5rem; text-align: center; }
+  .uc-final h2 { font-size: 1.5rem; }
+  .uc-final p { margin: 0.5rem 0 1.25rem; }
+</style>

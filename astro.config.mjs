@@ -17,6 +17,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // Hide noindex'd pages until they have live content.
+      filter: (page) => !page.includes('/use-cases'),
       i18n: {
         defaultLocale: 'en',
         locales: {
