@@ -1,0 +1,225 @@
+---
+import Base from '../../layouts/Base.astro';
+import { page as p, STORE } from '../../data/alternative-speechify';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: p.faqs.map(([q, s, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: `${s} ${a}` },
+  })),
+};
+const check = (on: boolean) => on ? 'tick' : 'cross';
+---
+
+<Base title={p.title} description={p.description} path="/alternative/speechify" localized={false}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <div class="alt">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / {p.competitor} alternative</nav>
+
+    <header class="alt-hero">
+      <p class="eyebrow">{p.competitor} alternative</p>
+      <h1>{p.h1}</h1>
+      <p class="sub">{p.sub}</p>
+      <ul class="chips">
+        {p.chips.map((c) => <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>{c}</li>)}
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
+        <span class="muted">★★★★★ 4.9/5 on the Chrome Web Store</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Price at a glance</h2>
+      <div class="two">
+        <div class="price dark">
+          <p class="label">Voq</p>
+          <p class="big">{p.price.voq.big}</p>
+          <p class="note">{p.price.voq.note}</p>
+        </div>
+        <div class="price">
+          <p class="label">{p.price.them.label}</p>
+          <p class="big">{p.price.them.big}<span>{p.price.them.unit}</span></p>
+          <p class="note">{p.price.them.note}</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What {p.competitor} users say</h2>
+      <p class="lede">{p.competitor} is well rated. The complaints cluster around price, billing and limits.</p>
+      <div class="ratings">
+        {p.ratings.map((r) => (
+          <div class="rating"><p class="score">{r.score}<span>/5</span></p><p class="where">{r.where}</p><p class="muted small">{r.count}</p></div>
+        ))}
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3><svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v11" /><path d="M15 5.9L14 10h5.8a2 2 0 0 1 2 2.3l-1.4 7A2 2 0 0 1 18.4 21H7V10l4.3-7.4A1.9 1.9 0 0 1 15 4.6z" /></svg>What they love</h3>
+          <ul class="points">{p.loves.map(([t, d]) => <li><strong>{t}</strong> {d}</li>)}</ul>
+        </div>
+        <div class="box">
+          <h3><svg class="down" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14V3" /><path d="M9 18.1L10 14H4.2a2 2 0 0 1-2-2.3l1.4-7A2 2 0 0 1 5.6 3H17v11l-4.3 7.4A1.9 1.9 0 0 1 9 19.4z" /></svg>What they complain about</h3>
+          <ul class="points">{p.gripes.map(([t, d]) => <li><strong>{t}</strong> {d}</li>)}</ul>
+        </div>
+      </div>
+      <p class="fine">{p.sourcesNote}</p>
+    </section>
+
+    <section>
+      <h2>Which one is for you?</h2>
+      <div class="two">
+        <div class="box accent">
+          <h3>Pick Voq for</h3>
+          <ul class="ticks">{p.pickVoq.map((x) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="box soft">
+          <h3>Pick {p.competitor} for</h3>
+          <ul class="ticks grey">{p.pickThem.map((x) => <li>{x}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="compare">
+      <h2>Voq vs {p.competitor}, side by side</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="us">Voq</th><th scope="col">{p.competitor}</th></tr></thead>
+          <tbody>
+            {p.rows.map(([label, voq, vt, them, tt]) => (
+              <tr>
+                <th scope="row">{label}</th>
+                <td class="us">{vt !== null && <span class={`mark ${check(vt)}`} role="img" aria-label={vt ? 'Yes' : 'No'} />}<span>{voq}</span></td>
+                <td>{tt !== null && <span class={`mark ${check(tt)} grey`} role="img" aria-label={tt ? 'Yes' : 'No'} />}<span>{them}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">{p.tableNote}</p>
+    </section>
+
+    <section>
+      <h2>Why people switch</h2>
+      <div class="four">
+        {p.why.map(([big, t, d]) => <div class="box soft"><p class="stat">{big}</p><h3>{t}</h3><p class="muted">{d}</p></div>)}
+      </div>
+    </section>
+
+    <section>
+      <h2>Switch in 3 steps</h2>
+      <ol class="steps">
+        {p.steps.map(([t, d], i) => <li><span class="num">{i + 1}</span><strong>{t}</strong><span class="muted">{d}</span></li>)}
+      </ol>
+    </section>
+
+    <section>
+      <h2>Voq vs {p.competitor}: FAQ</h2>
+      <div class="faq">
+        {p.faqs.map(([q, s, a]) => (
+          <details><summary>{q}<span aria-hidden="true">+</span></summary><p><strong>{s}</strong> {a}</p></details>
+        ))}
+      </div>
+    </section>
+
+    <section class="final">
+      <h2>Try Voq free</h2>
+      <p>No account · No trial · 34 languages</p>
+      <a class="btn" href={STORE} target="_blank" rel="noopener">Add to Chrome — It's Free</a>
+    </section>
+
+    <p class="more">More: <a href="/use-cases">Use cases</a> · <a href="/read-aloud">Platform guides</a> · <a href="/pricing">Pricing</a></p>
+  </div>
+</Base>
+
+<style>
+  .alt { max-width: 960px; margin: 0 auto; padding: 2rem var(--spacing) 4rem; }
+  .muted { color: var(--color-muted); }
+  .small { font-size: 0.85rem; }
+  .crumbs { font-size: 0.85rem; color: var(--color-muted); }
+  .crumbs a { color: var(--color-muted); }
+  .alt-hero { padding: 1.5rem 0 2.5rem; max-width: 46rem; }
+  .eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(2.1rem, 5.5vw, 3.25rem); line-height: 1.08; letter-spacing: -0.03em; }
+  .sub { font-size: 1.2rem; color: var(--color-muted); margin-top: 1rem; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .chips li { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; background: #eff4ff; color: #1e40af; padding: 0.45rem 0.8rem; border-radius: 999px; }
+  .chips svg, .ticks li::before { width: 16px; height: 16px; fill: none; stroke: var(--color-accent); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.75rem; }
+
+  section { padding: 2.25rem 0; border-top: 1px solid var(--color-border); }
+  section > h2 { font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .lede { margin: -0.75rem 0 1.25rem; color: var(--color-muted); }
+  .fine { font-size: 0.8rem; color: #6b7280; margin-top: 0.75rem; }
+  h3 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1rem; }
+  .four { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 1rem; }
+  .box { padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 12px; }
+  .box.soft { background: var(--color-surface); }
+  .box.accent { border: 2px solid var(--color-accent); }
+
+  .price { padding: 1.75rem; border-radius: 14px; background: #f3f4f6; }
+  .price.dark { background: #111; color: #fff; }
+  .price .label { font-weight: 600; font-size: 0.9rem; opacity: 0.75; }
+  .price .big { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin: 0.25rem 0; }
+  .price .big span { font-size: 1.25rem; font-weight: 600; }
+  .price .note { font-size: 0.95rem; opacity: 0.8; }
+
+  .ratings { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+  .rating { padding: 1.1rem 1.25rem; border-radius: 12px; background: #f3f4f6; }
+  .score { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .score span { font-size: 1rem; color: var(--color-muted); font-weight: 600; }
+  .where { font-weight: 600; margin-top: 0.4rem; }
+  svg.up, svg.down { width: 22px; height: 22px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  svg.up { stroke: #15803d; } svg.down { stroke: #b45309; }
+  .points { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+  .points li { color: #4b5563; line-height: 1.5; }
+  .points strong { color: var(--color-text); }
+
+  .ticks { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .ticks li { display: flex; align-items: center; gap: 0.65rem; font-weight: 500; }
+  .ticks li::before { content: ''; width: 24px; height: 24px; border-radius: 999px; background: #eff4ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/14px no-repeat; }
+  .ticks.grey li::before { background-color: #e5e7eb; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E"); }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 12px; }
+  table { width: 100%; min-width: 560px; border-collapse: collapse; }
+  th, td { padding: 0.9rem 1.1rem; text-align: left; vertical-align: middle; }
+  thead th { font-size: 1.05rem; font-weight: 800; }
+  tbody tr { border-top: 1px solid var(--color-border); }
+  tbody th { font-weight: 600; color: #374151; width: 32%; }
+  .us { background: #f5f8ff; }
+  thead .us { color: #1e40af; background: #eff4ff; }
+  td { color: #4b5563; }
+  td.us { color: var(--color-text); font-weight: 600; }
+  td > span:last-child { vertical-align: middle; }
+  .mark { display: inline-block; width: 20px; height: 20px; margin-right: 0.55rem; vertical-align: middle; background: center/20px no-repeat; }
+  .mark.tick { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M7.5 12.5l3 3 6-6.5'/%3E%3C/svg%3E"); }
+  .mark.tick.grey { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M7.5 12.5l3 3 6-6.5'/%3E%3C/svg%3E"); }
+  .mark.cross { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9 9l6 6M15 9l-6 6'/%3E%3C/svg%3E"); }
+
+  .stat { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.6rem; }
+  .four h3 { margin-bottom: 0.3rem; }
+  .four .muted { font-size: 0.95rem; line-height: 1.5; }
+
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 1rem; }
+  .steps li { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: 12px; }
+  .num { width: 36px; height: 36px; border-radius: 999px; background: var(--color-accent); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+  .faq details { border-bottom: 1px solid var(--color-border); }
+  .faq summary { list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1.1rem 0; font-weight: 600; font-size: 1.05rem; cursor: pointer; min-height: 44px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary span { font-size: 1.5rem; font-weight: 400; color: var(--color-muted); transition: transform 0.15s; }
+  .faq details[open] summary span { transform: rotate(45deg); }
+  .faq p { padding-bottom: 1.1rem; color: #4b5563; line-height: 1.6; max-width: 46rem; }
+  .faq p strong { color: var(--color-text); }
+
+  .final { margin-top: 1.5rem; padding: 3rem 1.5rem; border: 0; border-radius: 18px; background: #111; color: #fff; text-align: center; }
+  .final h2 { margin-bottom: 0.5rem; font-size: clamp(1.75rem, 4vw, 2.5rem); }
+  .final p { color: #d1d5db; margin-bottom: 1.5rem; }
+  .more { margin-top: 2rem; font-size: 0.9rem; color: var(--color-muted); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+</style>
