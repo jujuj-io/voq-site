@@ -1,0 +1,17 @@
+---
+import AlternativePage from '../../components/AlternativePage.astro';
+import type { AltPage } from '../../data/alternatives/types';
+
+export function getStaticPaths() {
+  const mods = import.meta.glob<{ default: AltPage }>('../../data/alternatives/*.ts', { eager: true });
+  return Object.entries(mods)
+    .filter(([path]) => !path.endsWith('/types.ts'))
+    .map(([path, mod]) => ({
+      params: { slug: path.split('/').pop()!.replace(/\.ts$/, '') },
+      props: { p: mod.default },
+    }));
+}
+const { slug } = Astro.params;
+const { p } = Astro.props;
+---
+<AlternativePage p={p} slug={slug!} />

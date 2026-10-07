@@ -1,6 +1,10 @@
 ---
-import Base from '../../layouts/Base.astro';
-import { page as p, STORE } from '../../data/alternative-speechify';
+import Base from '../layouts/Base.astro';
+import type { AltPage } from '../data/alternatives/types';
+
+interface Props { p: AltPage; slug: string }
+const { p, slug } = Astro.props;
+const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -14,7 +18,7 @@ const faqSchema = {
 const check = (on: boolean) => on ? 'tick' : 'cross';
 ---
 
-<Base title={p.title} description={p.description} path="/alternative/speechify" localized={false}>
+<Base title={p.title} description={p.description} path={`/alternative/${slug}`} localized={false}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <div class="alt">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/alternative">Compare</a> / {p.competitor}</nav>
@@ -50,7 +54,7 @@ const check = (on: boolean) => on ? 'tick' : 'cross';
 
     <section>
       <h2>What {p.competitor} users say</h2>
-      <p class="lede">{p.competitor} is well rated. The complaints cluster around price, billing and limits.</p>
+      <p class="lede">{p.reviewsLede}</p>
       <div class="ratings">
         {p.ratings.map((r) => (
           <div class="rating"><p class="score">{r.score}<span>/5</span></p><p class="where">{r.where}</p><p class="muted small">{r.count}</p></div>

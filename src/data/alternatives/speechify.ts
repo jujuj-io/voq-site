@@ -1,8 +1,8 @@
 // Content for /alternative/speechify. Competitor facts checked 6 Oct 2026 —
 // re-check speechify.com/pricing before editing numbers.
-export const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
+import type { AltPage } from './types';
 
-export const page = {
+const page: AltPage = {
   competitor: 'Speechify',
   title: 'Free Speechify Alternative for Chrome — Voq',
   description: 'Looking for a Speechify alternative? Voq reads any webpage aloud in natural voices for free — no account, no trial. See how Voq and Speechify compare on price, voices and limits.',
@@ -13,6 +13,7 @@ export const page = {
     voq: { big: '$0', note: 'Natural voices free every day · $2/mo founding rate removes the daily limit' },
     them: { label: 'Speechify Premium', big: '$139', unit: '/year', note: 'or $29/month · free plan: 10 robotic voices, 1.5x max' },
   },
+  reviewsLede: 'Speechify is well rated. The complaints cluster around price, billing and limits.',
   ratings: [
     { score: '4.7', where: 'Apple App Store', count: '526K ratings' },
     { score: '4.6', where: 'Chrome Web Store', count: '22.7K ratings' },
@@ -43,7 +44,7 @@ export const page = {
     ['Word highlighting', 'Yes', true, 'Yes', true],
     ['Apps', 'Chrome only', false, 'iOS, Android, Mac, Windows, Chrome', true],
     ['Scan printed text (OCR)', 'No', false, 'Premium', true],
-  ] as [string, string, boolean | null, string, boolean | null][],
+  ],
   why: [
     ['$139', 'A big yearly bill', 'Hard to justify if you mostly listen in your browser.'],
     ['3 days', 'Short trial, auto-charge', 'Converts to a paid plan unless you cancel in time.'],
@@ -63,7 +64,8 @@ export const page = {
     ['Does Voq have a mobile app like Speechify?', 'No.', 'Voq is a Chrome extension. For phone apps, scanning printed pages or audiobooks, Speechify does more.'],
     ['Does Voq support as many languages as Speechify?', 'Fewer, but all free.', 'Voq has 34 languages with auto-detect on the free plan. Speechify lists 60+ on Premium.'],
     ['Does Speechify have usage limits?', 'Yes.', 'Premium includes a monthly allowance of premium-voice words; past it, users report dropping back to standard voices.'],
-  ] as [string, string, string][],
+  ],
   sourcesNote: 'Ratings from the Apple App Store, Chrome Web Store and Trustpilot, checked 6 Oct 2026. Themes summarised from user reviews on those sites, Capterra and independent reviews.',
   tableNote: 'Speechify details from speechify.com/pricing and its published terms, checked 6 Oct 2026. Prices and limits can change.',
 };
+export default page;

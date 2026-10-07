@@ -1,22 +1,29 @@
 ---
 import Base from '../../layouts/Base.astro';
 
-// Add a competitor to LIVE once its /alternative/<slug> page is published.
-const LIVE = new Set<string>(['speechify']);
+import type { AltPage } from '../../data/alternatives/types';
 
-const TOOLS = [
-  { slug: 'speechify', name: 'Speechify', desc: 'Natural voices for free, without the $139/year plan or a trial that auto-charges.' },
-  { slug: 'elevenlabs', name: 'ElevenLabs', desc: 'A simple free reader for webpages, instead of a voice studio priced per character.' },
-  { slug: 'naturalreader', name: 'NaturalReader', desc: 'Free natural voices in Chrome, no account needed.' },
-  { slug: 'murf-ai', name: 'Murf AI', desc: 'Listen to what you read, rather than paying for voiceover tools.' },
-  { slug: 'play-ht', name: 'Play.ht', desc: 'A free reading extension instead of a paid voice-generation platform.' },
+// Live pages come from src/data/alternatives/*.ts automatically (one file = one page).
+const mods = import.meta.glob<{ default: AltPage }>('../../data/alternatives/*.ts', { eager: true });
+const live = Object.entries(mods)
+  .filter(([path]) => !path.endsWith('/types.ts'))
+  .map(([path, m]) => ({ slug: path.split('/').pop()!.replace(/\.ts$/, ''), name: m.default.competitor, desc: m.default.sub }));
+const ORDER = ['speechify', 'naturalreader', 'elevenreader', 'read-aloud', 'ttsreader'];
+live.sort((x, y) => (ORDER.indexOf(x.slug) + 1 || 99) - (ORDER.indexOf(y.slug) + 1 || 99));
+
+// Planned pages: shown as "Coming soon" (not clickable) until a data file exists.
+const COMING = [
+  { name: 'Balabolka', desc: 'A free reader that works in your browser on any computer, not just Windows.' },
+  { name: 'Read&Write', desc: 'Natural voices for reading the web, without a school licence.' },
+  { name: 'Snap&Read', desc: 'A simple, free reader for students on any website.' },
+  { name: 'Voice Dream Reader', desc: 'Natural voices on the desktop web, free.' },
 ];
 const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibeaibigjjde';
 ---
 
 <Base
   title="Text to Speech Alternatives Compared — Voq"
-  description="How Voq compares with Speechify, ElevenLabs, NaturalReader and other text to speech tools. Honest side-by-side comparisons of price, voices and limits."
+  description="How Voq compares with Speechify, NaturalReader, ElevenReader, Read Aloud and other text to speech readers. Honest side-by-side comparisons of price, voices and limits."
   path="/alternative"
   localized={false}
 >
@@ -27,12 +34,13 @@ const STORE = 'https://chrome.google.com/webstore/detail/ckkihjnakpnccnmdipbdibe
     </div>
 
     <ul class="tools">
-      {TOOLS.map((t) => LIVE.has(t.slug) ? (
+      {live.map((t) => (
         <li><a class="tool" href={`/alternative/${t.slug}`}>
           <span class="name">{t.name} alternative <span aria-hidden="true">→</span></span>
           <span class="desc">{t.desc}</span>
         </a></li>
-      ) : (
+      ))}
+      {COMING.map((t) => (
         <li><div class="tool soon">
           <span class="name">{t.name} alternative <span class="badge">Coming soon</span></span>
           <span class="desc">{t.desc}</span>
